@@ -1,0 +1,12 @@
+@import '~@angular/material/theming';
+
+a {
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+}
+
+.mat-elevation-z5 {
+  position: relative;
+  z-index: 2;
+}

@@ -1,0 +1,33 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+
+$primary: mat-palette($mat-indigo);
+$accent: mat-palette($mat-pink, A200, A100, A400);
+$warn: mat-palette($mat-red);
+
+$theme: mat-light-theme($primary, $accent, $warn);
+@include angular-material-theme($theme);
+
+@mixin component-themes($theme) {
+  $accent: map-get($theme, accent);
+
+  //@include result-theme($theme);
+  //@include footer-theme($theme);
+
+  .mat-list-item-active {
+    font-weight: 500;
+    color: mat-color($accent, darker) !important;
+    background: rgba(0, 0, 0, 0.04);
+  }
+
+  .mat-spinner-center-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 60vh;
+  }
+
+}
