@@ -1,4 +1,5 @@
 @import '~@angular/material/theming';
+@import '../app/navigation/footer/footer.component';
 
 @include mat-core();
 
@@ -14,7 +15,7 @@ $theme: mat-light-theme($primary, $accent, $warn);
   $accent: map-get($theme, accent);
 
   //@include result-theme($theme);
-  //@include footer-theme($theme);
+  @include footer-theme($theme);
 
   .mat-list-item-active {
     font-weight: 500;
