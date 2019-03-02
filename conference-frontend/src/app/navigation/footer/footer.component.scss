@@ -1,7 +1,7 @@
 @import '~@angular/material/theming';
 @import '../../../../node_modules/@angular/material/theming';
 
-$primary: mat-palette($mat-indigo);
+$primary: mat-palette($mat-grey, 800, 800, 900);
 
 a {
   text-decoration: none;
@@ -23,7 +23,7 @@ footer {
   }
   font-size: 10px;
   height: 4em;
-  background: mat-color($primary, 500);
+  background: mat-color($primary, darker);
   color: mat-color($primary, default-contrast);
 }
 
