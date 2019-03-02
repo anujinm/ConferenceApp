@@ -1,0 +1,20 @@
+<!--<p>login works!</p>-->
+<div fxLayout="column" fxLayoutAlign="center center">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" fxLayout="column">
+    <img src="../../../assets/images/whitworth-logo-vertical-rgb.png" title="Logo" width="50%">
+    <mat-form-field>
+      <input matInput placeholder="Email" formControlName="email" type="text">
+      <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Password" formControlName="password" type="password">
+      <mat-error *ngIf="password.invalid">{{getPasswordErrorMessage()}}</mat-error>
+    </mat-form-field>
+    <button mat-raised-button [disabled]="loginForm.invalid">Login</button>
+    <div fxLayout="row" fxLayoutAlign="center center" class="registerHere">
+      <p>Don't have an account? &nbsp;</p>
+      <a routerLink="/auth/register">Register&nbsp;</a>
+      <p>here</p>
+    </div>
+  </form>
+</div>

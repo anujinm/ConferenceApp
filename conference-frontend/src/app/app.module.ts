@@ -8,6 +8,14 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navigation/navbar/navbar.component';
 import { FooterComponent } from './navigation/footer/footer.component';
+// import { LoginComponent } from './auth/login/login.component';
+// import { RegisterComponent } from './auth/register/register.component';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {AuthInterceptor} from './auth/auth-interceptor';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+// import { environment } from '../environments/environment';
+// import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [
@@ -20,9 +28,14 @@ import { FooterComponent } from './navigation/footer/footer.component';
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    HttpClientModule,
+    BrowserAnimationsModule
+    // ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

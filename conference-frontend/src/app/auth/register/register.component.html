@@ -1,0 +1,16 @@
+<!--<p>register works!</p>-->
+<div fxLayout="column" fxLayoutAlign="center center">
+  <form [formGroup]="accountInfo" (ngSubmit)="submitForm()" fxLayout="column">
+    <img src="../../../assets/images/whitworth-logo-vertical-rgb.png" title="Logo" width="50%">
+
+    <mat-form-field>
+      <input matInput placeholder="Email" formControlName="email" type="text">
+      <!--<mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>-->
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Password" formControlName="password" type="password">
+      <!--<mat-error *ngIf="password.invalid">{{getPasswordErrorMessage()}}</mat-error>-->
+    </mat-form-field>
+    <button mat-raised-button [disabled]="accountInfo.invalid">Register</button>
+  </form>
+</div>
