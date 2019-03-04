@@ -1,0 +1,21 @@
+.headline {
+  margin: 30px;
+}
+mat-card {
+  margin: 1em;
+  max-width: 350px;
+  a {
+    color: blue;
+  }
+  mat-card-content {
+    margin-top: 20px;
+  }
+}
+
+.example-header-image {
+  background-image: url('~src/assets/images/speaker.jpg');
+  background-size: cover;
+  width: 150px;
+  height: 150px;
+}
+

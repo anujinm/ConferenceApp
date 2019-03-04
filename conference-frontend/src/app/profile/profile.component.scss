@@ -1,0 +1,50 @@
+
+
+mat-card {
+  margin: 0.5em;
+}
+
+.profileSection {
+  width: 100%;
+  margin: 0.5em;
+
+  .updateInfo {
+    margin: 15px 25px 20px 0;
+  }
+  mat-list-item {
+    ::content {
+      word-break: break-word;
+    }
+    a {
+      color: blue;
+    }
+  }
+}
+
+.navigationSection {
+  min-width: 200px;
+
+  img {
+    border-radius: 50%;
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+.previewProfileImageContainer {
+  min-height: 200px;
+}
+
+.previewProfileImage {
+  border-radius: 50%;
+  width: 100%;
+  max-width: 200px;
+}
+
+mat-expansion-panel {
+  margin: 0.5em;
+}
+
+mat-panel-title {
+  font-size: 1.2em;
+}

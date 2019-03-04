@@ -13,6 +13,8 @@ import { FooterComponent } from './navigation/footer/footer.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AuthInterceptor} from './auth/auth-interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SpeakerComponent } from './speaker/speaker.component';
+// import { ProfileComponent } from './profile/profile.component';
 
 // import { environment } from '../environments/environment';
 // import { ServiceWorkerModule } from '@angular/service-worker';
@@ -22,7 +24,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppComponent,
     HomeComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    SpeakerComponent
+    // ProfileComponent
   ],
   imports: [
     BrowserModule,

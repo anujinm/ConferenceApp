@@ -1,0 +1,117 @@
+<div fxLayout="row" fxLayout.lt-md="column">
+  <mat-card class="navigationSection">
+    <div fxLayoutAlign="center center">
+      <img src="../../assets/images/profilepic.png" title="Profile pic">
+    </div>
+    <mat-nav-list>
+      <a mat-list-item [ngClass]="userOptions == 'profile' ? 'mat-list-item-active':''" (click)="navigateProfile('profile')">My Profile</a>
+      <a mat-list-item [ngClass]="userOptions == 'updatePhoto' ? 'mat-list-item-active':''" (click)="navigateProfile('updatePhoto')">Update Photo</a>
+      <a mat-list-item [ngClass]="userOptions == 'updatePassword' ? 'mat-list-item-active':''" (click)="navigateProfile('updatePassword')">Change Password</a>
+    </mat-nav-list>
+  </mat-card>
+
+  <div [ngSwitch]="userOptions">
+    <div *ngSwitchCase="'profile'">
+      <mat-tab-group class="profileSection" dynamicHeight>
+        <mat-tab label="Personal Info">
+          <mat-list fxLayout="row">
+            <div>
+              <mat-list-item>First Name:</mat-list-item>
+              <mat-list-item>Last Name:</mat-list-item>
+              <mat-list-item>Phone:</mat-list-item>
+              <mat-list-item>Personal Email:</mat-list-item>
+              <mat-list-item>Facebook:</mat-list-item>
+              <mat-list-item>Instagram:</mat-list-item>
+              <mat-list-item>Linkedin:</mat-list-item>
+            </div>
+            <div>
+              <mat-list-item>Anujin</mat-list-item>
+              <mat-list-item>Munkhbat</mat-list-item>
+              <mat-list-item>509-294-2761</mat-list-item>
+              <mat-list-item>amunkhbat20@my.whitworth.edu</mat-list-item>
+              <mat-list-item><a href="/" target="_blank">www.facebook.com</a></mat-list-item>
+              <mat-list-item><a href="/" target="_blank">www.instagram.com</a></mat-list-item>
+              <mat-list-item><a href="/" target="_blank">www.linkedin.com</a></mat-list-item>
+            </div>
+          </mat-list>
+        </mat-tab>
+        <mat-tab label="Update Info">
+          <mat-list fxLayout="row">
+            <div>
+              <mat-list-item>First Name:</mat-list-item>
+              <mat-list-item>Last Name:</mat-list-item>
+              <mat-list-item>Phone:</mat-list-item>
+              <mat-list-item>Personal Email:</mat-list-item>
+              <mat-list-item>Facebook:</mat-list-item>
+              <mat-list-item>Instagram:</mat-list-item>
+              <mat-list-item>Linkedin:</mat-list-item>
+            </div>
+            <div>
+              <mat-list-item><input type="text" value="Anujin"></mat-list-item>
+              <mat-list-item><input type="text" value="Munkhbat"></mat-list-item>
+              <mat-list-item><input type="text" value="509-294-2761"></mat-list-item>
+              <mat-list-item><input type="text" value="amunkhbat20@my.whitworth.edu"></mat-list-item>
+              <mat-list-item><input type="text" value="www.facebook.com"></mat-list-item>
+              <mat-list-item><input type="text" value="www.instagram.com"></mat-list-item>
+              <mat-list-item><input type="text" value="www.linkedin.com"></mat-list-item>
+            </div>
+          </mat-list>
+          <div fxLayoutAlign="end center" class="updateInfo">
+            <button mat-raised-button>Update</button>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+
+    <div *ngSwitchCase="'updatePhoto'">
+      <mat-tab-group class="profileSection" dynamicHeight>
+        <mat-tab label="Update Profile Picture">
+          <mat-list fxLayout="row" fxLayoutAlign="space-between center">
+            <div>
+              <mat-list-item>Select Image:</mat-list-item>
+              <mat-list-item>Preview Image:</mat-list-item>
+            </div>
+            <div>
+              <mat-list-item>
+                <input [hidden]="true" #imageInput type="file" accept="image/*" (change)="processFile(imageInput)">
+                <button mat-stroked-button (click)="imageInput.click()">Select File</button>
+              </mat-list-item>
+              <mat-list-item></mat-list-item>
+            </div>
+          </mat-list>
+          <div fxLayoutAlign="center center" class="previewProfileImageContainer">
+            <img *ngIf="profilePictureFile && profilePictureFile.src" [src]="profilePictureFile.src" title="Preview Image" class="previewProfileImage">
+          </div>
+          <br>
+          <div fxLayoutAlign="end center" class="updateInfo">
+            <button mat-raised-button (click)="updateProfilePic()" [disabled]="isUploadButtonDisabled">Update</button>
+          </div>
+
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+    <div *ngSwitchCase="'updatePassword'">
+      <mat-tab-group class="profileSection" dynamicHeight>
+        <mat-tab label="Update Password">
+          <mat-list fxLayout="row">
+            <div>
+              <mat-list-item>Old Password:</mat-list-item>
+              <mat-list-item>New Password:</mat-list-item>
+              <mat-list-item>Confirm New Password:</mat-list-item>
+            </div>
+            <div>
+              <mat-list-item><input type="password"></mat-list-item>
+              <mat-list-item><input type="password"></mat-list-item>
+              <mat-list-item><input type="password"></mat-list-item>
+            </div>
+          </mat-list>
+          <div fxLayoutAlign="end center" class="updateInfo">
+            <button mat-raised-button>Update</button>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+    <div *ngSwitchDefault>...</div>
+  </div>
+</div>
+
