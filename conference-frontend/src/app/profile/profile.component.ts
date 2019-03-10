@@ -22,7 +22,7 @@ export class ProfileComponent implements OnInit {
   ) { }
   navigateProfile(options: string) {
     this.userOptions = options;
-  }
+  }cd
 
   processFile(imageInput: any) {
     const file: File = imageInput.files[0];

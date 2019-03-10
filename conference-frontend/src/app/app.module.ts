@@ -14,6 +14,8 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AuthInterceptor} from './auth/auth-interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SpeakerComponent } from './speaker/speaker.component';
+import { AdminComponent } from './admin/admin.component';
+import {MatTabsModule} from '@angular/material';
 // import { ProfileComponent } from './profile/profile.component';
 
 // import { environment } from '../environments/environment';
@@ -25,7 +27,8 @@ import { SpeakerComponent } from './speaker/speaker.component';
     HomeComponent,
     NavbarComponent,
     FooterComponent,
-    SpeakerComponent
+    SpeakerComponent,
+    AdminComponent
     // ProfileComponent
   ],
   imports: [
@@ -34,7 +37,8 @@ import { SpeakerComponent } from './speaker/speaker.component';
     MaterialModule,
     FlexLayoutModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatTabsModule
     // ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [

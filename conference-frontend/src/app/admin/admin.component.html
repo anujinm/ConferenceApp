@@ -1,0 +1,365 @@
+<div fxLayout="row" fxLayout.lt-md="column">
+  <mat-card class="navigationSection">
+    <div fxLayoutAlign="center center">
+      <img src="../../assets/images/profilepic.png" title="Profile pic">
+    </div>
+    <mat-nav-list>
+      <a mat-list-item routerLinkActive="active-list-item" [ngClass]="userOptions == 'profile' ? 'mat-list-item-active':''" (click)="navigateProfile('profile')">My Profile</a>
+      <a mat-list-item routerLinkActive="active-list-item" [ngClass]="userOptions == 'eventInfo' ? 'mat-list-item-active':''" (click)="navigateProfile('eventInfo')">Event Info</a>
+      <a mat-list-item routerLinkActive="active-list-item" [ngClass]="userOptions == 'speaker' ? 'mat-list-item-active':''" (click)="navigateProfile('speaker')">Speaker</a>
+      <a mat-list-item routerLinkActive="active-list-item" [ngClass]="userOptions == 'agenda' ? 'mat-list-item-active':''" (click)="navigateProfile('agenda')">Agenda</a>
+      <a mat-list-item routerLinkActive="active-list-item" [ngClass]="userOptions == 'map' ? 'mat-list-item-active':''" (click)="navigateProfile('map')">Map</a>
+      <a mat-list-item routerLinkActive="active-list-item" [ngClass]="userOptions == 'updatePassword' ? 'mat-list-item-active':''" (click)="navigateProfile('updatePassword')">Change Password</a>
+    </mat-nav-list>
+  </mat-card>
+
+  <div [ngSwitch]="userOptions">
+    <div *ngSwitchCase="'profile'">
+      <mat-card ngClass="wideScreen" [ngClass.lt-lg]="{'wideScreen':false}">
+        <mat-card-header>Admin Info</mat-card-header>
+        <mat-card-content>
+          <mat-tab-group class="profileSection" dynamicHeight>
+            <mat-tab label="Personal Info">
+              <mat-list fxLayout="row">
+                <div>
+                  <mat-list-item>First Name:</mat-list-item>
+                  <mat-list-item>Last Name:</mat-list-item>
+                  <mat-list-item>Phone:</mat-list-item>
+                  <mat-list-item>Personal Email:</mat-list-item>
+                  <mat-list-item>Facebook:</mat-list-item>
+                  <mat-list-item>Instagram:</mat-list-item>
+                  <mat-list-item>Linkedin:</mat-list-item>
+                </div>
+                <div>
+                  <mat-list-item>Anujin</mat-list-item>
+                  <mat-list-item>Munkhbat</mat-list-item>
+                  <mat-list-item>509-294-2761</mat-list-item>
+                  <mat-list-item>amunkhbat20@my.whitworth.edu</mat-list-item>
+                  <mat-list-item><a href="/" target="_blank">www.facebook.com</a></mat-list-item>
+                  <mat-list-item><a href="/" target="_blank">www.instagram.com</a></mat-list-item>
+                  <mat-list-item><a href="/" target="_blank">www.linkedin.com</a></mat-list-item>
+                </div>
+              </mat-list>
+            </mat-tab>
+            <mat-tab label="Update Info">
+              <mat-list fxLayout="row">
+                <div>
+                  <mat-list-item>First Name:</mat-list-item>
+                  <mat-list-item>Last Name:</mat-list-item>
+                  <mat-list-item>Phone:</mat-list-item>
+                  <mat-list-item>Personal Email:</mat-list-item>
+                  <mat-list-item>Facebook:</mat-list-item>
+                  <mat-list-item>Instagram:</mat-list-item>
+                  <mat-list-item>Linkedin:</mat-list-item>
+                </div>
+                <div>
+                  <mat-list-item><input type="text" value="Anujin"></mat-list-item>
+                  <mat-list-item><input type="text" value="Munkhbat"></mat-list-item>
+                  <mat-list-item><input type="text" value="509-294-2761"></mat-list-item>
+                  <mat-list-item><input type="text" value="amunkhbat20@my.whitworth.edu"></mat-list-item>
+                  <mat-list-item><input type="text" value="www.facebook.com"></mat-list-item>
+                  <mat-list-item><input type="text" value="www.instagram.com"></mat-list-item>
+                  <mat-list-item><input type="text" value="www.linkedin.com"></mat-list-item>
+                </div>
+              </mat-list>
+              <div fxLayoutAlign="end center" class="updateInfo">
+                <button mat-raised-button>Update</button>
+              </div>
+        </mat-tab>
+      </mat-tab-group>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div *ngSwitchCase="'eventInfo'">
+      <mat-card ngClass="wideScreen" [ngClass.lt-lg]="{'wideScreen':false}">
+        <mat-card-header>Event #1</mat-card-header>
+        <mat-card-content>
+          <mat-tab-group class="profileSection" dynamicHeight>
+            <mat-tab label="Event Info">
+              <mat-list fxLayout="row">
+                <div>
+                  <mat-list-item>Event Name:</mat-list-item>
+                  <mat-list-item>Event Subheading:</mat-list-item>
+                  <mat-list-item>Event Thumbnail:</mat-list-item>
+                  <mat-list-item matLine>Event Description:</mat-list-item>
+                </div>
+                <div>
+                  <mat-list-item>Example Event Name</mat-list-item>
+                  <mat-list-item>Example Event Subheading</mat-list-item>
+                  <mat-list-item>Example Event Thumbnail</mat-list-item>
+                  <mat-list-item>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum id,
+                    impedit laborum pariatur quasi quis unde veritatis. Accusamus,
+                    aliquam, repellat.</mat-list-item>
+                </div>
+              </mat-list>
+              <div fxLayoutAlign="end center" class="updateInfo">
+                <button mat-raised-button>Update</button>
+              </div>
+            </mat-tab>
+            <mat-tab label="Update Info">
+              <mat-list fxLayout="row">
+                <div>
+                  <mat-list-item>Event Name:</mat-list-item>
+                  <mat-list-item>Event Subheading:</mat-list-item>
+                  <mat-list-item>Event Thumbnail:</mat-list-item>
+                  <mat-list-item>Event Description:</mat-list-item>
+                </div>
+                <div>
+                  <mat-list-item><input type="text" value=" Example Event name"></mat-list-item>
+                  <mat-list-item><input type="text" value="Example Event Subheading"></mat-list-item>
+                  <mat-list-item><input type="text" value="Example image"></mat-list-item>
+                  <mat-list-item><input type="text" value="Example Event Description"></mat-list-item>
+                </div>
+              </mat-list>
+              <div fxLayoutAlign="end center" class="updateInfo">
+                <button mat-raised-button>Update</button>
+              </div>
+            </mat-tab>
+          </mat-tab-group>
+        </mat-card-content>
+      </mat-card>
+      <mat-card ngClass="wideScreen" [ngClass.lt-lg]="{'wideScreen':false}">
+        <mat-card-header>Event #2</mat-card-header>
+        <mat-card-content>
+          <mat-tab-group class="profileSection" dynamicHeight>
+            <mat-tab label="Event Info">
+              <mat-list fxLayout="row">
+                <div>
+                  <mat-list-item>Event Name:</mat-list-item>
+                  <mat-list-item>Event Subheading:</mat-list-item>
+                  <mat-list-item>Event Thumbnail:</mat-list-item>
+                  <mat-list-item>Event Description:</mat-list-item>
+                </div>
+                <div>
+                  <mat-list-item>Example Event Name</mat-list-item>
+                  <mat-list-item>Example Event Subheading</mat-list-item>
+                  <mat-list-item>Example Event Thumbnail</mat-list-item>
+                  <mat-list-item>Example Event Description</mat-list-item>
+                </div>
+              </mat-list>
+              <div fxLayoutAlign="end center" class="updateInfo">
+                <button mat-raised-button>Update</button>
+              </div>
+            </mat-tab>
+            <mat-tab label="Update Info">
+              <mat-list fxLayout="row">
+                <div>
+                  <mat-list-item>Event Name:</mat-list-item>
+                  <mat-list-item>Event Subheading:</mat-list-item>
+                  <mat-list-item>Event Thumbnail:</mat-list-item>
+                  <mat-list-item>Event Description:</mat-list-item>
+                </div>
+                <div>
+                  <mat-list-item><input type="text" value=" Example Event name"></mat-list-item>
+                  <mat-list-item><input type="text" value="Example Event Subheading"></mat-list-item>
+                  <mat-list-item><input type="text" value="Example image"></mat-list-item>
+                  <mat-list-item><input type="text" value="Example Event Description"></mat-list-item>
+                </div>
+              </mat-list>
+              <div fxLayoutAlign="end center" class="updateInfo">
+                <button mat-raised-button>Update</button>
+              </div>
+            </mat-tab>
+          </mat-tab-group>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div *ngSwitchCase="'speaker'">
+      <mat-card ngClass="wideScreen" [ngClass.lt-lg]="{'wideScreen':false}">
+        <mat-card-header>Speaker #1</mat-card-header>
+        <mat-card-content>
+          <mat-tab-group class="profileSection" dynamicHeight>
+            <mat-tab label="Speaker Info">
+              <mat-list fxLayout="row" fxLayoutAlign="space-between center">
+                <div>
+                  <mat-list-item>Name:</mat-list-item>
+                  <mat-list-item>Topic:</mat-list-item>
+                  <mat-list-item>Profile Picture:</mat-list-item>
+                  <mat-list-item>Additional Picture:</mat-list-item>
+                  <mat-list-item>Description:</mat-list-item>
+                  <mat-list-item>Slides:</mat-list-item>
+                </div>
+                <div>
+                  <mat-list-item>Speaker #1</mat-list-item>
+                  <mat-list-item>Educatoin</mat-list-item>
+                  <mat-list-item>image</mat-list-item>
+                  <mat-list-item>image</mat-list-item>
+                  <mat-list-item>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Consequatur debitis deleniti ducimus et fugit illo porro praesentium
+                    quisquam, repellat reprehenderit!</mat-list-item>
+                  <mat-list-item>Link for the slides</mat-list-item>
+                </div>
+              </mat-list>
+              <div fxLayoutAlign="end center" class="updateInfo">
+                <button mat-raised-button>Edit</button>
+              </div>
+            </mat-tab>
+            <mat-tab label="Add Speaker">
+              <mat-list fxLayout="row">
+                <div>
+                  <mat-list-item>Name:</mat-list-item>
+                  <mat-list-item>Topic:</mat-list-item>
+                  <mat-list-item>Profile Picture:</mat-list-item>
+                  <mat-list-item>Additional Picture:</mat-list-item>
+                  <mat-list-item>Description:</mat-list-item>
+                  <mat-list-item>Slides:</mat-list-item>
+                </div>
+                <div>
+                  <mat-list-item><input type="text"></mat-list-item>
+                  <mat-list-item><input type="text"></mat-list-item>
+                  <mat-list-item><input type="text"></mat-list-item>
+                  <mat-list-item><input type="text"></mat-list-item>
+                  <mat-list-item><input type="text"></mat-list-item>
+                  <mat-list-item><input type="text"></mat-list-item>
+                </div>
+              </mat-list>
+              <div fxLayoutAlign="end center" class="updateInfo">
+                <button mat-raised-button>Update</button>
+              </div>
+            </mat-tab>
+          </mat-tab-group>
+        </mat-card-content>
+      </mat-card>
+      <mat-card ngClass="wideScreen" [ngClass.lt-lg]="{'wideScreen':false}">
+        <mat-card-header>Speaker #2</mat-card-header>
+        <mat-card-content>
+          <mat-tab-group class="profileSection" dynamicHeight>
+            <mat-tab label="Speaker Info">
+              <mat-list fxLayout="row" fxLayoutAlign="space-between center">
+                <div>
+                  <mat-list-item>Name:</mat-list-item>
+                  <mat-list-item>Topic:</mat-list-item>
+                  <mat-list-item>Profile Picture:</mat-list-item>
+                  <mat-list-item>Additional Picture:</mat-list-item>
+                  <mat-list-item>Description:</mat-list-item>
+                  <mat-list-item>Slides:</mat-list-item>
+                </div>
+                <div>
+                  <mat-list-item>Speaker #1</mat-list-item>
+                  <mat-list-item>Educatoin</mat-list-item>
+                  <mat-list-item>image</mat-list-item>
+                  <mat-list-item>image</mat-list-item>
+                  <mat-list-item>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Consequatur debitis deleniti ducimus et fugit illo porro praesentium
+                    quisquam, repellat reprehenderit!</mat-list-item>
+                  <mat-list-item>Link for the slides</mat-list-item>
+                </div>
+              </mat-list>
+              <div fxLayoutAlign="end center" class="updateInfo">
+                <button mat-raised-button>Edit</button>
+              </div>
+            </mat-tab>
+            <mat-tab label="Update Info">
+              <mat-list fxLayout="row">
+                <div>
+                  <mat-list-item>Name:</mat-list-item>
+                  <mat-list-item>Topic:</mat-list-item>
+                  <mat-list-item>Profile Picture:</mat-list-item>
+                  <mat-list-item>Additional Picture:</mat-list-item>
+                  <mat-list-item>Description:</mat-list-item>
+                  <mat-list-item>Slides:</mat-list-item>
+                </div>
+                <div>
+                  <mat-list-item><input type="text"></mat-list-item>
+                  <mat-list-item><input type="text"></mat-list-item>
+                  <mat-list-item><input type="text"></mat-list-item>
+                  <mat-list-item><input type="text"></mat-list-item>
+                  <mat-list-item><input type="text"></mat-list-item>
+                  <mat-list-item><input type="text"></mat-list-item>
+                </div>
+              </mat-list>
+              <div fxLayoutAlign="end center" class="updateInfo">
+                <button mat-raised-button>Update</button>
+              </div>
+            </mat-tab>
+            <mat-tab label="Add Speaker">
+              <mat-list fxLayout="row">
+                <div>
+                  <mat-list-item>Name:</mat-list-item>
+                  <mat-list-item>Topic:</mat-list-item>
+                  <mat-list-item>Profile Picture:</mat-list-item>
+                  <mat-list-item>Additional Picture:</mat-list-item>
+                  <mat-list-item>Description:</mat-list-item>
+                  <mat-list-item>Slides:</mat-list-item>
+                </div>
+                <div>
+                  <mat-list-item><input type="text"></mat-list-item>
+                  <mat-list-item><input type="text"></mat-list-item>
+                  <mat-list-item><input type="text"></mat-list-item>
+                  <mat-list-item><input type="text"></mat-list-item>
+                  <mat-list-item><input type="text"></mat-list-item>
+                  <mat-list-item><input type="text"></mat-list-item>
+                </div>
+              </mat-list>
+              <div fxLayoutAlign="end center" class="updateInfo">
+                <button mat-raised-button>Update</button>
+              </div>
+            </mat-tab>
+          </mat-tab-group>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div *ngSwitchCase="'agenda'">
+      <mat-tab-group class="profileSection" dynamicHeight>
+        <mat-tab label="Update Agenda">
+          <mat-list fxLayout="row" fxLayoutAlign="space-between center">
+            <div>
+              <mat-list-item>Upload Agenda:</mat-list-item>
+            </div>
+            <div>
+              <mat-list-item><input type="text"></mat-list-item>
+            </div>
+          </mat-list>
+          <div fxLayoutAlign="end center" class="updateInfo">
+            <button mat-raised-button>Update</button>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+
+    <div *ngSwitchCase="'map'">
+      <mat-tab-group class="profileSection" dynamicHeight>
+        <mat-tab label="Update Map">
+          <mat-list fxLayout="row" fxLayoutAlign="space-between center">
+            <div>
+              <mat-list-item>Upload Map:</mat-list-item>
+            </div>
+            <div>
+              <mat-list-item><input type="text"></mat-list-item>
+            </div>
+          </mat-list>
+          <div fxLayoutAlign="end center" class="updateInfo">
+            <button mat-raised-button>Update</button>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+
+    <div *ngSwitchCase="'updatePassword'">
+      <mat-tab-group class="profileSection" dynamicHeight>
+        <mat-tab label="Update Password">
+          <mat-list fxLayout="row">
+            <div>
+              <mat-list-item>Old Password:</mat-list-item>
+              <mat-list-item>New Password:</mat-list-item>
+              <mat-list-item>Confirm New Password:</mat-list-item>
+            </div>
+            <div>
+              <mat-list-item><input type="password"></mat-list-item>
+              <mat-list-item><input type="password"></mat-list-item>
+              <mat-list-item><input type="password"></mat-list-item>
+            </div>
+          </mat-list>
+          <div fxLayoutAlign="end center" class="updateInfo">
+            <button mat-raised-button>Update</button>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+    <div *ngSwitchDefault>...</div>
+  </div>
+</div>
+

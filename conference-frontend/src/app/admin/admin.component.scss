@@ -11,13 +11,24 @@ mat-card {
 .profileSection {
   width: 100%;
   margin: 0.5em;
-
+  .wideScreen {
+    width: 70vw;
+  }
   .updateInfo {
     margin: 15px 25px 20px 0;
   }
+  ::ng-deep .mat-line {
+    word-wrap: break-word;
+    white-space: pre-wrap;
+  }
+
   mat-list-item {
     ::content {
-      word-break: break-word;
+      display: inline-block !important;
+      //place-items: flex-end;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      //word-break: break-word;
     }
     a {
       color: blue;
