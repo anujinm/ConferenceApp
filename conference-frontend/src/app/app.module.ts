@@ -16,6 +16,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SpeakerComponent } from './speaker/speaker.component';
 import { AdminComponent } from './admin/admin.component';
 import {MatTabsModule} from '@angular/material';
+import { SlideshowComponent } from './slideshow/slideshow.component';
+import {SlideshowModule} from 'ng-simple-slideshow';
+
 // import { ProfileComponent } from './profile/profile.component';
 
 // import { environment } from '../environments/environment';
@@ -28,7 +31,8 @@ import {MatTabsModule} from '@angular/material';
     NavbarComponent,
     FooterComponent,
     SpeakerComponent,
-    AdminComponent
+    AdminComponent,
+    SlideshowComponent
     // ProfileComponent
   ],
   imports: [
@@ -38,7 +42,8 @@ import {MatTabsModule} from '@angular/material';
     FlexLayoutModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatTabsModule
+    MatTabsModule,
+    SlideshowModule
     // ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
