@@ -8,13 +8,17 @@ import {AuthService} from '../../auth/auth.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+  private authStateListenerSubs: Subscription;
+  private authLevelListenerSubs: Subscription;
+  userLevel = 0;
   userIsAuthenticated = false;
-  authStateListenerSubs: Subscription;
 
   constructor(
     private authService: AuthService,
   ) { }
-
+  logout() {
+    this.authService.logout();
+  }
   ngOnInit() {
     this.userIsAuthenticated = this.authService.getIsAuth();
     this.authStateListenerSubs = this.authService.getAuthStatusListener().subscribe(
@@ -22,8 +26,5 @@ export class NavbarComponent implements OnInit {
         this.userIsAuthenticated = isAuthenticated;
       }
     );
-  }
-  logout() {
-    this.authService.logout();
   }
 }

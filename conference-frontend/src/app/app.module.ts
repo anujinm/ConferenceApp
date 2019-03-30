@@ -14,10 +14,12 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AuthInterceptor} from './auth/auth-interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SpeakerComponent } from './speaker/speaker.component';
-import { AdminComponent } from './admin/admin.component';
+// import { AdminComponent } from './admin/admin.component';
 import {MatTabsModule} from '@angular/material';
 import { SlideshowComponent } from './slideshow/slideshow.component';
 import {SlideshowModule} from 'ng-simple-slideshow';
+import {ReactiveFormsModule} from '@angular/forms';
+import {ScrollingModule} from '@angular/cdk/scrolling';
 
 // import { ProfileComponent } from './profile/profile.component';
 
@@ -31,19 +33,23 @@ import {SlideshowModule} from 'ng-simple-slideshow';
     NavbarComponent,
     FooterComponent,
     SpeakerComponent,
-    AdminComponent,
+    // AdminComponent,
     SlideshowComponent
     // ProfileComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    FlexLayoutModule,
     MaterialModule,
     FlexLayoutModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MatTabsModule,
-    SlideshowModule
+    SlideshowModule,
+    ReactiveFormsModule,
+    ScrollingModule
     // ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [

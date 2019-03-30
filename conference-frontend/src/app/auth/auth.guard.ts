@@ -18,6 +18,11 @@ export class AuthGuard implements CanActivate {
       this.router.navigate(['/auth/login']);
       return false;
     }
+    // If not privileged
+    if (this.authService.getLevel() < route.data.level) {
+      this.router.navigate(['/']);
+      return false;
+    }
     return true;
   }
 }

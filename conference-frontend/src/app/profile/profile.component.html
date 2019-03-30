@@ -1,7 +1,8 @@
-<div fxLayout="row" fxLayout.lt-md="column">
+<div *ngIf="profile">
+  <div fxLayout="row" fxLayout.lt-md="column">
   <mat-card class="navigationSection">
     <div fxLayoutAlign="center center">
-      <img src="../../assets/images/profilepic.png" title="Profile pic">
+      <img [src]="backendUrl + profile.profilePic" title="Profile pic">
     </div>
     <mat-nav-list>
       <a mat-list-item [ngClass]="userOptions == 'profile' ? 'mat-list-item-active':''" (click)="navigateProfile('profile')">My Profile</a>
@@ -25,13 +26,13 @@
               <mat-list-item>Linkedin:</mat-list-item>
             </div>
             <div>
-              <mat-list-item>Anujin</mat-list-item>
-              <mat-list-item>Munkhbat</mat-list-item>
-              <mat-list-item>509-294-2761</mat-list-item>
-              <mat-list-item>amunkhbat20@my.whitworth.edu</mat-list-item>
-              <mat-list-item><a href="/" target="_blank">www.facebook.com</a></mat-list-item>
-              <mat-list-item><a href="/" target="_blank">www.instagram.com</a></mat-list-item>
-              <mat-list-item><a href="/" target="_blank">www.linkedin.com</a></mat-list-item>
+              <mat-list-item>{{profile.firstName}}</mat-list-item>
+              <mat-list-item>{{profile.lastName}}</mat-list-item>
+              <mat-list-item>{{profile.phoneNumber}}</mat-list-item>
+              <mat-list-item>{{profile.email}}</mat-list-item>
+              <mat-list-item><a href="/" target="_blank">{{profile.social1}}</a></mat-list-item>
+              <mat-list-item><a href="/" target="_blank">{{profile.social2}}</a></mat-list-item>
+              <mat-list-item><a href="/" target="_blank">{{profile.social3}}</a></mat-list-item>
             </div>
           </mat-list>
         </mat-tab>
@@ -47,13 +48,13 @@
               <mat-list-item>Linkedin:</mat-list-item>
             </div>
             <div>
-              <mat-list-item><input type="text" value="Anujin"></mat-list-item>
-              <mat-list-item><input type="text" value="Munkhbat"></mat-list-item>
-              <mat-list-item><input type="text" value="509-294-2761"></mat-list-item>
-              <mat-list-item><input type="text" value="amunkhbat20@my.whitworth.edu"></mat-list-item>
-              <mat-list-item><input type="text" value="www.facebook.com"></mat-list-item>
-              <mat-list-item><input type="text" value="www.instagram.com"></mat-list-item>
-              <mat-list-item><input type="text" value="www.linkedin.com"></mat-list-item>
+              <mat-list-item><input type="text" value="{{profile.firstName}}"></mat-list-item>
+              <mat-list-item><input type="text" value="{{profile.lastName}}"></mat-list-item>
+              <mat-list-item><input type="text" value="{{profile.phoneNumber}}"></mat-list-item>
+              <mat-list-item><input type="text" value="{{profile.email}}"></mat-list-item>
+              <mat-list-item><input type="text" value="{{profile.social1}}"></mat-list-item>
+              <mat-list-item><input type="text" value="{{profile.social2}}"></mat-list-item>
+              <mat-list-item><input type="text" value="{{profile.social3}}"></mat-list-item>
             </div>
           </mat-list>
           <div fxLayoutAlign="end center" class="updateInfo">
@@ -114,4 +115,4 @@
     <div *ngSwitchDefault>...</div>
   </div>
 </div>
-
+</div>

@@ -49,6 +49,7 @@ export class RegisterComponent implements OnInit {
 
     }).catch(() => {
       this.authService.setAuthListener(false);
+      this.authService.setLevelListener(0);
       this.isLoading = false;
     });
   }

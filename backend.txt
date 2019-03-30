@@ -1,0 +1,26 @@
+create a gitHub repo
+clone it
+cd into it
+---------------------------------------
+touch .gitignore
+npm init --yes
+npm i -g sequelize-cli
+npm i sequelize mysql2
+sequelize init
+config.json -> config.js
+add nodemon.json
+
+sequelize model:generate --name User --attributes email:string,password:string,hash:string
+
+add your ipv4 to Connections on GCP-SQL
+ sequelize db:migrate
+------------------------------------
+
+add app.js
+add server.js
+add packages:
+$ npm i express body-parser bcryptjs jsonwebtoken passport passport-jwt passport-local
+
+
+whitworth-conferenceapp-db
+teamConference

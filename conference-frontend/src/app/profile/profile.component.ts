@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ProfileService} from './profile.service';
 import {ImageSnippet, ProfileModel} from './profile.model';
-// import {TitleService} from '../services/title.service';
 import {environment} from '../../environments/environment';
 
 @Component({
@@ -22,7 +21,7 @@ export class ProfileComponent implements OnInit {
   ) { }
   navigateProfile(options: string) {
     this.userOptions = options;
-  }cd
+  }
 
   processFile(imageInput: any) {
     const file: File = imageInput.files[0];
