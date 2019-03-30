@@ -20,6 +20,7 @@ import { SlideshowComponent } from './slideshow/slideshow.component';
 import {SlideshowModule} from 'ng-simple-slideshow';
 import {ReactiveFormsModule} from '@angular/forms';
 import {ScrollingModule} from '@angular/cdk/scrolling';
+import { AttendeeComponent } from './attendee/attendee.component';
 
 // import { ProfileComponent } from './profile/profile.component';
 
@@ -34,7 +35,8 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
     FooterComponent,
     SpeakerComponent,
     // AdminComponent,
-    SlideshowComponent
+    SlideshowComponent,
+    AttendeeComponent
     // ProfileComponent
   ],
   imports: [
