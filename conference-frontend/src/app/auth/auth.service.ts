@@ -49,7 +49,11 @@ export class AuthService {
   getAuthStatusListener() {
     return this.authStatusListener.asObservable();
   }
-
+  
+  getAuthLevelListener() {
+    return this.authLevelListener.asObservable();
+  }
+  
   getUserId() {
     return this.userId;
   }
