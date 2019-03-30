@@ -36,6 +36,17 @@ export class RegisterComponent implements OnInit {
     const user: AuthRegisterModel = {
       email: a_info['email'],
       password: a_info['password'],
+      level: 0,
+      firstName: '',
+      lastName: '',
+      phoneNumber: '',
+      bio: '',
+      profilePic: '',
+      schoolDistrict: '',
+      roleAtDistrict: '',
+      social1: '',
+      social2: '',
+      social3: ''
     };
 
     this.authService.createUser(user).then((res) => {

@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="cc755b2f-6672-44b2-934e-5cbf3f46f547" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-frontend/src/app/auth/auth-data.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/conference-frontend/src/app/auth/auth-data.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-frontend/src/app/auth/register/register.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/conference-frontend/src/app/auth/register/register.component.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -14,63 +16,73 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/conference-frontend/src/app/profile/profile.component.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1156">
-                  <caret line="68" column="71" selection-start-line="68" selection-start-column="35" selection-end-line="68" selection-end-column="71" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/conference-frontend/src/app/admin/admin.component.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="388">
-                  <caret line="32" column="20" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
-                  <folding>
-                    <element signature="n#mat-list#0;n#mat-tab#0;n#mat-tab-group#0;n#mat-card-content#0;n#mat-card#1;n#div#1;n#div#0;n#div#0;n#!!top" />
-                    <element signature="n#mat-tab#1;n#mat-tab-group#0;n#mat-card-content#0;n#mat-card#1;n#div#1;n#div#0;n#div#0;n#!!top" />
-                    <element signature="n#div#2;n#div#0;n#div#0;n#!!top" />
-                    <element signature="n#mat-card#1;n#div#2;n#div#0;n#div#0;n#!!top" />
-                    <element signature="n#mat-tab#0;n#mat-tab-group#0;n#mat-card-content#0;n#mat-card#1;n#div#2;n#div#0;n#div#0;n#!!top" />
-                    <element signature="n#mat-tab#1;n#mat-tab-group#0;n#mat-card-content#0;n#mat-card#1;n#div#2;n#div#0;n#div#0;n#!!top" />
-                    <element signature="n#mat-list#0;n#mat-tab#1;n#mat-tab-group#0;n#mat-card-content#0;n#mat-card#1;n#div#2;n#div#0;n#div#0;n#!!top" />
-                    <element signature="n#mat-tab-group#0;n#div#3;n#div#0;n#div#0;n#!!top" />
-                    <element signature="n#mat-tab-group#0;n#div#4;n#div#0;n#div#0;n#!!top" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/conference-frontend/src/app/admin/admin.component.scss">
-              <provider selected="true" editor-type-id="text-editor">
-                <state>
-                  <caret selection-end-line="4" selection-end-column="1" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/conference-frontend/src/app/profile/profile.component.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="144">
-                  <caret line="68" column="71" selection-start-line="68" selection-start-column="35" selection-end-line="68" selection-end-column="71" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/conference-frontend/src/app/profile/profile.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1156">
+              <caret line="68" column="48" selection-start-line="68" selection-start-column="35" selection-end-line="68" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/conference-frontend/src/app/admin/admin.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="388">
+              <caret line="32" column="20" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
+              <folding>
+                <element signature="n#mat-list#0;n#mat-tab#0;n#mat-tab-group#0;n#mat-card-content#0;n#mat-card#1;n#div#1;n#div#0;n#div#0;n#!!top" />
+                <element signature="n#mat-tab#1;n#mat-tab-group#0;n#mat-card-content#0;n#mat-card#1;n#div#1;n#div#0;n#div#0;n#!!top" />
+                <element signature="n#div#2;n#div#0;n#div#0;n#!!top" />
+                <element signature="n#mat-card#1;n#div#2;n#div#0;n#div#0;n#!!top" />
+                <element signature="n#mat-tab#0;n#mat-tab-group#0;n#mat-card-content#0;n#mat-card#1;n#div#2;n#div#0;n#div#0;n#!!top" />
+                <element signature="n#mat-tab#1;n#mat-tab-group#0;n#mat-card-content#0;n#mat-card#1;n#div#2;n#div#0;n#div#0;n#!!top" />
+                <element signature="n#mat-list#0;n#mat-tab#1;n#mat-tab-group#0;n#mat-card-content#0;n#mat-card#1;n#div#2;n#div#0;n#div#0;n#!!top" />
+                <element signature="n#mat-tab-group#0;n#div#3;n#div#0;n#div#0;n#!!top" />
+                <element signature="n#mat-tab-group#0;n#div#4;n#div#0;n#div#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/conference-frontend/src/app/auth/register/register.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="51" lean-forward="true" selection-start-line="2" selection-start-column="51" selection-end-line="2" selection-end-column="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/conference-frontend/src/app/auth/register/register.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="362">
+              <caret line="48" column="17" selection-start-line="48" selection-start-column="17" selection-end-line="48" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/conference-frontend/src/app/auth/auth-data.model.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="13" column="18" lean-forward="true" selection-start-line="6" selection-start-column="2" selection-end-line="13" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/conference-frontend/src/app/admin/admin.component.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret selection-end-line="4" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -97,12 +109,14 @@
         <option value="$PROJECT_DIR$/conference-frontend/src/app/admin/admin.component.scss" />
         <option value="$PROJECT_DIR$/conference-frontend/src/app/profile/profile.component.scss" />
         <option value="$PROJECT_DIR$/conference-frontend/src/app/admin/admin.component.html" />
+        <option value="$PROJECT_DIR$/conference-frontend/src/app/auth/auth-data.model.ts" />
+        <option value="$PROJECT_DIR$/conference-frontend/src/app/auth/register/register.component.ts" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1918" />
-    <option name="width" value="1355" />
+    <option name="x" value="-7" />
+    <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
   <component name="ProjectView">
@@ -120,7 +134,37 @@
             <path>
               <item name="ConferenceApp" type="b2602c69:ProjectViewProjectNode" />
               <item name="ConferenceApp" type="462c0819:PsiDirectoryNode" />
-              <item name="conference-backend" type="462c0819:PsiDirectoryNode" />
+              <item name="conference-frontend" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ConferenceApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ConferenceApp" type="462c0819:PsiDirectoryNode" />
+              <item name="conference-frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ConferenceApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ConferenceApp" type="462c0819:PsiDirectoryNode" />
+              <item name="conference-frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ConferenceApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ConferenceApp" type="462c0819:PsiDirectoryNode" />
+              <item name="conference-frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="auth" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ConferenceApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ConferenceApp" type="462c0819:PsiDirectoryNode" />
+              <item name="conference-frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="auth" type="462c0819:PsiDirectoryNode" />
+              <item name="register" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -168,16 +212,20 @@
       <workItem from="1553031534939" duration="669000" />
       <workItem from="1553198483998" duration="718000" />
       <workItem from="1553835010964" duration="588000" />
+      <workItem from="1553979389684" duration="408000" />
+      <workItem from="1553979858543" duration="69000" />
+      <workItem from="1553979978506" duration="881000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22414000" />
+    <option name="totallyTimeSpent" value="23772000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1918" y="0" width="1355" height="1047" extended-state="0" />
+    <frame x="-7" y="0" width="974" height="1047" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16476841" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22115384" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -190,7 +238,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="TypeScript" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.2549234" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.25382933" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -288,6 +336,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/conference-frontend/src/app/profile/profile.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1156">
+          <caret line="68" column="48" selection-start-line="68" selection-start-column="35" selection-end-line="68" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/conference-frontend/src/app/admin/admin.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="388">
@@ -306,10 +361,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/conference-frontend/src/app/profile/profile.component.html">
+    <entry file="file://$PROJECT_DIR$/conference-frontend/src/app/auth/register/register.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="68" column="71" selection-start-line="68" selection-start-column="35" selection-end-line="68" selection-end-column="71" />
+        <state relative-caret-position="34">
+          <caret line="2" column="51" lean-forward="true" selection-start-line="2" selection-start-column="51" selection-end-line="2" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conference-frontend/src/app/auth/auth-data.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="18" lean-forward="true" selection-start-line="6" selection-start-column="2" selection-end-line="13" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conference-frontend/src/app/auth/register/register.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="48" column="17" selection-start-line="48" selection-start-column="17" selection-end-line="48" selection-end-column="17" />
         </state>
       </provider>
     </entry>
