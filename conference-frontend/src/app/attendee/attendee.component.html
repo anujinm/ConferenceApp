@@ -7,12 +7,15 @@
       <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
         <mat-card-title>{{i}}</mat-card-title>
-        <mat-card-subtitle>District: </mat-card-subtitle>
       </mat-card-header>
       <!--<div fxLayout="center center">-->
       <!--<img fxLayout="center center" mat-card-image src="../../assets/images/Guest-Speaker_LowRes-WebSlide.jpg" alt="topic">-->
       <!--</div>-->
       <mat-card-content>
+        <div fxLayout="row wrap">
+          <p>District: &nbsp;</p>
+          <p>Whitworth University</p>
+        </div>
         <div fxLayout="row wrap">
           <p>School: &nbsp;</p>
           <p>Whitworth University</p>
@@ -34,9 +37,10 @@
           <a routerLink="/">Link for social1</a>
           <a routerLink="/">Link for social2</a>
           <a routerLink="/">Link for social3</a>
-        </div>  
+        </div>
       </mat-card-content>
     </mat-card>
   </div>
 </div>
 
+<!--The details of the categories should be found through api's-->
