@@ -4,6 +4,7 @@ import {ProfileRoutingModule} from './profile-routing.module';
 import { ProfileComponent } from './profile.component';
 import {ProfileMaterialModule} from './profile-material.module';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import {ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     ProfileRoutingModule,
     ProfileMaterialModule,
     FlexLayoutModule,
+    ReactiveFormsModule
   ]
 })
 export class ProfileModule {}

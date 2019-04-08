@@ -6,6 +6,7 @@ export interface ProfileModel {
   lastName: string;
   email: string;
   phoneNumber: string;
+  personalEmail: string;
   social1: string;
   social2: string;
   social3: string;

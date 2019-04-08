@@ -21,6 +21,9 @@
               <mat-list-item>Last Name:</mat-list-item>
               <mat-list-item>Phone:</mat-list-item>
               <mat-list-item>Personal Email:</mat-list-item>
+              <mat-list-item>School District:</mat-list-item>
+              <mat-list-item>Role at District:</mat-list-item>
+              <mat-list-item>Bio:</mat-list-item>
               <mat-list-item>Facebook:</mat-list-item>
               <mat-list-item>Instagram:</mat-list-item>
               <mat-list-item>Linkedin:</mat-list-item>
@@ -29,7 +32,10 @@
               <mat-list-item>{{profile.firstName}}</mat-list-item>
               <mat-list-item>{{profile.lastName}}</mat-list-item>
               <mat-list-item>{{profile.phoneNumber}}</mat-list-item>
-              <mat-list-item>{{profile.email}}</mat-list-item>
+              <mat-list-item>{{profile.personalEmail}}</mat-list-item>
+              <mat-list-item>{{profile.schoolDistrict}}</mat-list-item>
+              <mat-list-item>{{profile.roleAtDistrict}}</mat-list-item>
+              <mat-list-item>{{profile.bio}}</mat-list-item>
               <mat-list-item><a href="/" target="_blank">{{profile.social1}}</a></mat-list-item>
               <mat-list-item><a href="/" target="_blank">{{profile.social2}}</a></mat-list-item>
               <mat-list-item><a href="/" target="_blank">{{profile.social3}}</a></mat-list-item>
@@ -43,22 +49,31 @@
               <mat-list-item>Last Name:</mat-list-item>
               <mat-list-item>Phone:</mat-list-item>
               <mat-list-item>Personal Email:</mat-list-item>
+              <mat-list-item>School District:</mat-list-item>
+              <mat-list-item>Role at District:</mat-list-item>
+              <mat-list-item>Bio:</mat-list-item>
               <mat-list-item>Facebook:</mat-list-item>
               <mat-list-item>Instagram:</mat-list-item>
               <mat-list-item>Linkedin:</mat-list-item>
             </div>
             <div>
-              <mat-list-item><input type="text" value="{{profile.firstName}}"></mat-list-item>
-              <mat-list-item><input type="text" value="{{profile.lastName}}"></mat-list-item>
-              <mat-list-item><input type="text" value="{{profile.phoneNumber}}"></mat-list-item>
-              <mat-list-item><input type="text" value="{{profile.email}}"></mat-list-item>
-              <mat-list-item><input type="text" value="{{profile.social1}}"></mat-list-item>
-              <mat-list-item><input type="text" value="{{profile.social2}}"></mat-list-item>
-              <mat-list-item><input type="text" value="{{profile.social3}}"></mat-list-item>
+              <form [formGroup]="accountInfoForm" #updateInfoForm="ngForm">
+                <mat-list-item><input matInput type="text" value="{{profile.firstName}}" formControlName="firstName" required></mat-list-item>
+                <mat-list-item><input type="text" value="{{profile.lastName}}" formControlName="lastName" required></mat-list-item>
+                <mat-list-item><input type="text" value="{{profile.phoneNumber}}" formControlName="phoneNumber"></mat-list-item>
+                <mat-list-item><input type="text" value="{{profile.personalEmail}}" formControlName="personalEmail"></mat-list-item>
+                <mat-list-item><input type="text" value="{{profile.schoolDistrict}}" formControlName="schoolDistrict"></mat-list-item>
+                <mat-list-item><input type="text" value="{{profile.roleAtDistrict}}" formControlName="roleAtDistrict"></mat-list-item>
+                <mat-list-item><input type="text" value="{{profile.bio}}" formControlName="bio"></mat-list-item>
+                <mat-list-item><input type="text" value="{{profile.social1}}" formControlName="social1"></mat-list-item>
+                <mat-list-item><input type="text" value="{{profile.social2}}" formControlName="social2"></mat-list-item>
+                <mat-list-item><input type="text" value="{{profile.social3}}" formControlName="social3"></mat-list-item>
+              </form>
+
             </div>
           </mat-list>
           <div fxLayoutAlign="end center" class="updateInfo">
-            <button mat-raised-button>Update</button>
+            <button mat-raised-button (click)="updateUserInfo(profile.id)">Update</button>
           </div>
         </mat-tab>
       </mat-tab-group>
