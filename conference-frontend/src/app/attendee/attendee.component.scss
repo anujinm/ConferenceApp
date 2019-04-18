@@ -5,6 +5,7 @@
 mat-card {
   margin: 1em;
   max-width: 350px;
+  width: 250px;
 
   a {
     color: blue;
@@ -20,4 +21,9 @@ mat-card {
   background-size: cover;
   width: 75px;
   height: 75px;
+}
+
+.profilePic {
+  height: 75px;
+  width: 75px;
 }

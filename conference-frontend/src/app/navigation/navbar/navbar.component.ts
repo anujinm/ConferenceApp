@@ -21,10 +21,20 @@ export class NavbarComponent implements OnInit {
   }
   ngOnInit() {
     this.userIsAuthenticated = this.authService.getIsAuth();
+    this.userLevel = this.authService.getLevel();
     this.authStateListenerSubs = this.authService.getAuthStatusListener().subscribe(
       isAuthenticated => {
         this.userIsAuthenticated = isAuthenticated;
       }
     );
+    this.authLevelListenerSubs = this.authService.getAuthLevelListener().subscribe(
+      level => {
+        this.userLevel = level;
+      }
+    );
+  }
+  ngOnDestroy() {
+    this.authStateListenerSubs.unsubscribe();
+    this.authLevelListenerSubs.unsubscribe();
   }
 }

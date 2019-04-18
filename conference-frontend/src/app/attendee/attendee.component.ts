@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {ImageSnippet, ProfileModel} from './../profile/profile.model';
+import {ProfileService} from './../profile/profile.service';
+import {environment} from '../../environments/environment';
 
 @Component({
   selector: 'app-attendee',
@@ -6,10 +9,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./attendee.component.scss']
 })
 export class AttendeeComponent implements OnInit {
-  attendeeCount = ['Attendee #1', 'Attendee #2', 'Attendee #3', 'Attendee #4', 'Attendee #5'];
-  constructor() { }
+  backendUrl = environment.backendUrl;
+  attendeeCount;
+  count = 0;
+  attendees;
+  profile: ProfileModel;
+  profilePic;
+
+  constructor(
+    private profileService: ProfileService
+  ) { }
 
   ngOnInit() {
+    this.profileService.getAllAttendees('1').then(res => {
+      this.attendees = res;
+      // this.profile.firstName = this.attendees.map(attendee => attendee.firstName);
+      this.count = Object.keys(this.attendees).length;
+      // @ts-ignore
+      this.attendeeCount = Array(this.count).fill().map((x, i) => i);
+      // this.isLoading = false;
+    }).catch((err) => {
+      // this.isLoading = false;
+      console.log(err);
+    });
   }
 
 }

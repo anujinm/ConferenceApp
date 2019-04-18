@@ -18,8 +18,18 @@ export class ProfileService {
     return this.http.get<ProfileModel>(BACKEND_URL + '/profile').toPromise();
   }
 
+  getAllAttendees(id: string) {
+    return this.http
+      .get<ProfileModel>(environment.apiUrl + '/event/attendees/' + id)
+      .toPromise();
+  }
+
   getUserProfile(id: string) {
     return this.http.get<ProfileModel>(BACKEND_URL + '/profile/' + id).toPromise();
+  }
+
+  updateUserInformation(body) {
+    return this.http.put(BACKEND_URL + '/profile', body).toPromise();
   }
 
   changeProfilePicture(image: File) {

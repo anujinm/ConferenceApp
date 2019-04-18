@@ -42,7 +42,6 @@ import { AttendeeComponent } from './attendee/attendee.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
     FlexLayoutModule,
     MaterialModule,
     FlexLayoutModule,
