@@ -1,4 +1,6 @@
 import {
+  MatCommonModule,
+  MatTabsModule,
   MatButtonModule,
   MatAutocompleteModule,
   MatToolbarModule,
@@ -13,6 +15,8 @@ import {NgModule} from '@angular/core';
 
 @NgModule({
   exports: [
+    MatTabsModule,
+    MatCommonModule,
     MatButtonModule,
     MatAutocompleteModule,
     MatToolbarModule,

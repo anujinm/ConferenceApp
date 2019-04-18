@@ -32,3 +32,10 @@ $theme: mat-light-theme($primary, $accent, $warn);
   }
 
 }
+
+
+//NEW
+html, body{
+  margin: 0;
+  height: 100%;
+}
