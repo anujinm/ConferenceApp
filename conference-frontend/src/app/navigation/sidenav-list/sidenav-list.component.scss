@@ -1,6 +1,9 @@
 button{
-  color: black;
+  color: white;
   .options {
     color: white;
   }
+}
+button.mat-menu-item{
+  color: black;
 }

@@ -21,11 +21,9 @@ import {SlideshowModule} from 'ng-simple-slideshow';
 import {ReactiveFormsModule} from '@angular/forms';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import { AttendeeComponent } from './attendee/attendee.component';
-<<<<<<< HEAD
 import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
-=======
 import { SpokaneInfoComponent } from './spokane-info/spokane-info.component';
->>>>>>> be6558362df4352315a3a8b749f2835f92826261
+
 
 // import { ProfileComponent } from './profile/profile.component';
 
@@ -42,11 +40,8 @@ import { SpokaneInfoComponent } from './spokane-info/spokane-info.component';
     // AdminComponent,
     SlideshowComponent,
     AttendeeComponent,
-<<<<<<< HEAD
-    SidenavListComponent
-=======
+    SidenavListComponent,
     SpokaneInfoComponent
->>>>>>> be6558362df4352315a3a8b749f2835f92826261
     // ProfileComponent
   ],
   imports: [
