@@ -4,6 +4,7 @@ import {HomeComponent} from './home/home.component';
 import {AuthGuard} from './auth/auth.guard';
 import {SpeakerComponent} from './speaker/speaker.component';
 import { AttendeeComponent } from './attendee/attendee.component';
+import { SpokaneInfoComponent } from './spokane-info/spokane-info.component'
 // import {AdminComponent} from './admin/admin.component';
 // import {ProfileComponent} from './profile/profile.component';
 
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path: 'speaker', component: SpeakerComponent},
   {path: 'profile', loadChildren: './profile/profile.module#ProfileModule', canActivate: [AuthGuard]},
   { path: 'attendee', component: AttendeeComponent },
+  { path: 'spokane', component: SpokaneInfoComponent },
   { path: 'admin', loadChildren: './admin/admin.module#AdminModule', canActivate: [AuthGuard], data: { level: 7 } },
   {path: '**', redirectTo: ''},
 ];
