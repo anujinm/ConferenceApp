@@ -2,6 +2,7 @@
 
 export interface ProfileModel {
   id: number;
+  eventId: number;
   firstName: string;
   lastName: string;
   email: string;

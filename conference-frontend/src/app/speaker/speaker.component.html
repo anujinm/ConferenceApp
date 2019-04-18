@@ -1,32 +1,28 @@
+<script src="speaker.component.ts"></script>
 <div class="headline">
   <h1>Guest Speakers:</h1>
 </div>
 <div fxLayout="row wrap" fxLayoutAlign="space-evenly center">
   <div *ngFor="let i of speakerCount">
     <mat-card class="speakerProfile">
-      <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>{{i}}</mat-card-title>
-        <mat-card-subtitle>Speaker topic</mat-card-subtitle>
-      </mat-card-header>
+      <div fxLayout="row" fxLayoutAlign="start center">
+        <img [src]="backendUrl + speakers.speaker[i].speakerPicture" title="Profile pic" class="profilePic">
+        <mat-card-header>
+          <!--<div mat-card-avatar class="example-header-image"></div>-->
+          <mat-card-title>{{i}}{{speakers.speaker[i].speakerName}}</mat-card-title>
+          <mat-card-subtitle>{{speakers.speaker[i].speakerTopic}}</mat-card-subtitle>
+        </mat-card-header>
+      </div>
+
       <!--<div fxLayout="center center">-->
         <!--<img fxLayout="center center" mat-card-image src="../../assets/images/Guest-Speaker_LowRes-WebSlide.jpg" alt="topic">-->
       <!--</div>-->
       <mat-card-content>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium
-          asperiores commodi consectetur debitis deserunt dicta dolore esse exercitationem
-          ipsum laborum maxime molestiae nam, neque nostrum omnis pariatur praesentium quaerat
-          quis ratione sint sit soluta vel voluptate. Assumenda aut dicta ex in iure minus natus,
-          necessitatibus provident? Adipisci dignissimos doloremque excepturi iste nam perspiciatis
-          sapiente. Animi dolorum eaque earum eligendi ex illum ipsam laudantium magni nobis perferendis
-          provident, ut vel. Architecto atque aut autem dolore doloremque eius eligendi est eum, excepturi
-          expedita id laboriosam laborum molestiae natus pariatur perferendis porro praesentium quas ration
-          e recusandae repellendus sequi sint? Alias eius, maiores? Accusamus exercitationem possimus
-          provident quaerat quibusdam sequi tempore voluptatibus? Accusamus accusantium, consequatur.
-        </p>
-        <hr>
-        <a routerLink="/">Link for Presentation slides</a>
+        <p>{{speakers.speaker[i].speakerBio}}</p>
+        <div *ngIf="hasSlides(i) === true">
+          <hr>
+          <a href="{{speakers.speaker[i].speakerSlides}}" >Link for Presentation slides</a>
+        </div>
       </mat-card-content>
     </mat-card>
   </div>
