@@ -2,7 +2,12 @@
 <div>
   <mat-sidenav-container>
     <mat-sidenav-content>
-      <app-navbar></app-navbar>
+      <div fxShow fxHide.lt-sm="true">
+        <app-navbar></app-navbar>
+      </div>
+      <div fxShow fxHide.gt-xs="true" class="sidenav" color="primary">
+        <app-sidenav-list></app-sidenav-list>
+      </div>
       <main>
         <router-outlet></router-outlet>
       </main>

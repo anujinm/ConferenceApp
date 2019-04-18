@@ -21,6 +21,7 @@ import {SlideshowModule} from 'ng-simple-slideshow';
 import {ReactiveFormsModule} from '@angular/forms';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import { AttendeeComponent } from './attendee/attendee.component';
+import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
 
 // import { ProfileComponent } from './profile/profile.component';
 
@@ -36,7 +37,8 @@ import { AttendeeComponent } from './attendee/attendee.component';
     SpeakerComponent,
     // AdminComponent,
     SlideshowComponent,
-    AttendeeComponent
+    AttendeeComponent,
+    SidenavListComponent
     // ProfileComponent
   ],
   imports: [
