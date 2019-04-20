@@ -80,62 +80,27 @@
               <mat-list fxLayout="row">
                 <div>
                   <mat-list-item>Event Name:</mat-list-item>
-                  <mat-list-item>Event Subheading:</mat-list-item>
+                  <mat-list-item>Event Topic:</mat-list-item>
+                  <mat-list-item>Event Organizer:</mat-list-item>
+                  <mat-list-item>Event Start Date:</mat-list-item>
+                  <mat-list-item>Event End Date:</mat-list-item>
+                  <mat-list-item>Event Location:</mat-list-item>
+                  <mat-list-item>Event Description:</mat-list-item>
                   <mat-list-item>Event Thumbnail:</mat-list-item>
-                  <mat-list-item matLine>Event Description:</mat-list-item>
+                  <mat-list-item>Event Agenda:</mat-list-item>
+                  <mat-list-item>Event Map:</mat-list-item>
                 </div>
-                <div>
-                  <mat-list-item>Example Event Name</mat-list-item>
-                  <mat-list-item>Example Event Subheading</mat-list-item>
-                  <mat-list-item>Example Event Thumbnail</mat-list-item>
-                  <mat-list-item>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum id,
-                    impedit laborum pariatur quasi quis unde veritatis. Accusamus,
-                    aliquam, repellat.</mat-list-item>
-                </div>
-              </mat-list>
-              <div fxLayoutAlign="end center" class="updateInfo">
-                <button mat-raised-button>Update</button>
-              </div>
-            </mat-tab>
-            <mat-tab label="Update Info">
-              <mat-list fxLayout="row">
                 <div>
                   <mat-list-item>Event Name:</mat-list-item>
-                  <mat-list-item>Event Subheading:</mat-list-item>
-                  <mat-list-item>Event Thumbnail:</mat-list-item>
+                  <mat-list-item>Event Topic:</mat-list-item>
+                  <mat-list-item>Event Organizer:</mat-list-item>
+                  <mat-list-item>Event Start Date:</mat-list-item>
+                  <mat-list-item>Event End Date:</mat-list-item>
+                  <mat-list-item>Event Location:</mat-list-item>
                   <mat-list-item>Event Description:</mat-list-item>
-                </div>
-                <div>
-                  <mat-list-item><input type="text" value=" Example Event name"></mat-list-item>
-                  <mat-list-item><input type="text" value="Example Event Subheading"></mat-list-item>
-                  <mat-list-item><input type="text" value="Example image"></mat-list-item>
-                  <mat-list-item><input type="text" value="Example Event Description"></mat-list-item>
-                </div>
-              </mat-list>
-              <div fxLayoutAlign="end center" class="updateInfo">
-                <button mat-raised-button>Update</button>
-              </div>
-            </mat-tab>
-          </mat-tab-group>
-        </mat-card-content>
-      </mat-card>
-      <mat-card ngClass="wideScreen" [ngClass.lt-lg]="{'wideScreen':false}">
-        <mat-card-header>Event #2</mat-card-header>
-        <mat-card-content>
-          <mat-tab-group class="profileSection" dynamicHeight>
-            <mat-tab label="Event Info">
-              <mat-list fxLayout="row">
-                <div>
-                  <mat-list-item>Event Name:</mat-list-item>
-                  <mat-list-item>Event Subheading:</mat-list-item>
                   <mat-list-item>Event Thumbnail:</mat-list-item>
-                  <mat-list-item>Event Description:</mat-list-item>
-                </div>
-                <div>
-                  <mat-list-item>Example Event Name</mat-list-item>
-                  <mat-list-item>Example Event Subheading</mat-list-item>
-                  <mat-list-item>Example Event Thumbnail</mat-list-item>
-                  <mat-list-item>Example Event Description</mat-list-item>
+                  <mat-list-item>Event Agenda:</mat-list-item>
+                  <mat-list-item>Event Map:</mat-list-item>
                 </div>
               </mat-list>
               <div fxLayoutAlign="end center" class="updateInfo">
@@ -222,120 +187,6 @@
           </mat-tab-group>
         </mat-card-content>
       </mat-card>
-      <mat-card ngClass="wideScreen" [ngClass.lt-lg]="{'wideScreen':false}">
-        <mat-card-header>Speaker #2</mat-card-header>
-        <mat-card-content>
-          <mat-tab-group class="profileSection" dynamicHeight>
-            <mat-tab label="Speaker Info">
-              <mat-list fxLayout="row" fxLayoutAlign="space-between center">
-                <div>
-                  <mat-list-item>Name:</mat-list-item>
-                  <mat-list-item>Topic:</mat-list-item>
-                  <mat-list-item>Profile Picture:</mat-list-item>
-                  <mat-list-item>Additional Picture:</mat-list-item>
-                  <mat-list-item>Description:</mat-list-item>
-                  <mat-list-item>Slides:</mat-list-item>
-                </div>
-                <div>
-                  <mat-list-item>Speaker #1</mat-list-item>
-                  <mat-list-item>Educatoin</mat-list-item>
-                  <mat-list-item>image</mat-list-item>
-                  <mat-list-item>image</mat-list-item>
-                  <mat-list-item>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Consequatur debitis deleniti ducimus et fugit illo porro praesentium
-                    quisquam, repellat reprehenderit!</mat-list-item>
-                  <mat-list-item>Link for the slides</mat-list-item>
-                </div>
-              </mat-list>
-              <div fxLayoutAlign="end center" class="updateInfo">
-                <button mat-raised-button>Edit</button>
-              </div>
-            </mat-tab>
-            <mat-tab label="Update Info">
-              <mat-list fxLayout="row">
-                <div>
-                  <mat-list-item>Name:</mat-list-item>
-                  <mat-list-item>Topic:</mat-list-item>
-                  <mat-list-item>Profile Picture:</mat-list-item>
-                  <mat-list-item>Additional Picture:</mat-list-item>
-                  <mat-list-item>Description:</mat-list-item>
-                  <mat-list-item>Slides:</mat-list-item>
-                </div>
-                <div>
-                  <mat-list-item><input type="text"></mat-list-item>
-                  <mat-list-item><input type="text"></mat-list-item>
-                  <mat-list-item><input type="text"></mat-list-item>
-                  <mat-list-item><input type="text"></mat-list-item>
-                  <mat-list-item><input type="text"></mat-list-item>
-                  <mat-list-item><input type="text"></mat-list-item>
-                </div>
-              </mat-list>
-              <div fxLayoutAlign="end center" class="updateInfo">
-                <button mat-raised-button>Update</button>
-              </div>
-            </mat-tab>
-            <mat-tab label="Add Speaker">
-              <mat-list fxLayout="row">
-                <div>
-                  <mat-list-item>Name:</mat-list-item>
-                  <mat-list-item>Topic:</mat-list-item>
-                  <mat-list-item>Profile Picture:</mat-list-item>
-                  <mat-list-item>Additional Picture:</mat-list-item>
-                  <mat-list-item>Description:</mat-list-item>
-                  <mat-list-item>Slides:</mat-list-item>
-                </div>
-                <div>
-                  <mat-list-item><input type="text"></mat-list-item>
-                  <mat-list-item><input type="text"></mat-list-item>
-                  <mat-list-item><input type="text"></mat-list-item>
-                  <mat-list-item><input type="text"></mat-list-item>
-                  <mat-list-item><input type="text"></mat-list-item>
-                  <mat-list-item><input type="text"></mat-list-item>
-                </div>
-              </mat-list>
-              <div fxLayoutAlign="end center" class="updateInfo">
-                <button mat-raised-button>Update</button>
-              </div>
-            </mat-tab>
-          </mat-tab-group>
-        </mat-card-content>
-      </mat-card>
-    </div>
-
-    <div *ngSwitchCase="'agenda'">
-      <mat-tab-group class="profileSection" dynamicHeight>
-        <mat-tab label="Update Agenda">
-          <mat-list fxLayout="row" fxLayoutAlign="space-between center">
-            <div>
-              <mat-list-item>Upload Agenda:</mat-list-item>
-            </div>
-            <div>
-              <mat-list-item><input type="text"></mat-list-item>
-            </div>
-          </mat-list>
-          <div fxLayoutAlign="end center" class="updateInfo">
-            <button mat-raised-button>Update</button>
-          </div>
-        </mat-tab>
-      </mat-tab-group>
-    </div>
-
-    <div *ngSwitchCase="'map'">
-      <mat-tab-group class="profileSection" dynamicHeight>
-        <mat-tab label="Update Map">
-          <mat-list fxLayout="row" fxLayoutAlign="space-between center">
-            <div>
-              <mat-list-item>Upload Map:</mat-list-item>
-            </div>
-            <div>
-              <mat-list-item><input type="text"></mat-list-item>
-            </div>
-          </mat-list>
-          <div fxLayoutAlign="end center" class="updateInfo">
-            <button mat-raised-button>Update</button>
-          </div>
-        </mat-tab>
-      </mat-tab-group>
     </div>
 
     <div *ngSwitchCase="'updatePassword'">
