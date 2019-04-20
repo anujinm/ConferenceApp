@@ -72,63 +72,76 @@
     </div>
 
     <div *ngSwitchCase="'eventInfo'">
-      <mat-card ngClass="wideScreen" [ngClass.lt-lg]="{'wideScreen':false}">
-        <mat-card-header>Event #1</mat-card-header>
-        <mat-card-content>
-          <mat-tab-group class="profileSection" dynamicHeight>
-            <mat-tab label="Event Info">
-              <mat-list fxLayout="row">
-                <div>
-                  <mat-list-item>Event Name:</mat-list-item>
-                  <mat-list-item>Event Topic:</mat-list-item>
-                  <mat-list-item>Event Organizer:</mat-list-item>
-                  <mat-list-item>Event Start Date:</mat-list-item>
-                  <mat-list-item>Event End Date:</mat-list-item>
-                  <mat-list-item>Event Location:</mat-list-item>
-                  <mat-list-item>Event Description:</mat-list-item>
-                  <mat-list-item>Event Thumbnail:</mat-list-item>
-                  <mat-list-item>Event Agenda:</mat-list-item>
-                  <mat-list-item>Event Map:</mat-list-item>
+      <div *ngFor="let i of eventCount">
+        <mat-card ngClass="wideScreen" [ngClass.lt-lg]="{'wideScreen':false}">
+          <mat-card-header>Event #{{i}} {{events.events[i].id}}</mat-card-header>
+          <mat-card-content>
+            <mat-tab-group class="profileSection" dynamicHeight>
+              <mat-tab label="Event Info">
+                <mat-list fxLayout="row">
+                  <div fxFlex="20">
+                    <mat-list-item>Event Name:</mat-list-item>
+                    <mat-list-item>Event Topic:</mat-list-item>
+                    <mat-list-item>Event Organizer:</mat-list-item>
+                    <mat-list-item>Event Start Date:</mat-list-item>
+                    <mat-list-item>Event End Date:</mat-list-item>
+                    <mat-list-item>Event Location:</mat-list-item>
+                    <mat-list-item>Event Description:</mat-list-item>
+                    <mat-list-item>Event Thumbnail:</mat-list-item>
+                    <mat-list-item>Event Agenda:</mat-list-item>
+                    <mat-list-item>Event Map:</mat-list-item>
+                  </div>
+                  <div fxFlex>
+                    <mat-list-item>{{events.events[i].eventName}}</mat-list-item>
+                    <mat-list-item>{{events.events[i].eventTopic}}</mat-list-item>
+                    <mat-list-item>{{events.events[i].eventOrganizer}}</mat-list-item>
+                    <mat-list-item>{{events.events[i].eventStartDate}}</mat-list-item>
+                    <mat-list-item>{{events.events[i].eventEndDate}}</mat-list-item>
+                    <mat-list-item>{{events.events[i].eventLocation}}</mat-list-item>
+                    <mat-list-item>{{events.events[i].eventDescription}}</mat-list-item>
+                    <mat-list-item>{{events.events[i].eventPicture}}</mat-list-item>
+                    <mat-list-item>{{events.events[i].eventAgenda}}</mat-list-item>
+                    <mat-list-item>{{events.events[i].eventMap}}</mat-list-item>
+                  </div>
+                </mat-list>
+              </mat-tab>
+              <mat-tab label="Update Info">
+                <mat-list fxLayout="row">
+                  <div fxFlex="20">
+                    <mat-list-item>Event Name:</mat-list-item>
+                    <mat-list-item>Event Topic:</mat-list-item>
+                    <mat-list-item>Event Organizer:</mat-list-item>
+                    <mat-list-item>Event Start Date:</mat-list-item>
+                    <mat-list-item>Event End Date:</mat-list-item>
+                    <mat-list-item>Event Location:</mat-list-item>
+                    <mat-list-item>Event Description:</mat-list-item>
+                    <mat-list-item>Event Thumbnail:</mat-list-item>
+                    <mat-list-item>Event Agenda:</mat-list-item>
+                    <mat-list-item>Event Map:</mat-list-item>
+                  </div>
+                  <div fxFlex>
+                    <form [formGroup]="eventInfoForm" #updateEventInfoForm="ngForm">
+                      <mat-list-item><input type="text" value="{{events.events[i].eventName}}" formControlName="eventName"></mat-list-item>
+                      <mat-list-item><input type="text" value="{{events.events[i].eventTopic}}" formControlName="eventTopic"></mat-list-item>
+                      <mat-list-item><input type="text" value="{{events.events[i].eventOrganizer}}" formControlName="eventOrganizer"></mat-list-item>
+                      <mat-list-item><input type="text" value="{{events.events[i].eventStartDate}}" formControlName="eventStartDate"></mat-list-item>
+                      <mat-list-item><input type="text" value="{{events.events[i].eventEndDate}}" formControlName="eventEndDate"></mat-list-item>
+                      <mat-list-item><input type="text" value="{{events.events[i].eventLocation}}" formControlName="eventLocation"></mat-list-item>
+                      <mat-list-item><input type="text" value="{{events.events[i].eventDescription}}" formControlName="eventDescription"></mat-list-item>
+                      <mat-list-item><input type="text" value="{{events.events[i].eventPicture}}" formControlName="eventPicture"></mat-list-item>
+                      <mat-list-item><input type="text" value="{{events.events[i].eventAgenda}}" formControlName="eventAgenda"></mat-list-item>
+                      <mat-list-item><input type="text" value="{{events.events[i].eventMap}}" formControlName="eventMap"></mat-list-item>
+                    </form>
+                  </div>
+                </mat-list>
+                <div fxLayoutAlign="end center" class="updateInfo">
+                  <button mat-raised-button (click)="updateEventInfo(events.events[i].id, i)">Update Info</button>
                 </div>
-                <div>
-                  <mat-list-item>Event Name:</mat-list-item>
-                  <mat-list-item>Event Topic:</mat-list-item>
-                  <mat-list-item>Event Organizer:</mat-list-item>
-                  <mat-list-item>Event Start Date:</mat-list-item>
-                  <mat-list-item>Event End Date:</mat-list-item>
-                  <mat-list-item>Event Location:</mat-list-item>
-                  <mat-list-item>Event Description:</mat-list-item>
-                  <mat-list-item>Event Thumbnail:</mat-list-item>
-                  <mat-list-item>Event Agenda:</mat-list-item>
-                  <mat-list-item>Event Map:</mat-list-item>
-                </div>
-              </mat-list>
-              <div fxLayoutAlign="end center" class="updateInfo">
-                <button mat-raised-button>Update</button>
-              </div>
-            </mat-tab>
-            <mat-tab label="Update Info">
-              <mat-list fxLayout="row">
-                <div>
-                  <mat-list-item>Event Name:</mat-list-item>
-                  <mat-list-item>Event Subheading:</mat-list-item>
-                  <mat-list-item>Event Thumbnail:</mat-list-item>
-                  <mat-list-item>Event Description:</mat-list-item>
-                </div>
-                <div>
-                  <mat-list-item><input type="text" value=" Example Event name"></mat-list-item>
-                  <mat-list-item><input type="text" value="Example Event Subheading"></mat-list-item>
-                  <mat-list-item><input type="text" value="Example image"></mat-list-item>
-                  <mat-list-item><input type="text" value="Example Event Description"></mat-list-item>
-                </div>
-              </mat-list>
-              <div fxLayoutAlign="end center" class="updateInfo">
-                <button mat-raised-button>Update</button>
-              </div>
-            </mat-tab>
-          </mat-tab-group>
-        </mat-card-content>
-      </mat-card>
+              </mat-tab>
+            </mat-tab-group>
+          </mat-card-content>
+        </mat-card>
+      </div>
     </div>
 
     <div *ngSwitchCase="'speaker'">
