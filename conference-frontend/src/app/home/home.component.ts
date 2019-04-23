@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { EventModel } from './event.model';
 import { HomeService } from './event.service';
 
+import { ProfileService } from '../profile/profile.service';
+import { ProfileModel } from '../profile/profile.model';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -10,21 +13,29 @@ import { HomeService } from './event.service';
 export class HomeComponent implements OnInit {
   events;
   eventMap;
+  eventId = '';
+  profile: ProfileModel;
 
   constructor(
-  private eventService: HomeService) { }
+    private eventService: HomeService,
+    private profileService: ProfileService) { }
 
   ngOnInit() {
     console.log("we here1");
 
-    this.eventService.getEventMap('3').then((res) => {
-      this.events = res;
-      console.log("we here2");
-      console.log(this.events);
-      console.log("we here3");
-      this.eventMap = this.events.event[3].eventMap;
+    this.profileService.getMyProfile().then((profile) => {
+      this.profile = profile;
+      this.eventId = JSON.stringify(this.profile.eventId);
+      console.log(this.profile.eventId);
 
-    }).catch ((err) => {
+      this.eventService.getEventMap(this.eventId).then((res) => {
+        this.events = res;
+        console.log(this.events);
+        this.eventMap = this.events.event.eventMap;
+      }).catch((err) => {
+        console.log(err);
+      });
+    }).catch((err) => {
       console.log(err);
     });
   }

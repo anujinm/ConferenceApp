@@ -6,6 +6,8 @@ import { HomeComponent } from '../../home/home.component';
 import { HomeService } from '../../home/event.service';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
+import { ProfileService } from '../../profile/profile.service';
+import { ProfileModel } from '../../profile/profile.model';
 
 @Component({
   selector: 'app-navbar',
@@ -19,11 +21,13 @@ export class NavbarComponent implements OnInit {
   userIsAuthenticated = false;
   events;
   eventMap;
+  eventId = '';
+  profile: ProfileModel;
 
   constructor(
     private authService: AuthService,
     private eventService: HomeService,
-    private http:HttpClient
+    private profileService: ProfileService
   ) { }
   logout() {
     this.authService.logout();
@@ -31,33 +35,36 @@ export class NavbarComponent implements OnInit {
 
 
   ngOnInit() {
-
-
     this.userIsAuthenticated = this.authService.getIsAuth();
     this.userLevel = this.authService.getLevel();
     this.authStateListenerSubs = this.authService.getAuthStatusListener().subscribe(
       isAuthenticated => {
         this.userIsAuthenticated = isAuthenticated;
-      }
-    );
+      });
     this.authLevelListenerSubs = this.authService.getAuthLevelListener().subscribe(
       level => {
         this.userLevel = level;
-      }
-    );
+      });
 
+    this.profileService.getMyProfile().then((profile) => {
+      this.profile = profile;
+      this.eventId = JSON.stringify(this.profile.eventId);
+      console.log(this.profile.eventId);
 
-    this.eventService.getEventMap('3').then((res) => {
-      this.events = res;
-      console.log(this.events);
-      this.eventMap = this.events.event[3].eventMap;
-
+      this.eventService.getEventMap(this.eventId).then((res) => {
+        this.events = res;
+        console.log(this.events);
+        this.eventMap = this.events.event.eventMap;
+      }).catch((err) => {
+        console.log(err);
+      });
     }).catch((err) => {
       console.log(err);
     });
   }
-  ngOnDestroy() {
-    this.authStateListenerSubs.unsubscribe();
+
+  ngOnDestroy(){
+        this.authStateListenerSubs.unsubscribe();
     this.authLevelListenerSubs.unsubscribe();
   }
 }
