@@ -3,6 +3,7 @@
     "",
     "\\src",
     "\\src\\app",
+<<<<<<< HEAD
     "\\src\\app\\home",
     "\\src\\app\\navigation",
     "\\src\\app\\navigation\\navbar",
@@ -11,5 +12,14 @@
     "\\src\\styles"
   ],
   "SelectedNode": "\\src\\app",
+=======
+    "\\src\\app\\attendee",
+    "\\src\\app\\navigation\\navbar",
+    "\\src\\app\\navigation\\sidenav-list",
+    "\\src\\app\\spokane-info",
+    "\\src\\styles"
+  ],
+  "SelectedNode": "\\src\\app\\attendee\\attendee.component.scss",
+>>>>>>> 85c317435e08cadcf9c505d1fa47381c0eceb5ec
   "PreviewInSolutionExplorer": false
 }

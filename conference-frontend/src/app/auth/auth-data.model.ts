@@ -12,6 +12,7 @@ export class AuthRegisterModel {
   social1: string;
   social2: string;
   social3: string;
+  eventId: number;
 }
 
 export class AuthLoginModel {

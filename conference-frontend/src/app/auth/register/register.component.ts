@@ -46,7 +46,8 @@ export class RegisterComponent implements OnInit {
       roleAtDistrict: '',
       social1: '',
       social2: '',
-      social3: ''
+      social3: '',
+      eventId: 0
     };
 
     this.authService.createUser(user).then((res) => {
