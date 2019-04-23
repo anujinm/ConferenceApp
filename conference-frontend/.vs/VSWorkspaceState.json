@@ -5,9 +5,9 @@
     "\\src\\app",
     "\\src\\app\\home",
     "\\src\\app\\navigation",
-    "\\src\\app\\navigation\\navbar",
+    "\\src\\app\\navigation\\sidenav-list",
     "\\src\\app\\profile"
   ],
-  "SelectedNode": "\\src\\app\\navigation\\navbar\\navbar.component.ts",
+  "SelectedNode": "\\src\\app\\navigation\\sidenav-list\\sidenav-list.component.ts",
   "PreviewInSolutionExplorer": false
 }
