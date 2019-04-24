@@ -7,7 +7,9 @@ a.mat-list-item.mat-list-item-active {
 mat-card {
   margin: 0.5em;
 }
-
+.addButton {
+  margin: 20px;
+}
 .profileSection {
   width: 100%;
   margin: 0.5em;
@@ -16,6 +18,10 @@ mat-card {
   }
   .updateInfo {
     margin: 15px 25px 20px 0;
+    padding: 5px;
+    button {
+      margin: 5px;
+    }
   }
   ::ng-deep .mat-line {
     word-wrap: break-word;

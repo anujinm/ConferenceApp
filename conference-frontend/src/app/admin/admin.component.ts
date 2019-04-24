@@ -4,6 +4,8 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {environment} from '../../environments/environment';
 // import {ImageSnippet} from '../event/event.model';
 import {EventService} from './../event/event.service';
+import {EventModel} from './../event/event.model';
+import {MatSnackBar} from '@angular/material';
 // import {stringify} from "querystring";
 @Component({
   selector: 'app-admin',
@@ -18,6 +20,8 @@ export class AdminComponent implements OnInit {
   events;
   userOptions = 'profile';
   eventInfoForm: FormGroup;
+  isAddNewEvent = false;
+  private snackBar: MatSnackBar;
   // wideScreen: ' .wideScreen { width: 70vw;}';
 
   constructor(
@@ -28,6 +32,37 @@ export class AdminComponent implements OnInit {
   navigateProfile(options: string) {
     this.userOptions = options;
   }
+  addEventModal() {
+    this.isAddNewEvent = true;
+  }
+  cancelAddingEvent() {
+    this.isAddNewEvent = false;
+  }
+  addNewEvent() {
+    const e_info = this.eventInfoForm.value;
+    const event: EventModel = {
+      eventName:  e_info['eventName'],
+      eventTopic: e_info['eventTopic'],
+      eventOrganizer: e_info['eventOrganizer'],
+      eventStartDate: e_info['eventStartDate'],
+      eventEndDate: e_info['eventEndDate'],
+      eventDescription: e_info['eventDescription'],
+      eventAgenda: e_info['eventAgenda'],
+      eventMap: e_info['eventMap'],
+      eventPicture: e_info['eventPicture'],
+      eventLocation: e_info['eventLocation'],
+    };
+    this.eventService.createEvent(event).then((res) => {
+      this.isAddNewEvent = false;
+      if (res['message'] === 'Event created') {
+        this.snackBar.open('Event Created!', 'Done', {
+          duration: 3000
+        });
+      }
+    }).catch((err) => {
+      console.log(err);
+    });
+  }
   updateEventInfo(id: number, index: number) {
     console.log('sajdba' + JSON.stringify(id) + id);
     const e_info = this.eventInfoForm.value;
@@ -35,8 +70,8 @@ export class AdminComponent implements OnInit {
     if (e_info['eventName'] === '') {
       e_info['eventName'] = this.events.events[index].eventName;
     }
-    if (e_info['lasttName'] === '') {
-      e_info['eventTopic'] = this.events.events[index].lastName;
+    if (e_info['eventTopic'] === '') {
+      e_info['eventTopic'] = this.events.events[index].eventTopic;
     }
     if (e_info['eventOrganizer'] === '') {
       e_info['eventOrganizer'] = this.events.events[index].eventOrganizer;
@@ -80,6 +115,13 @@ export class AdminComponent implements OnInit {
     console.log(body);
     this.eventService.updateEvent(JSON.stringify(id), body).then((res) => {
       console.log('sajdba' + id + body);
+      window.location.reload();
+    }).catch((err) => {
+      console.log(err);
+    });
+  }
+  deleteEvent(id: number, index: number) {
+    this.eventService.removeEvent(JSON.stringify(id)).then((res) => {
       window.location.reload();
     }).catch((err) => {
       console.log(err);

@@ -21,4 +21,11 @@ export class EventService {
     console.log('hereee' + id, body);
     return this.http.put<EventModel>(BACKEND_URL + '/event/' + id, body).toPromise();
   }
+  createEvent(body: EventModel) {
+    console.log('hereee', body);
+    return this.http.post<EventModel>(BACKEND_URL + '/event', body).toPromise();
+  }
+  removeEvent(id: string) {
+    return this.http.delete<EventModel>(BACKEND_URL + '/event/' + id).toPromise();
+  }
 }

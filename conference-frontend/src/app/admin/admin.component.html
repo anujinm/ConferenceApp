@@ -7,8 +7,6 @@
       <a mat-list-item routerLinkActive="active-list-item" [ngClass]="userOptions == 'profile' ? 'mat-list-item-active':''" (click)="navigateProfile('profile')">My Profile</a>
       <a mat-list-item routerLinkActive="active-list-item" [ngClass]="userOptions == 'eventInfo' ? 'mat-list-item-active':''" (click)="navigateProfile('eventInfo')">Event Info</a>
       <a mat-list-item routerLinkActive="active-list-item" [ngClass]="userOptions == 'speaker' ? 'mat-list-item-active':''" (click)="navigateProfile('speaker')">Speaker</a>
-      <a mat-list-item routerLinkActive="active-list-item" [ngClass]="userOptions == 'agenda' ? 'mat-list-item-active':''" (click)="navigateProfile('agenda')">Agenda</a>
-      <a mat-list-item routerLinkActive="active-list-item" [ngClass]="userOptions == 'map' ? 'mat-list-item-active':''" (click)="navigateProfile('map')">Map</a>
       <a mat-list-item routerLinkActive="active-list-item" [ngClass]="userOptions == 'updatePassword' ? 'mat-list-item-active':''" (click)="navigateProfile('updatePassword')">Change Password</a>
     </mat-nav-list>
   </mat-card>
@@ -72,9 +70,62 @@
     </div>
 
     <div *ngSwitchCase="'eventInfo'">
+      <div class="addButton">
+        <button mat-raised-button (click)="addEventModal()"><i class="material-icons">add</i>Add Event</button>
+      </div>
+      <div *ngIf="isAddNewEvent">
+        <mat-card>
+          <mat-card-header>Add New Event</mat-card-header>
+          <mat-card-content>
+            <mat-tab-group class="profileSection" dynamicHeight>
+              <mat-tab label="Update Info">
+                <mat-list fxLayout="row">
+                  <div fxFlex="20">
+                    <mat-list-item>Event Name:</mat-list-item>
+                    <mat-list-item>Event Topic:</mat-list-item>
+                    <mat-list-item>Event Organizer:</mat-list-item>
+                    <mat-list-item>Event Start Date:</mat-list-item>
+                    <mat-list-item>Event End Date:</mat-list-item>
+                    <mat-list-item>Event Location:</mat-list-item>
+                    <mat-list-item>Event Description:</mat-list-item>
+                    <mat-list-item>Event Thumbnail:</mat-list-item>
+                    <mat-list-item>Event Agenda:</mat-list-item>
+                    <mat-list-item>Event Map:</mat-list-item>
+                  </div>
+                  <div fxFlex>
+                    <form [formGroup]="eventInfoForm" #updateEventInfoForm="ngForm">
+                      <mat-list-item><input type="text" formControlName="eventName"></mat-list-item>
+                      <mat-list-item><input type="text" formControlName="eventTopic"></mat-list-item>
+                      <mat-list-item><input type="text" formControlName="eventOrganizer"></mat-list-item>
+                      <mat-list-item><input type="text" formControlName="eventStartDate"> [mm/dd/year] Cannot be empty</mat-list-item>
+                      <mat-list-item><input type="text" formControlName="eventEndDate"> [mm/dd/year] Cannot be empty</mat-list-item>
+                      <mat-list-item><input type="text" formControlName="eventLocation"></mat-list-item>
+                      <mat-list-item><input type="text" formControlName="eventDescription"></mat-list-item>
+                      <mat-list-item><input type="text" formControlName="eventPicture"></mat-list-item>
+                      <mat-list-item><input type="text" formControlName="eventAgenda"></mat-list-item>
+                      <mat-list-item><input type="text" formControlName="eventMap"></mat-list-item>
+                    </form>
+                  </div>
+                </mat-list>
+                <div fxLayoutAlign="end center" class="updateInfo">
+                  <button mat-raised-button (click)="addNewEvent()">Add Event</button>
+                  <button mat-raised-button color="warn" (click)="cancelAddingEvent()">Cancel</button>
+                </div>
+              </mat-tab>
+            </mat-tab-group>
+          </mat-card-content>
+        </mat-card>
+      </div>
       <div *ngFor="let i of eventCount">
         <mat-card ngClass="wideScreen" [ngClass.lt-lg]="{'wideScreen':false}">
-          <mat-card-header>Event #{{i}} {{events.events[i].id}}</mat-card-header>
+          <mat-card-header fxLayout="row" fxLayoutAlign="space-between center">
+            <mat-card-title fxLayoutAlign="start center">
+              <div fxLayoutAlign="start center">Event #{{i}} Id: {{events.events[i].id}}</div>
+            </mat-card-title>
+            <div fxLayoutAlign="end center">
+              <button mat-mini-fab color="warn" (click)="deleteEvent(events.events[i].id, i)"><mat-icon>delete</mat-icon></button>
+            </div>
+          </mat-card-header>
           <mat-card-content>
             <mat-tab-group class="profileSection" dynamicHeight>
               <mat-tab label="Event Info">

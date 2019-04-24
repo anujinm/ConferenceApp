@@ -1,5 +1,5 @@
 export interface EventModel {
-  eventId: number;
+  // eventId: number;
   eventName: string;
   eventTopic: string;
   eventOrganizer: string;
