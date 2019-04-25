@@ -2,7 +2,7 @@
   <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-between center">
     <div fxFlex="50">
       <a routerLink="/">Home</a>
-      <a routerLink="/assets/files/Agenda.pdf" target="_blank">Agenda</a>
+      <a href="{{eventAgenda}}" target="_blank">Agenda</a>
       <a href={{eventMap}} target="_blank">Map</a>
       <a routerLink="/speaker">Speakers</a>
       <a routerLink="/attendee">Attendees</a>
@@ -24,5 +24,3 @@
   <button mat-menu-item *ngIf="userIsAuthenticated && userLevel >= 7" routerLink="/admin">Admin</button>
   <button mat-menu-item *ngIf="userIsAuthenticated" (click)="logout()">Logout</button>
 </mat-menu>
-
-

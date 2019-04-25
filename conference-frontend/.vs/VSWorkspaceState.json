@@ -6,8 +6,9 @@
     "\\src\\app\\home",
     "\\src\\app\\navigation",
     "\\src\\app\\navigation\\sidenav-list",
-    "\\src\\app\\profile"
+    "\\src\\app\\profile",
+    "\\src\\environments"
   ],
-  "SelectedNode": "\\src\\app\\navigation\\sidenav-list\\sidenav-list.component.ts",
+  "SelectedNode": "\\src\\app\\home\\home.component.ts",
   "PreviewInSolutionExplorer": false
 }
