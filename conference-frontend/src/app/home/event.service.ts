@@ -14,7 +14,7 @@ export class HomeService {
     private http: HttpClient
   ) { }
 
-  getEventMap(id:string) {
+  getEventInfo(id:string) {
     return this.http.get<EventModel>(BACKEND_URL + '/event/' + id).toPromise();
   }
 }

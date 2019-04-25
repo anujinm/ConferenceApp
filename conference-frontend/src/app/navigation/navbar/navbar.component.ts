@@ -21,6 +21,7 @@ export class NavbarComponent implements OnInit {
   userIsAuthenticated = false;
   events;
   eventMap;
+  eventAgenda;
   eventId = '';
   profile: ProfileModel;
 
@@ -46,15 +47,17 @@ export class NavbarComponent implements OnInit {
         this.userLevel = level;
       });
 
+
     this.profileService.getMyProfile().then((profile) => {
       this.profile = profile;
       this.eventId = JSON.stringify(this.profile.eventId);
       console.log(this.profile.eventId);
 
-      this.eventService.getEventMap(this.eventId).then((res) => {
+      this.eventService.getEventInfo(this.eventId).then((res) => {
         this.events = res;
         console.log(this.events);
         this.eventMap = this.events.event.eventMap;
+        this.eventAgenda = this.events.event.eventAgenda;
       }).catch((err) => {
         console.log(err);
       });
