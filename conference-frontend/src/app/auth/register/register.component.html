@@ -7,8 +7,16 @@
       <input matInput placeholder="Email" formControlName="email" type="text">
       <!--<mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>-->
     </mat-form-field>
+
+
+
+
     <mat-form-field>
       <input matInput placeholder="Password" formControlName="password" type="password">
+      <!--<mat-error *ngIf="password.invalid">{{getPasswordErrorMessage()}}</mat-error>-->
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Confirm Password" formControlName="password" type="password">
       <!--<mat-error *ngIf="password.invalid">{{getPasswordErrorMessage()}}</mat-error>-->
     </mat-form-field>
     <button mat-raised-button [disabled]="accountInfo.invalid">Register</button>
