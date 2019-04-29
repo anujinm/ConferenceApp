@@ -89,6 +89,10 @@
                     <mat-list-item>Event Location:</mat-list-item>
                     <mat-list-item>Event Description:</mat-list-item>
                     <mat-list-item>Event Thumbnail:</mat-list-item>
+                    <mat-list-item>Thumbnail Preview:</mat-list-item>
+                    <mat-list-item></mat-list-item>
+                    <mat-list-item></mat-list-item>
+                    <mat-list-item></mat-list-item>
                     <mat-list-item>Event Agenda:</mat-list-item>
                     <mat-list-item>Event Map:</mat-list-item>
                   </div>
@@ -101,7 +105,19 @@
                       <mat-list-item><input type="text" formControlName="eventEndDate"> [mm/dd/year] Cannot be empty</mat-list-item>
                       <mat-list-item><input type="text" formControlName="eventLocation"></mat-list-item>
                       <mat-list-item><input type="text" formControlName="eventDescription"></mat-list-item>
-                      <mat-list-item><input type="text" formControlName="eventPicture"></mat-list-item>
+                      <!--<mat-list-item><input type="text" formControlName="eventPicture"></mat-list-item>-->
+                      <mat-list-item>
+                        <input [hidden]="true" #imageInput type="file" accept="image/*" (change)="processFile(imageInput)">
+                        <button mat-stroked-button (click)="imageInput.click()">Select File</button>
+                      </mat-list-item>
+                      <div fxLayoutAlign="center center" class="previewProfileImageContainer">
+                        <img *ngIf="eventPictureFile && eventPictureFile.src" [src]="eventPictureFile.src" title="Preview Image" class="previewProfileImage">
+                      </div>
+                      <div class="form-group">
+                        <mat-list-item>
+                          <input type="file" id="agenda" (change)="onAgendaFileChange($event)" #fileInput>
+                        </mat-list-item>
+                      </div>
                       <mat-list-item><input type="text" formControlName="eventAgenda"></mat-list-item>
                       <mat-list-item><input type="text" formControlName="eventMap"></mat-list-item>
                     </form>
@@ -151,6 +167,9 @@
                     <mat-list-item>{{events.events[i].eventLocation}}</mat-list-item>
                     <mat-list-item>{{events.events[i].eventDescription}}</mat-list-item>
                     <mat-list-item>{{events.events[i].eventPicture}}</mat-list-item>
+                    <mat-list-item>
+                      <img [src]="backendUrl + events.events[i].eventPicture" title="event pic">
+                    </mat-list-item>
                     <mat-list-item>{{events.events[i].eventAgenda}}</mat-list-item>
                     <mat-list-item>{{events.events[i].eventMap}}</mat-list-item>
                   </div>

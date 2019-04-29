@@ -25,6 +25,18 @@ export class EventService {
     console.log('hereee', body);
     return this.http.post<EventModel>(BACKEND_URL + '/event', body).toPromise();
   }
+  uploadEventPicture(image: File) {
+    const formData = new FormData();
+    formData.append('image', image);
+    console.log(formData);
+    return this.http.put(BACKEND_URL + '/event/eventPic', formData).toPromise();
+  }
+  uploadEventAgenda(agenda: File) {
+    const formData = new FormData();
+    formData.append('agenda', agenda);
+    console.log(formData);
+    return this.http.put(BACKEND_URL + '/event/eventPic', formData).toPromise();
+  }
   removeEvent(id: string) {
     return this.http.delete<EventModel>(BACKEND_URL + '/event/' + id).toPromise();
   }

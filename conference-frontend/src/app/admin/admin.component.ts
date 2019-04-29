@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import {AdminService} from './admin.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {environment} from '../../environments/environment';
-// import {ImageSnippet} from '../event/event.model';
 import {EventService} from './../event/event.service';
 import {EventModel} from './../event/event.model';
 import {MatSnackBar} from '@angular/material';
+import {ImageSnippet} from './../event/event.model';
 // import {stringify} from "querystring";
 @Component({
   selector: 'app-admin',
@@ -21,6 +21,13 @@ export class AdminComponent implements OnInit {
   userOptions = 'profile';
   eventInfoForm: FormGroup;
   isAddNewEvent = false;
+  eventPictureFile: ImageSnippet;
+  eventPictureFileString;
+  // isUploadButtonDisabled = true;
+  isAgendaUploaded = false;
+  uploadedAgenda;
+  id: number;
+  agenda: string|any;
   private snackBar: MatSnackBar;
   // wideScreen: ' .wideScreen { width: 70vw;}';
 
@@ -32,6 +39,27 @@ export class AdminComponent implements OnInit {
   navigateProfile(options: string) {
     this.userOptions = options;
   }
+  processFile(imageInput: any) {
+    const file: File = imageInput.files[0];
+    console.log(file, 'event image');
+    const reader = new FileReader();
+    this.eventPictureFileString = file;
+    reader.onload = ((event: any) => {
+        this.eventPictureFile = new ImageSnippet(event.target.result, file);
+        this.eventPictureFile.pending = true;
+        // this.isUploadButtonDisabled = false;
+      }
+    );
+    reader.readAsDataURL(file);
+  }
+  onAgendaFileChange(event) {
+    const reader = new FileReader();
+    if (event.target.files && event.target.files.length > 0) {
+      const file = event.target.files[0];
+      console.log(file, file.valueOf());
+      this.uploadedAgenda = file;
+    }
+  }
   addEventModal() {
     this.isAddNewEvent = true;
   }
@@ -40,6 +68,7 @@ export class AdminComponent implements OnInit {
   }
   addNewEvent() {
     const e_info = this.eventInfoForm.value;
+    // need to figure out how to add the picture to the local db
     const event: EventModel = {
       eventName:  e_info['eventName'],
       eventTopic: e_info['eventTopic'],
@@ -47,18 +76,20 @@ export class AdminComponent implements OnInit {
       eventStartDate: e_info['eventStartDate'],
       eventEndDate: e_info['eventEndDate'],
       eventDescription: e_info['eventDescription'],
-      eventAgenda: e_info['eventAgenda'],
+      eventAgenda: this.uploadedAgenda.name,
       eventMap: e_info['eventMap'],
-      eventPicture: e_info['eventPicture'],
+      eventPicture: this.eventPictureFileString.lastModified + '-' + this.eventPictureFileString.name,
       eventLocation: e_info['eventLocation'],
     };
     this.eventService.createEvent(event).then((res) => {
       this.isAddNewEvent = false;
-      if (res['message'] === 'Event created') {
-        this.snackBar.open('Event Created!', 'Done', {
-          duration: 3000
-        });
-      }
+      console.log('event created');
+      // this is getting empty and sending empty string to the db
+      // this.eventService.uploadEventPicture(this.eventPictureFile.file).then((res) => {
+      //   console.log('picture uploaded' + this.eventPictureFile + this.eventPictureFile.file);
+      // }).catch((err) => {
+      //   console.log(err);
+      // });
     }).catch((err) => {
       console.log(err);
     });
