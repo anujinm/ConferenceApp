@@ -1,11 +1,12 @@
 // import {BadgeModel} from '../badges/badges.model';
 
 export interface SpeakerModel {
-  id: number;
+  // id: number;
   eventId: number;
   speakerName: string;
   speakerTopic: string;
   speakerPicture: string;
+  speakerAdditionalPicture: string;
   speakerBio: string;
   speakerSlides: string;
 }
