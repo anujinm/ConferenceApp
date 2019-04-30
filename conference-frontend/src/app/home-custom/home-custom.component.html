@@ -1,0 +1,55 @@
+<div fxLayout="column" class="Home">
+  <app-slideshow></app-slideshow>
+  <h1>
+    Whitworth Conferences:
+  </h1>
+  <!--<img src="../../assets/images/whitworth-logo-vertical-rgb.png" alt="topic" class=" Logo">-->
+
+  <mat-card class="conferenceCard">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{events.event.eventName}}</mat-card-title>
+      <mat-card-subtitle>{{events.event.eventOrganizer}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <h4 class="headline">Overview: </h4>
+      <p>
+        Event dates: {{events.event.eventStartDate}} - {{events.event.eventEndDate}}
+      </p>
+
+      <p>
+        {{events.event.eventLocation}}
+      </p>
+
+      <p>
+        {{events.event.eventDescription}}
+      </p>
+
+      <div fxLayoutAlign="start center">
+        <img [src]="backendUrl + events.event.eventPicture" title="Event pic">
+      </div>
+
+
+      <div fxLayout="row" fxLayoutAlign="start center" class="eventLink">
+        <h4>
+          Map:&nbsp;
+        </h4>
+        <a href="{{events.event.eventMap}}" target="_blank">
+          {{events.event.eventMap}}
+        </a>
+      </div>
+
+
+      <div fxLayout="row" fxLayoutAlign="start center" class="eventLink">
+        <h4>
+          Agenda:&nbsp;
+        </h4>
+        <a href="{{events.event.eventAgenda}}" target="_blank">
+          {{events.event.eventAgenda}}
+        </a>
+      </div>
+
+
+    </mat-card-content>
+  </mat-card>
+</div>

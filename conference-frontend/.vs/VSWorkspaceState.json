@@ -3,12 +3,11 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\home",
     "\\src\\app\\navigation",
-    "\\src\\app\\navigation\\sidenav-list",
-    "\\src\\app\\profile",
+    "\\src\\app\\navigation\\navbar",
+    "\\src\\app\\spokane-info",
     "\\src\\environments"
   ],
-  "SelectedNode": "\\src\\app\\home\\home.component.ts",
+  "SelectedNode": "\\src\\app\\navigation\\navbar\\navbar.component.html",
   "PreviewInSolutionExplorer": false
 }

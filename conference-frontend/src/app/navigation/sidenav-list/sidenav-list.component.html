@@ -23,6 +23,10 @@
     <a routerLink="/attendee">Attendees</a>
   </button>
 
+  <button mat-menu-item>
+    <a routerLink="/spokane">Activites </a>
+  </button>
+
   <mat-menu #profileMenu="matMenu">
     <button mat-menu-item *ngIf="!userIsAuthenticated" routerLink="/auth/register">Register</button>
     <button mat-menu-item *ngIf="!userIsAuthenticated" routerLink="/auth/login">Login</button>

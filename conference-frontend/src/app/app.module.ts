@@ -23,6 +23,7 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
 import { AttendeeComponent } from './attendee/attendee.component';
 import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
 import { SpokaneInfoComponent } from './spokane-info/spokane-info.component';
+import { HomeCustomComponent } from './home-custom/home-custom.component';
 
 
 // import { ProfileComponent } from './profile/profile.component';
@@ -41,7 +42,8 @@ import { SpokaneInfoComponent } from './spokane-info/spokane-info.component';
     SlideshowComponent,
     AttendeeComponent,
     SidenavListComponent,
-    SpokaneInfoComponent
+    SpokaneInfoComponent,
+    HomeCustomComponent
     // ProfileComponent
   ],
   imports: [
