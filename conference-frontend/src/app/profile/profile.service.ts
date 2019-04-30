@@ -35,6 +35,7 @@ export class ProfileService {
   changeProfilePicture(image: File) {
     const formData = new FormData();
     formData.append('image', image);
+    console.log(formData);
     return this.http.put(BACKEND_URL + '/profilePic', formData).toPromise();
   }
 

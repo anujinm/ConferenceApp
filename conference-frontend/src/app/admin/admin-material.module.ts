@@ -12,6 +12,7 @@ import {
   MatSelectModule,
   MatTableModule,
   MatTabsModule,
+  MatIconModule
 } from '@angular/material';
 import {NgModule} from '@angular/core';
 
@@ -30,7 +31,8 @@ import {NgModule} from '@angular/core';
     MatTabsModule,
     MatTableModule,
     MatProgressSpinnerModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatIconModule
   ],
 })
 

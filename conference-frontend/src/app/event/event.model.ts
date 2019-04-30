@@ -1,5 +1,5 @@
 export interface EventModel {
-  eventId: number;
+  // eventId: number;
   eventName: string;
   eventTopic: string;
   eventOrganizer: string;
@@ -12,3 +12,10 @@ export interface EventModel {
   eventLocation: string;
 }
 
+export class ImageSnippet {
+  pending = false;
+  status = 'init';
+  constructor(public src: string, public file: File) {
+
+  }
+}

@@ -67,7 +67,7 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnDestroy(){
-        this.authStateListenerSubs.unsubscribe();
+    this.authStateListenerSubs.unsubscribe();
     this.authLevelListenerSubs.unsubscribe();
   }
 }

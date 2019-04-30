@@ -2,10 +2,10 @@
   <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-between center">
     <div fxFlex="50">
       <a routerLink="/">Home</a>
-      <a href="{{eventAgenda}}" target="_blank">Agenda</a>
-      <a href={{eventMap}} target="_blank">Map</a>
-      <a routerLink="/speaker">Speakers</a>
-      <a routerLink="/attendee">Attendees</a>
+      <a *ngIf="userIsAuthenticated" href="{{eventAgenda}}" target="_blank">Agenda</a>
+      <a *ngIf="userIsAuthenticated" href="{{eventMap}}" target="_blank">Map</a>
+      <a *ngIf="userIsAuthenticated" routerLink="/speaker">Speakers</a>
+      <a *ngIf="userIsAuthenticated" routerLink="/attendee" >Attendees</a>
     </div>
 
     <div fxFlex="30" fxLayoutAlign="flex-end center">
