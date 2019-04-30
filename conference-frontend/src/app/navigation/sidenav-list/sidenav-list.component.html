@@ -8,19 +8,19 @@
   </button>
 
   <button mat-menu-item  class="options">
-    <a href={{eventAgenda}} target="_blank">Agenda</a>
+    <a *ngIf="userIsAuthenticated" href={{eventAgenda}} target="_blank">Agenda</a>
   </button>
 
   <button mat-menu-item>
-    <a href={{eventMap}} target="_blank">Map</a>
+    <a *ngIf="userIsAuthenticated" href={{eventMap}} target="_blank">Map</a>
   </button>
 
   <button mat-menu-item>
-    <a routerLink="/speaker">Speakers</a>
+    <a *ngIf="userIsAuthenticated" routerLink="/speaker">Speakers</a>
   </button>
 
   <button mat-menu-item>
-    <a routerLink="/attendee">Attendees</a>
+    <a *ngIf="userIsAuthenticated" routerLink="/attendee">Attendees</a>
   </button>
 
   <mat-menu #profileMenu="matMenu">
