@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import {AdminService} from './admin.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {environment} from '../../environments/environment';
-import {EventService} from './../event/event.service';
-import {EventModel} from './../event/event.model';
+import {EventService} from '../event/event.service';
+import {EventModel} from '../event/event.model';
 import {MatSnackBar} from '@angular/material';
-import {ImageSnippet} from './../event/event.model';
+import {ImageSnippet} from '../event/event.model';
+import {SpeakerModel} from '../speaker/speaker.model';
 // import {stringify} from "querystring";
 @Component({
   selector: 'app-admin',
@@ -16,15 +17,18 @@ import {ImageSnippet} from './../event/event.model';
 export class AdminComponent implements OnInit {
   backendUrl = environment.backendUrl;
   eventCount;
+  speakerCount;
   count = 0;
+  scount = 0;
   events;
+  speakers;
   userOptions = 'profile';
   eventInfoForm: FormGroup;
+  speakerInfoForm: FormGroup;
   isAddNewEvent = false;
+  isAddNewSpeaker = false;
   eventPictureFile: ImageSnippet;
   eventPictureFileString;
-  // isUploadButtonDisabled = true;
-  isAgendaUploaded = false;
   uploadedAgenda;
   id: number;
   agenda: string|any;
@@ -63,8 +67,33 @@ export class AdminComponent implements OnInit {
   addEventModal() {
     this.isAddNewEvent = true;
   }
+  addSpeakerModal() {
+    this.isAddNewSpeaker = true;
+  }
   cancelAddingEvent() {
     this.isAddNewEvent = false;
+  }
+  cancelAddingSpeaker() {
+    this.isAddNewSpeaker = false;
+  }
+  addNewSpeaker() {
+    const s_info = this.speakerInfoForm.value;
+    const speaker: SpeakerModel = {
+      // id: 0,
+      eventId: s_info['eventId'],
+      speakerName: s_info['speakerName'],
+      speakerTopic: s_info['speakerTopic'],
+      speakerPicture: s_info['speakerPicture'],
+      speakerAdditionalPicture: s_info['speakerAdditionalPicture'],
+      speakerBio: s_info['speakerBio'],
+      speakerSlides: s_info['speakerSlides']
+    };
+    this.eventService.createSpeaker(speaker).then((res) => {
+      this.isAddNewSpeaker = false;
+      console.log('speaker created');
+    }).catch((err) => {
+      console.log(err);
+    })
   }
   addNewEvent() {
     const e_info = this.eventInfoForm.value;
@@ -151,9 +180,64 @@ export class AdminComponent implements OnInit {
       console.log(err);
     });
   }
+  updateSpeakerInfo(id: number, index: number) {
+    const s_info = this.speakerInfoForm.value;
+    if (s_info['eventId'] === '') {
+      s_info['eventId'] = this.speakers.speaker[index].eventId;
+    }
+    if (s_info['speakerName'] === '') {
+      s_info['speakerName'] = this.speakers.speaker[index].speakerName;
+    }
+    if (s_info['speakerTopic'] === '') {
+      s_info['speakerTopic'] = this.speakers.speaker[index].speakerTopic;
+    }
+    if (s_info['speakerPicture'] === '') {
+      s_info['speakerPicture'] = this.speakers.speaker[index].speakerPicture;
+    }
+    if (s_info['speakerAdditionalPicture'] === '') {
+      s_info['speakerAdditionalPicture'] = this.speakers.speaker[index].speakerAdditionalPicture;
+    }
+    if (s_info['speakerBio'] === '') {
+      s_info['speakerBio'] = this.speakers.speaker[index].speakerBio;
+    }
+    if (s_info['speakerSlides'] === '') {
+      s_info['speakerSlides'] = this.speakers.speaker[index].speakerSlides;
+    }
+
+    const body = {
+      // id: 0,
+      eventId: s_info['eventId'],
+      speakerName: s_info['speakerName'],
+      speakerTopic: s_info['speakerTopic'],
+      speakerPicture: s_info['speakerPicture'],
+      speakerAdditionalPicture: s_info['speakerAdditionalPicture'],
+      speakerBio: s_info['speakerBio'],
+      speakerSlides: s_info['speakerSlides']
+    };
+    this.eventService.updateSpeaker(JSON.stringify(id), body).then((res) => {
+      window.location.reload();
+    }).catch((err) => {
+      console.log(err);
+    });
+  }
   deleteEvent(id: number, index: number) {
     this.eventService.removeEvent(JSON.stringify(id)).then((res) => {
       window.location.reload();
+    }).catch((err) => {
+      console.log(err);
+    });
+  }
+  deleteSpeaker(id: number, index: number) {
+    this.eventService.removeSpeaker(JSON.stringify(id)).then((res) => {
+      window.location.reload();
+    }).catch((err) => {
+      console.log(err);
+    });
+  }
+  unregisterAll(eventId: number) {
+    const body = '';
+    this.eventService.unregisterAllUsers(JSON.stringify(eventId)).then((res) => {
+      console.log('unregistered all users');
     }).catch((err) => {
       console.log(err);
     });
@@ -171,6 +255,15 @@ export class AdminComponent implements OnInit {
     }).catch( (err) => {
       console.log(err);
     });
+    this.eventService.getAllSpeakers().then((res)  => {
+      this.speakers =  res;
+      console.log(this.speakers);
+      this.scount = Object.keys(this.speakers.speaker).length;
+      // @ts-ignore
+      this.speakerCount = Array(this.scount).fill().map((x,j) => j);
+    }).catch((err) => {
+      console.log(err);
+    });
 
     this.eventInfoForm = this.fb.group({
       eventName: ['', [Validators.required]],
@@ -183,6 +276,15 @@ export class AdminComponent implements OnInit {
       eventDescription: ['', [Validators.required]],
       eventAgenda: ['', [Validators.required]],
       eventMap: ['', [Validators.required]]
+    });
+    this.speakerInfoForm =  this.fb.group({
+      eventId: ['', [Validators.required]],
+      speakerName: ['', [Validators.required]],
+      speakerTopic: ['', [Validators.required]],
+      speakerPicture: ['', [Validators.required]],
+      speakerAdditionalPicture: ['', [Validators.required]],
+      speakerBio: ['', [Validators.required]],
+      speakerSlides: ['', [Validators.required]]
     });
   }
 

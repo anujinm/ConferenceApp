@@ -78,7 +78,7 @@
           <mat-card-header>Add New Event</mat-card-header>
           <mat-card-content>
             <mat-tab-group class="profileSection" dynamicHeight>
-              <mat-tab label="Update Info">
+              <mat-tab label="Add Event Info">
                 <mat-list fxLayout="row">
                   <div fxFlex="20">
                     <mat-list-item>Event Name:</mat-list-item>
@@ -138,7 +138,8 @@
             <mat-card-title fxLayoutAlign="start center">
               <div fxLayoutAlign="start center">Event #{{i}} Id: {{events.events[i].id}}</div>
             </mat-card-title>
-            <div fxLayoutAlign="end center">
+            <div fxLayoutAlign="end center" class="eventTopButtons">
+              <button mat-raised-button (click)="unregisterAll(events.events[i].id)">Unregister all users</button>
               <button mat-mini-fab color="warn" (click)="deleteEvent(events.events[i].id, i)"><mat-icon>delete</mat-icon></button>
             </div>
           </mat-card-header>
@@ -215,61 +216,112 @@
     </div>
 
     <div *ngSwitchCase="'speaker'">
-      <mat-card ngClass="wideScreen" [ngClass.lt-lg]="{'wideScreen':false}">
-        <mat-card-header>Speaker #1</mat-card-header>
-        <mat-card-content>
-          <mat-tab-group class="profileSection" dynamicHeight>
-            <mat-tab label="Speaker Info">
-              <mat-list fxLayout="row" fxLayoutAlign="space-between center">
-                <div>
-                  <mat-list-item>Name:</mat-list-item>
-                  <mat-list-item>Topic:</mat-list-item>
-                  <mat-list-item>Profile Picture:</mat-list-item>
-                  <mat-list-item>Additional Picture:</mat-list-item>
-                  <mat-list-item>Description:</mat-list-item>
-                  <mat-list-item>Slides:</mat-list-item>
+      <div class="addButton">
+        <button mat-raised-button (click)="addSpeakerModal()"><i class="material-icons">add</i>Add Speaker</button>
+      </div>
+      <div *ngIf="isAddNewSpeaker">
+        <mat-card>
+          <mat-card-header>Add New Speaker</mat-card-header>
+          <mat-card-content>
+            <mat-tab-group class="profileSection" dynamicHeight>
+              <mat-tab label="Add Speaker">
+                <mat-list fxLayout="row">
+                  <div fxFlex="20">
+                    <mat-list-item>Event ID:</mat-list-item>
+                    <mat-list-item>Name:</mat-list-item>
+                    <mat-list-item>Topic:</mat-list-item>
+                    <mat-list-item>Profile Picture:</mat-list-item>
+                    <mat-list-item>Additional Picture:</mat-list-item>
+                    <mat-list-item>Description:</mat-list-item>
+                    <mat-list-item>Slides:</mat-list-item>
+                  </div>
+                  <div fxFlex>
+                    <form [formGroup]="speakerInfoForm" #updateSpeakerInfoForm="ngForm">
+                      <mat-list-item><input type="text" formControlName="eventId"></mat-list-item>
+                      <mat-list-item><input type="text" formControlName="speakerName"></mat-list-item>
+                      <mat-list-item><input type="text" formControlName="speakerTopic"></mat-list-item>
+                      <mat-list-item><input type="text" formControlName="speakerPicture"></mat-list-item>
+                      <mat-list-item><input type="text" formControlName="speakerAdditionalPicture"></mat-list-item>
+                      <mat-list-item><input type="text" formControlName="speakerBio"></mat-list-item>
+                      <mat-list-item><input type="text" formControlName="speakerSlides"></mat-list-item>
+                    </form>
+                  </div>
+                </mat-list>
+                <div fxLayoutAlign="end center" class="updateInfo">
+                  <button mat-raised-button (click)="addNewSpeaker()">Add Speaker</button>
+                  <button mat-raised-button color="warn" (click)="cancelAddingSpeaker()">Cancel</button>
                 </div>
-                <div>
-                  <mat-list-item>Speaker #1</mat-list-item>
-                  <mat-list-item>Educatoin</mat-list-item>
-                  <mat-list-item>image</mat-list-item>
-                  <mat-list-item>image</mat-list-item>
-                  <mat-list-item>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Consequatur debitis deleniti ducimus et fugit illo porro praesentium
-                    quisquam, repellat reprehenderit!</mat-list-item>
-                  <mat-list-item>Link for the slides</mat-list-item>
+              </mat-tab>
+            </mat-tab-group>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div *ngFor="let i of speakerCount">
+        <mat-card ngClass="wideScreen" [ngClass.lt-lg]="{'wideScreen':false}">
+          <mat-card-header fxLayout="row" fxLayoutAlign="space-between center">
+            <mat-card-title fxLayoutAlign="start center">
+              <div fxLayoutAlign="start center">Speaker #{{i}} Id: {{speakers.speaker[i].id}}</div>
+            </mat-card-title>
+            <div fxLayoutAlign="end center">
+              <button mat-mini-fab color="warn" (click)="deleteSpeaker(speakers.speaker[i].id, i)"><mat-icon>delete</mat-icon></button>
+            </div>
+          </mat-card-header>
+          <mat-card-content>
+            <mat-tab-group class="profileSection" dynamicHeight>
+              <mat-tab label="Speaker Info">
+                <mat-list fxLayout="row">
+                  <div fxFlex="20">
+                    <mat-list-item>Event ID:</mat-list-item>
+                    <mat-list-item>Name:</mat-list-item>
+                    <mat-list-item>Topic:</mat-list-item>
+                    <mat-list-item>Profile Picture:</mat-list-item>
+                    <mat-list-item>Additional Picture:</mat-list-item>
+                    <mat-list-item>Description:</mat-list-item>
+                    <mat-list-item>Slides:</mat-list-item>
+                  </div>
+                  <div fxFlex>
+                    <mat-list-item>{{speakers.speaker[i].eventId}}</mat-list-item>
+                    <mat-list-item>{{speakers.speaker[i].speakerName}}</mat-list-item>
+                    <mat-list-item>{{speakers.speaker[i].speakerTopic}}</mat-list-item>
+                    <mat-list-item>{{speakers.speaker[i].speakerPicture}}</mat-list-item>
+                    <mat-list-item>{{speakers.speaker[i].speakerAdditionalPicture}}</mat-list-item>
+                    <mat-list-item>{{speakers.speaker[i].speakerBio}}</mat-list-item>
+                    <mat-list-item>{{speakers.speaker[i].speakerSlides}}</mat-list-item>
+                  </div>
+                </mat-list>
+              </mat-tab>
+              <mat-tab label="Update Speaker">
+                <mat-list fxLayout="row">
+                  <div fxFlex="20">
+                    <mat-list-item>ID:</mat-list-item>
+                    <mat-list-item>Name:</mat-list-item>
+                    <mat-list-item>Topic:</mat-list-item>
+                    <mat-list-item>Profile Picture:</mat-list-item>
+                    <mat-list-item>Additional Picture:</mat-list-item>
+                    <mat-list-item>Description:</mat-list-item>
+                    <mat-list-item>Slides:</mat-list-item>
+                  </div>
+                  <div fxFlex>
+                    <form [formGroup]="speakerInfoForm" #updateSpeakerInfoForm="ngForm">
+                      <mat-list-item><input type="text" value="{{speakers.speaker[i].eventId}}" formControlName="eventId"></mat-list-item>
+                      <mat-list-item><input type="text" value="{{speakers.speaker[i].speakerName}}" formControlName="speakerName"></mat-list-item>
+                      <mat-list-item><input type="text" value="{{speakers.speaker[i].speakerTopic}}"  formControlName="speakerTopic"></mat-list-item>
+                      <mat-list-item><input type="text" value="{{speakers.speaker[i].speakerPicture}}"  formControlName="speakerPicture"></mat-list-item>
+                      <mat-list-item><input type="text" value="{{speakers.speaker[i].speakerAdditionalPicture}}" formControlName="speakerAdditionalPicture"></mat-list-item>
+                      <mat-list-item><input type="text" value="{{speakers.speaker[i].speakerBio}}" formControlName="speakerBio"></mat-list-item>
+                      <mat-list-item><input type="text" value="{{speakers.speaker[i].speakerSlides}}" formControlName="speakerSlides"></mat-list-item>
+                    </form>
+                    </div>
+                </mat-list>
+                <div fxLayoutAlign="end center" class="updateInfo">
+                  <button mat-raised-button (click)="updateSpeakerInfo(speakers.speaker[i].id, i)">Update Info</button>
                 </div>
-              </mat-list>
-              <div fxLayoutAlign="end center" class="updateInfo">
-                <button mat-raised-button>Edit</button>
-              </div>
-            </mat-tab>
-            <mat-tab label="Add Speaker">
-              <mat-list fxLayout="row">
-                <div>
-                  <mat-list-item>Name:</mat-list-item>
-                  <mat-list-item>Topic:</mat-list-item>
-                  <mat-list-item>Profile Picture:</mat-list-item>
-                  <mat-list-item>Additional Picture:</mat-list-item>
-                  <mat-list-item>Description:</mat-list-item>
-                  <mat-list-item>Slides:</mat-list-item>
-                </div>
-                <div>
-                  <mat-list-item><input type="text"></mat-list-item>
-                  <mat-list-item><input type="text"></mat-list-item>
-                  <mat-list-item><input type="text"></mat-list-item>
-                  <mat-list-item><input type="text"></mat-list-item>
-                  <mat-list-item><input type="text"></mat-list-item>
-                  <mat-list-item><input type="text"></mat-list-item>
-                </div>
-              </mat-list>
-              <div fxLayoutAlign="end center" class="updateInfo">
-                <button mat-raised-button>Update</button>
-              </div>
-            </mat-tab>
-          </mat-tab-group>
-        </mat-card-content>
-      </mat-card>
+              </mat-tab>
+            </mat-tab-group>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
     </div>
 
     <div *ngSwitchCase="'updatePassword'">
