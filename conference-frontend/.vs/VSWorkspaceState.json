@@ -3,13 +3,20 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\home",
     "\\src\\app\\navigation",
+<<<<<<< HEAD
     "\\src\\app\\navigation\\sidenav-list",
     "\\src\\app\\profile",
     "\\src\\app\\shared",
     "\\src\\environments"
   ],
   "SelectedNode": "\\src\\app\\shared\\confirm-equal-validator.directive.ts",
+=======
+    "\\src\\app\\navigation\\navbar",
+    "\\src\\app\\spokane-info",
+    "\\src\\environments"
+  ],
+  "SelectedNode": "\\src\\app\\navigation\\navbar\\navbar.component.html",
+>>>>>>> 52541e1fc3b2e0e6582c7079cc20f7a4e1d5aade
   "PreviewInSolutionExplorer": false
 }

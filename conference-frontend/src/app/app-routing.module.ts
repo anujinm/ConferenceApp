@@ -7,6 +7,7 @@ import {SpeakerComponent} from './speaker/speaker.component';
 import { AttendeeComponent } from './attendee/attendee.component';
 import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
 import { SpokaneInfoComponent } from './spokane-info/spokane-info.component';
+import { HomeCustomComponent } from './home-custom/home-custom.component';
 // import {AdminComponent} from './admin/admin.component';
 // import {ProfileComponent} from './profile/profile.component';
 
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'spokane', component: SpokaneInfoComponent },
   { path: 'admin', loadChildren: './admin/admin.module#AdminModule', canActivate: [AuthGuard], data: { level: 7 } },
   { path: 'sidenav', component: SidenavListComponent },
+  { path: 'homeCustom', component: HomeCustomComponent},
   { path: '**', redirectTo: '' },
 ];
 
