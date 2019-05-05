@@ -4,10 +4,11 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\navigation",
-    "\\src\\app\\navigation\\navbar",
-    "\\src\\app\\spokane-info",
+    "\\src\\app\\navigation\\sidenav-list",
+    "\\src\\app\\profile",
+    "\\src\\app\\shared",
     "\\src\\environments"
   ],
-  "SelectedNode": "\\src\\app\\navigation\\navbar\\navbar.component.html",
+  "SelectedNode": "\\src\\app\\shared\\confirm-equal-validator.directive.ts",
   "PreviewInSolutionExplorer": false
 }

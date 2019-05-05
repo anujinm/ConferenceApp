@@ -4,112 +4,54 @@
     Whitworth Conferences:
   </h1>
   <!--<img src="../../assets/images/whitworth-logo-vertical-rgb.png" alt="topic" class=" Logo">-->
+  <div *ngFor="let i of eventCount">
+    <mat-card class="conferenceCard">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{events2.events[i].eventName}}</mat-card-title>
+        <mat-card-subtitle>{{events2.events[i].eventOrganizer}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <h4 class="headline">Overview: </h4>
+        <p>
+          Event dates: {{events2.events[i].eventStartDate}} - {{events2.events[i].eventEndDate}}
+        </p>
 
-  <mat-card class="conferenceCard">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>Conference #1</mat-card-title>
-      <mat-card-subtitle>Whitworth University</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-      <h4 class="headline">Overview: </h4>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium
-        asperiores commodi consectetur debitis deserunt dicta dolore esse exercitationem
-        ipsum laborum maxime molestiae nam, neque nostrum omnis pariatur praesentium quaerat
-        quis ratione sint sit soluta vel voluptate. Assumenda aut dicta ex in iure minus natus,
-        necessitatibus provident? Adipisci dignissimos doloremque excepturi iste nam perspiciatis
-        sapiente. Animi dolorum eaque earum eligendi ex illum ipsam laudantium magni nobis perferendis
-        provident, ut vel. Architecto atque aut autem dolore doloremque eius eligendi est eum, excepturi
-        expedita id laboriosam laborum molestiae natus pariatur perferendis porro praesentium quas ration
-        e recusandae repellendus sequi sint? Alias eius, maiores? Accusamus exercitationem possimus
-        provident quaerat quibusdam sequi tempore voluptatibus? Accusamus accusantium, consequatur.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium
-        asperiores commodi consectetur debitis deserunt dicta dolore esse exercitationem
-        ipsum laborum maxime molestiae nam, neque nostrum omnis pariatur praesentium quaerat
-        quis ratione sint sit soluta vel voluptate. Assumenda aut dicta ex in iure minus natus,
-        necessitatibus provident? Adipisci dignissimos doloremque excepturi iste nam perspiciatis
-        sapiente. Animi dolorum eaque earum eligendi ex illum ipsam laudantium magni nobis perferendis
-        provident, ut vel. Architecto atque aut autem dolore doloremque eius eligendi est eum, excepturi
-        expedita id laboriosam laborum molestiae natus pariatur perferendis porro praesentium quas ration
-        e recusandae repellendus sequi sint? Alias eius, maiores? Accusamus exercitationem possimus
-        provident quaerat quibusdam sequi tempore voluptatibus? Accusamus accusantium, consequatur.
-      </p>
-      <button mat-raised-button color="primary">Register</button>
-    </mat-card-content>
-  </mat-card>
+        <p>
+          {{events2.events[i].eventLocation}}
+        </p>
 
-  <mat-card class="conferenceCard">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>Conference #2</mat-card-title>
-      <mat-card-subtitle>Whitworth University</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-      <h4 class="headline">Overview: </h4>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium
-        asperiores commodi consectetur debitis deserunt dicta dolore esse exercitationem
-        ipsum laborum maxime molestiae nam, neque nostrum omnis pariatur praesentium quaerat
-        quis ratione sint sit soluta vel voluptate. Assumenda aut dicta ex in iure minus natus,
-        necessitatibus provident? Adipisci dignissimos doloremque excepturi iste nam perspiciatis
-        sapiente. Animi dolorum eaque earum eligendi ex illum ipsam laudantium magni nobis perferendis
-        provident, ut vel. Architecto atque aut autem dolore doloremque eius eligendi est eum, excepturi
-        expedita id laboriosam laborum molestiae natus pariatur perferendis porro praesentium quas ration
-        e recusandae repellendus sequi sint? Alias eius, maiores? Accusamus exercitationem possimus
-        provident quaerat quibusdam sequi tempore voluptatibus? Accusamus accusantium, consequatur.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium
-        asperiores commodi consectetur debitis deserunt dicta dolore esse exercitationem
-        ipsum laborum maxime molestiae nam, neque nostrum omnis pariatur praesentium quaerat
-        quis ratione sint sit soluta vel voluptate. Assumenda aut dicta ex in iure minus natus,
-        necessitatibus provident? Adipisci dignissimos doloremque excepturi iste nam perspiciatis
-        sapiente. Animi dolorum eaque earum eligendi ex illum ipsam laudantium magni nobis perferendis
-        provident, ut vel. Architecto atque aut autem dolore doloremque eius eligendi est eum, excepturi
-        expedita id laboriosam laborum molestiae natus pariatur perferendis porro praesentium quas ration
-        e recusandae repellendus sequi sint? Alias eius, maiores? Accusamus exercitationem possimus
-        provident quaerat quibusdam sequi tempore voluptatibus? Accusamus accusantium, consequatur.
-      </p>
-      <button mat-raised-button color="primary">Register</button>
-    </mat-card-content>
-  </mat-card>
+        <p>
+          {{events2.events[i].eventDescription}}
+        </p>
 
-  <mat-card class="conferenceCard">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>Conference #3</mat-card-title>
-      <mat-card-subtitle>Whitworth University</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-      <h4 class="headline">Overview: </h4>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium
-        asperiores commodi consectetur debitis deserunt dicta dolore esse exercitationem
-        ipsum laborum maxime molestiae nam, neque nostrum omnis pariatur praesentium quaerat
-        quis ratione sint sit soluta vel voluptate. Assumenda aut dicta ex in iure minus natus,
-        necessitatibus provident? Adipisci dignissimos doloremque excepturi iste nam perspiciatis
-        sapiente. Animi dolorum eaque earum eligendi ex illum ipsam laudantium magni nobis perferendis
-        provident, ut vel. Architecto atque aut autem dolore doloremque eius eligendi est eum, excepturi
-        expedita id laboriosam laborum molestiae natus pariatur perferendis porro praesentium quas ration
-        e recusandae repellendus sequi sint? Alias eius, maiores? Accusamus exercitationem possimus
-        provident quaerat quibusdam sequi tempore voluptatibus? Accusamus accusantium, consequatur.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium
-        asperiores commodi consectetur debitis deserunt dicta dolore esse exercitationem
-        ipsum laborum maxime molestiae nam, neque nostrum omnis pariatur praesentium quaerat
-        quis ratione sint sit soluta vel voluptate. Assumenda aut dicta ex in iure minus natus,
-        necessitatibus provident? Adipisci dignissimos doloremque excepturi iste nam perspiciatis
-        sapiente. Animi dolorum eaque earum eligendi ex illum ipsam laudantium magni nobis perferendis
-        provident, ut vel. Architecto atque aut autem dolore doloremque eius eligendi est eum, excepturi
-        expedita id laboriosam laborum molestiae natus pariatur perferendis porro praesentium quas ration
-        e recusandae repellendus sequi sint? Alias eius, maiores? Accusamus exercitationem possimus
-        provident quaerat quibusdam sequi tempore voluptatibus? Accusamus accusantium, consequatur.
-      </p>
-      <button mat-raised-button color="primary">Register</button>
-    </mat-card-content>
-  </mat-card>
-</div>
+        <div fxLayoutAlign="start center">
+          <img [src]="backendUrl + events2.events[i].eventPicture" title="Event pic">
+        </div>
+
+
+        <div fxLayout="row" fxLayoutAlign="start center" class="eventLink">
+          <h4>
+            Map:&nbsp;
+          </h4>
+          <a href="{{events2.events[i].eventMap}}" target="_blank">
+            {{events2.events[i].eventMap}}
+          </a>
+        </div>
+
+
+        <div fxLayout="row" fxLayoutAlign="start center" class="eventLink">
+          <h4>
+            Agenda:&nbsp;
+          </h4>
+          <a href="{{events2.events[i].eventAgenda}}" target="_blank">
+            {{events2.events[i].eventAgenda}}
+          </a>
+        </div>
+
+        <button mat-raised-button color="primary" (click)="registerForEvent(events2.events[i].id)">Register</button>
+
+      </mat-card-content>
+    </mat-card>
+   </div>
+  </div>

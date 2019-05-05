@@ -39,4 +39,8 @@ export class ProfileService {
     return this.http.put(BACKEND_URL + '/profilePic', formData).toPromise();
   }
 
+  registerUserForEvent(eventId: string) {
+    return this.http.put<ProfileModel>(BACKEND_URL + '/profile/event/register/' + eventId, '').toPromise();
+  }
+
 }
