@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EventModel } from './event.model';
 import { HomeService } from './event.service';
-
+import { environment } from '../../environments/environment';
 import { ProfileService } from '../profile/profile.service';
 import { ProfileModel } from '../profile/profile.model';
 
@@ -19,10 +19,19 @@ export class HomeComponent implements OnInit {
   eventAgenda;
   eventId = '';
   profile: ProfileModel;
+  backendUrl = environment.backendUrl;
 
   constructor(
     private eventService: HomeService,
     private profileService: ProfileService) { }
+
+  registerForEvent(id: number) {
+    this.profileService.registerUserForEvent(JSON.stringify(id)).then((profile) => {
+      console.log("Registering User");
+    }).catch((err) => {
+      console.log(err);
+    });
+  }
 
   ngOnInit() {
     console.log("we here1");
