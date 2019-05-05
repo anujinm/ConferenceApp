@@ -12,6 +12,9 @@ import { ProfileModel } from '../profile/profile.model';
 })
 export class HomeComponent implements OnInit {
   events;
+  events2;
+  count;
+  eventCount;
   eventMap;
   eventAgenda;
   eventId = '';
@@ -37,6 +40,19 @@ export class HomeComponent implements OnInit {
       }).catch((err) => {
         console.log(err);
       });
+    }).catch((err) => {
+      console.log(err);
+      });
+
+    this.eventService.getAllEvents().then(res => {
+      this.events2 = res;
+      console.log(this.events2);
+      this.count = Object.keys(this.events2.events).length;
+      console.log(this.count);
+      // @ts-ignore
+      this.eventCount = Array(this.count).fill().map((x, i) => i);
+      console.log(this.eventCount);
+      this.eventCount.shift();
     }).catch((err) => {
       console.log(err);
     });
