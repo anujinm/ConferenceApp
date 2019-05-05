@@ -24,18 +24,21 @@ export class AdminComponent implements OnInit {
   speakers;
   userOptions = 'profile';
   eventInfoForm: FormGroup;
+  eventMapForm: FormGroup;
+  eventAgendaForm: FormGroup;
   speakerInfoForm: FormGroup;
   isAddNewEvent = false;
   isAddNewSpeaker = false;
   eventPictureFile: ImageSnippet;
-  eventPictureFileString;
+  eventAgendaFile: File;
+  // eventPictureFileString;
   uploadedAgenda;
   id: number;
   agenda: string|any;
-  private snackBar: MatSnackBar;
   // wideScreen: ' .wideScreen { width: 70vw;}';
 
   constructor(
+    private snackBar: MatSnackBar,
     private adminService: AdminService,
     private eventService: EventService,
     private fb: FormBuilder,
@@ -47,7 +50,7 @@ export class AdminComponent implements OnInit {
     const file: File = imageInput.files[0];
     console.log(file, 'event image');
     const reader = new FileReader();
-    this.eventPictureFileString = file;
+    // this.eventPictureFileString = file;
     reader.onload = ((event: any) => {
         this.eventPictureFile = new ImageSnippet(event.target.result, file);
         this.eventPictureFile.pending = true;
@@ -105,9 +108,10 @@ export class AdminComponent implements OnInit {
       eventStartDate: e_info['eventStartDate'],
       eventEndDate: e_info['eventEndDate'],
       eventDescription: e_info['eventDescription'],
-      eventAgenda: this.uploadedAgenda.name,
-      eventMap: e_info['eventMap'],
-      eventPicture: this.eventPictureFileString.lastModified + '-' + this.eventPictureFileString.name,
+      eventAgenda: '',
+      eventMap: '',
+      // eventPicture: this.eventPictureFileString.lastModified + '-' + this.eventPictureFileString.name,
+      eventPicture: '',
       eventLocation: e_info['eventLocation'],
     };
     this.eventService.createEvent(event).then((res) => {
@@ -148,17 +152,8 @@ export class AdminComponent implements OnInit {
     if (e_info['eventLocation'] === '') {
       e_info['eventLocation'] = this.events.events[index].eventLocation;
     }
-    if (e_info['eventPicture'] === '') {
-      e_info['eventPicture'] = this.events.events[index].eventPicture;
-    }
     if (e_info['eventDescription'] === '') {
       e_info['eventDescription'] = this.events.events[index].eventDescription;
-    }
-    if (e_info['eventAgenda'] === '') {
-      e_info['eventAgenda'] = this.events.events[index].eventAgenda;
-    }
-    if (e_info['eventMap'] === '') {
-      e_info['eventMap'] = this.events.events[index].eventMap;
     }
     const body = {
       eventName: e_info['eventName'],
@@ -167,15 +162,62 @@ export class AdminComponent implements OnInit {
       eventStartDate: e_info['eventStartDate'],
       eventEndDate: e_info['eventEndDate'],
       eventLocation: e_info['eventLocation'],
-      eventPicture: e_info['eventPicture'],
       eventDescription: e_info['eventDescription'],
-      eventAgenda: e_info['eventAgenda'],
-      eventMap: e_info['eventMap'],
     };
     console.log(body);
     this.eventService.updateEvent(JSON.stringify(id), body).then((res) => {
       console.log('sajdba' + id + body);
-      window.location.reload();
+      if (res['message'] === 'Event updated successfully') {
+        this.snackBar.open('Event information successfully updated! Refresh page', 'Done', {
+          duration: 5000
+        });
+      }
+      // window.location.reload();
+    }).catch((err) => {
+      console.log(err);
+    });
+  }
+  updateEventPic(id: number) {
+    this.eventService.uploadEventPicture(JSON.stringify(id), this.eventPictureFile.file).then((res) => {
+      console.log('updating event picture');
+      if (res['message'] === 'Event Picture updated successfully') {
+        this.snackBar.open('Event picture successfully updated! Refresh page', 'Done', {
+          duration: 5000
+        });
+      }
+    }).catch((err) => {
+      console.log(err);
+    });
+  }
+  updateEventMap(id: number) {
+    const e_info = this.eventMapForm.value;
+    const body = {
+      eventMap: e_info['eventMap']
+    };
+    this.eventService.updateEventMap(JSON.stringify(id), body).then((res) => {
+      console.log('event map updated' + id + body);
+      if (res['message'] === 'Event map updated successfully') {
+        this.snackBar.open('Event map successfully updated! Refresh page', 'Done', {
+          duration: 5000
+        });
+      }
+      // window.location.reload();
+    }).catch((err) => {
+      console.log(err);
+    });
+  }
+  updateEventAgenda(id: number) {
+    const e_info = this.eventAgendaForm.value;
+    const body = {
+      eventAgenda: e_info['eventAgenda']
+    };
+    this.eventService.updateEventAgenda(JSON.stringify(id), body).then((res) => {
+      console.log('event agenda updated' + id + body);
+      if (res['message'] === 'Event agenda updated successfully') {
+        this.snackBar.open('Event agenda successfully updated! Refresh page', 'Done', {
+          duration: 5000
+        });
+      }
     }).catch((err) => {
       console.log(err);
     });
@@ -276,6 +318,12 @@ export class AdminComponent implements OnInit {
       eventDescription: ['', [Validators.required]],
       eventAgenda: ['', [Validators.required]],
       eventMap: ['', [Validators.required]]
+    });
+    this.eventMapForm = this.fb.group({
+      eventMap: ['', [Validators.required]]
+    });
+    this.eventAgendaForm = this.fb.group({
+      eventAgenda: ['', [Validators.required]]
     });
     this.speakerInfoForm =  this.fb.group({
       eventId: ['', [Validators.required]],

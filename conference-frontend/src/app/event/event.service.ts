@@ -23,27 +23,33 @@ export class EventService {
   getAllSpeakers() {
     return this.http.get<EventModel>(BACKEND_URL_SPEAKER + '/speakers').toPromise();
   }
+  createEvent(body: EventModel) {
+    console.log('hereee', body);
+    return this.http.post<EventModel>(BACKEND_URL + '/event', body).toPromise();
+  }
   updateEvent(id: string, body) {
     console.log('hereee' + id, body);
     return this.http.put<EventModel>(BACKEND_URL + '/event/' + id, body).toPromise();
+  }
+  updateEventMap(id: string, body) {
+    return this.http.put<EventModel>(BACKEND_URL + '/event/map/' + id, body).toPromise();
+  }
+  updateEventAgenda(id: string, body) {
+    return this.http.put<EventModel>(BACKEND_URL + '/event/agenda/' + id, body).toPromise();
   }
   updateSpeaker(id: string, body) {
     console.log('here' + id, body);
     return this.http.put<SpeakerModel>(BACKEND_URL_SPEAKER + '/speaker/' + id, body).toPromise();
   }
-  createEvent(body: EventModel) {
-    console.log('hereee', body);
-    return this.http.post<EventModel>(BACKEND_URL + '/event', body).toPromise();
-  }
   createSpeaker(body: SpeakerModel) {
     console.log('here speaker request', body);
     return this.http.post<SpeakerModel>(BACKEND_URL_SPEAKER + '/speaker', body).toPromise();
   }
-  uploadEventPicture(image: File) {
+  uploadEventPicture(id: string, image: File) {
     const formData = new FormData();
     formData.append('image', image);
     console.log(formData);
-    return this.http.put(BACKEND_URL + '/event/eventPic', formData).toPromise();
+    return this.http.put(BACKEND_URL + '/event/eventPic/' + id, formData).toPromise();
   }
   uploadEventAgenda(agenda: File) {
     const formData = new FormData();
