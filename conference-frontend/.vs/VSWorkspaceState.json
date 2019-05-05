@@ -7,8 +7,9 @@
     "\\src\\app\\navigation",
     "\\src\\app\\navigation\\sidenav-list",
     "\\src\\app\\profile",
+    "\\src\\app\\shared",
     "\\src\\environments"
   ],
-  "SelectedNode": "\\src\\app\\home\\home.component.ts",
+  "SelectedNode": "\\src\\app\\shared\\confirm-equal-validator.directive.ts",
   "PreviewInSolutionExplorer": false
 }

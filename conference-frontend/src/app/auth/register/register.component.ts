@@ -26,7 +26,8 @@ export class RegisterComponent implements OnInit {
     // this.titleService.setTitle('Register');
     this.accountInfo = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(3)]]
+      password: ['', [Validators.required, Validators.minLength(3)]],
+      confirmpassword: ['', [Validators.required, Validators.minLength(3)]]
     });
   }
 
@@ -50,20 +51,28 @@ export class RegisterComponent implements OnInit {
       eventId: 0
     };
 
-    this.authService.createUser(user).then((res) => {
-      this.isLoading = false;
-      if (res['message'] === 'User created!') {
-        this.snackBar.open('User Created!', 'Done', {
-          duration: 3000
-        });
-        this.router.navigate(['/auth/login']);
-      }
+    const password = a_info['password']
+    const confirmpassword = a_info['confirmpassword']
+    if (confirmpassword === password) {
+      this.authService.createUser(user).then((res) => {
+        this.isLoading = false;
+        if (res['message'] === 'User created!') {
+          this.snackBar.open('User Created!', 'Done', {
+            duration: 3000
+          });
+          this.router.navigate(['/auth/login']);
+        }
 
-    }).catch(() => {
-      this.authService.setAuthListener(false);
-      this.authService.setLevelListener(0);
-      this.isLoading = false;
-    });
+      }).catch(() => {
+        this.authService.setAuthListener(false);
+        this.authService.setLevelListener(0);
+        this.isLoading = false;
+      });
+    } else {
+      this.snackBar.open('Passwords do not match', 'Done', { duration: 3000 });
+    }
+
+ 
   }
   get email() {
     return this.accountInfo.get('email');
@@ -71,5 +80,9 @@ export class RegisterComponent implements OnInit {
 
   get password() {
     return this.accountInfo.get('password');
+  }
+
+  get confirmpassword() {
+    return this.accountInfo.get('confirmpassword');
   }
 }
