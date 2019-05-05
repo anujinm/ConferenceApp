@@ -51,6 +51,12 @@ export class EventService {
     console.log(formData);
     return this.http.put(BACKEND_URL + '/event/eventPic/' + id, formData).toPromise();
   }
+  uploadSpeakerPicture(id: string, image: File) {
+    const formData = new FormData();
+    formData.append('image', image);
+    console.log(formData);
+    return this.http.put(BACKEND_URL + '/event/speakerPic/' + id, formData).toPromise();
+  }
   uploadEventAgenda(agenda: File) {
     const formData = new FormData();
     formData.append('agenda', agenda);

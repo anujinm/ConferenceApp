@@ -27,14 +27,14 @@ export class HomeComponent implements OnInit {
 
   registerForEvent(id: number) {
     this.profileService.registerUserForEvent(JSON.stringify(id)).then((profile) => {
-      console.log("Registering User");
+      console.log('Registering User');
     }).catch((err) => {
       console.log(err);
     });
   }
 
   ngOnInit() {
-    console.log("we here1");
+    console.log('we here1');
 
     this.profileService.getMyProfile().then((profile) => {
       this.profile = profile;

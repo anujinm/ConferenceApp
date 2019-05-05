@@ -30,6 +30,7 @@ export class AdminComponent implements OnInit {
   isAddNewEvent = false;
   isAddNewSpeaker = false;
   eventPictureFile: ImageSnippet;
+  speakerPictureFile: ImageSnippet;
   eventAgendaFile: File;
   // eventPictureFileString;
   uploadedAgenda;
@@ -54,6 +55,19 @@ export class AdminComponent implements OnInit {
     reader.onload = ((event: any) => {
         this.eventPictureFile = new ImageSnippet(event.target.result, file);
         this.eventPictureFile.pending = true;
+        // this.isUploadButtonDisabled = false;
+      }
+    );
+    reader.readAsDataURL(file);
+  }
+  processSpeakerFile(imageInput: any) {
+    const file: File = imageInput.files[0];
+    console.log(file, 'speaker image');
+    const reader = new FileReader();
+    // this.eventPictureFileString = file;
+    reader.onload = ((event: any) => {
+        this.speakerPictureFile = new ImageSnippet(event.target.result, file);
+        this.speakerPictureFile.pending = true;
         // this.isUploadButtonDisabled = false;
       }
     );
@@ -182,6 +196,18 @@ export class AdminComponent implements OnInit {
       console.log('updating event picture');
       if (res['message'] === 'Event Picture updated successfully') {
         this.snackBar.open('Event picture successfully updated! Refresh page', 'Done', {
+          duration: 5000
+        });
+      }
+    }).catch((err) => {
+      console.log(err);
+    });
+  }
+  updateSpeakerPic(id: number) {
+    this.eventService.uploadSpeakerPicture(JSON.stringify(id), this.speakerPictureFile.file).then((res) => {
+      console.log('updating speaker picture');
+      if (res['message'] === 'Speaker Picture updated successfully') {
+        this.snackBar.open('Speaker picture successfully updated! Refresh page', 'Done', {
           duration: 5000
         });
       }
