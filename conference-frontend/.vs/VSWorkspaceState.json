@@ -3,11 +3,12 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\navigation",
     "\\src\\app\\navigation\\navbar",
     "\\src\\app\\spokane-info",
+    "\\src\\assets",
+    "\\src\\assets\\images",
     "\\src\\environments"
   ],
-  "SelectedNode": "\\src\\app\\navigation\\navbar\\navbar.component.html",
+  "SelectedNode": "\\src\\assets\\images",
   "PreviewInSolutionExplorer": false
 }
