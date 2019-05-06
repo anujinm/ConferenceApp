@@ -10,5 +10,12 @@
     "\\src\\environments"
   ],
   "SelectedNode": "\\src\\assets\\images",
+    "\\src\\app\\navigation",
+    "\\src\\app\\navigation\\sidenav-list",
+    "\\src\\app\\profile",
+    "\\src\\app\\shared",
+    "\\src\\environments"
+  ],
+  "SelectedNode": "\\src\\app\\shared\\confirm-equal-validator.directive.ts",
   "PreviewInSolutionExplorer": false
 }

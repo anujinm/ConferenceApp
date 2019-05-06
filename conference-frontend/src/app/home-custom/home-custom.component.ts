@@ -6,7 +6,7 @@ import { ProfileService } from '../profile/profile.service';
 import { ProfileModel } from '../profile/profile.model';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-home-custom',
   templateUrl: './home-custom.component.html',
   styleUrls: ['./home-custom.component.scss']
 })

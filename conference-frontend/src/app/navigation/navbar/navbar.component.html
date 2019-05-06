@@ -1,19 +1,13 @@
 <mat-toolbar color="primary" class="mat-elevation-z5">
   <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-between center">
     <div fxFlex="50">
-      <a routerLink="/">Home</a>
-<<<<<<< HEAD
-      <a href="{{eventAgenda}}" target="_blank">Agenda</a>
-      <a href={{eventMap}} target="_blank">Map</a>
-      <a routerLink="/speaker">Speakers</a>
-      <a routerLink="/attendee">Attendees</a>
-      <a routerLink="/spokane">Activites </a>
-=======
+      <a *ngIf="!userIsAuthenticated" routerLink="/">Home</a>
+      <a *ngIf="userIsAuthenticated" routerLink="/homeCustom">Home</a>
       <a *ngIf="userIsAuthenticated" href="{{eventAgenda}}" target="_blank">Agenda</a>
       <a *ngIf="userIsAuthenticated" href="{{eventMap}}" target="_blank">Map</a>
       <a *ngIf="userIsAuthenticated" routerLink="/speaker">Speakers</a>
       <a *ngIf="userIsAuthenticated" routerLink="/attendee" >Attendees</a>
->>>>>>> 069473466e6627eb5b8a1e63a38f5031396823b9
+      <a *ngIf="userIsAuthenticated" routerLink="/spokane" >Activities</a>
     </div>
 
     <div fxFlex="30" fxLayoutAlign="flex-end center">

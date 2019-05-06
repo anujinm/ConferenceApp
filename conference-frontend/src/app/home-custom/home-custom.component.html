@@ -5,7 +5,7 @@
   </h1>
   <!--<img src="../../assets/images/whitworth-logo-vertical-rgb.png" alt="topic" class=" Logo">-->
 
-  <mat-card class="conferenceCard">
+  <mat-card class="conferenceCard" *ngIf="events">
     <mat-card-header>
       <div mat-card-avatar class="example-header-image"></div>
       <mat-card-title>{{events.event.eventName}}</mat-card-title>
@@ -48,8 +48,6 @@
           {{events.event.eventAgenda}}
         </a>
       </div>
-
-
     </mat-card-content>
   </mat-card>
 </div>

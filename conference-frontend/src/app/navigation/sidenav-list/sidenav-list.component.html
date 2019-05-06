@@ -24,7 +24,7 @@
   </button>
 
   <button mat-menu-item>
-    <a routerLink="/spokane">Activites </a>
+    <a *ngIf="userIsAuthenticated" routerLink="/spokane">Activites </a>
   </button>
 
   <mat-menu #profileMenu="matMenu">
