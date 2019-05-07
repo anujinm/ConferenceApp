@@ -1,5 +1,11 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div>
+  <div style="height:15px;background: #c62828;"></div>
+  <div fxLayout="row" fxLayoutAlign="start center" style="margin:5px 10px 5px 10px">
+    <img style="width:40px; height:40px" src="../../assets/images/WWlogo.PNG" />
+    <h1 fxLayoutAlign="center" style="font-size:25px; font-weight:400; margin:10px"> Ed-Institutes </h1>
+  </div>
+
   <mat-sidenav-container>
     <mat-sidenav-content>
       <div fxShow fxHide.lt-sm="true">
@@ -12,7 +18,7 @@
         <router-outlet></router-outlet>
       </main>
       <!--<app-home-custom *ngIf="userIsAuthenticated">-->
-        <!--<router-outlet></router-outlet>-->
+      <!--<router-outlet></router-outlet>-->
       <!--</app-home-custom>-->
       <!--<router-outlet></router-outlet>-->
     </mat-sidenav-content>
@@ -20,4 +26,3 @@
 
   <app-footer></app-footer>
 </div>
-
