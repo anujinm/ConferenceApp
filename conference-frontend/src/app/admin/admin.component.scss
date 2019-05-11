@@ -4,6 +4,18 @@ a.mat-list-item.mat-list-item-active {
   background: #4e5d7417;
 }
 
+.newEventForm {
+  padding-top: 20px;
+  mat-form-field {
+    width: 50%;
+  }
+}
+.updateForm {
+  padding-top: 20px;
+  mat-form-field {
+    width: 50%;
+  }
+}
 mat-card {
   margin: 0.5em;
 }
@@ -71,4 +83,14 @@ mat-panel-title {
 }
 .eventTopButtons button{
   margin: 5px;
+}
+
+.dialog {
+  position: fixed;
+  top: 45%;
+  left: 45%;
+  z-index: 1;
+  background: white;
+  color: black;
+  border: solid 1px #c62828;
 }

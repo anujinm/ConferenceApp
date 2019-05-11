@@ -3,17 +3,13 @@
 </div>
 <div fxLayout="row wrap" fxLayoutAlign="space-evenly center">
   <div *ngFor="let i of attendeeCount">
-    <mat-card class="attendeeProfile">
+    <mat-card class="attendeeProfile" class="mat-elevation-z5">
       <div fxLayout="row" fxLayoutAlign="start center">
         <img [src]="backendUrl + attendees[i].profilePic" title="Profile pic" class="profilePic">
         <mat-card-header>
-          <!--<div mat-card-avatar class="example-header-image"></div>-->
           <mat-card-title>{{attendees[i].firstName}} {{attendees[i].lastName}}</mat-card-title>
         </mat-card-header>
       </div>
-      <!--<div fxLayout="center center">-->
-      <!--<img fxLayout="center center" mat-card-image src="../../assets/images/Guest-Speaker_LowRes-WebSlide.jpg" alt="topic">-->
-      <!--</div>-->
       <mat-card-content>
         <div fxLayout="row wrap">
           <p>District: &nbsp;</p>

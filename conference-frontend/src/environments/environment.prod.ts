@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  apiUrl: 'https://conf-backend.amsa.mn/api',
+  backendUrl: 'https://conf-backend.amsa.mn/'
 };

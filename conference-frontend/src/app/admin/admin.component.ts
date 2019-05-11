@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {AdminService} from './admin.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {environment} from '../../environments/environment';
@@ -7,6 +7,8 @@ import {EventModel} from '../event/event.model';
 import {MatSnackBar} from '@angular/material';
 import {ImageSnippet} from '../event/event.model';
 import {SpeakerModel} from '../speaker/speaker.model';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+
 // import {stringify} from "querystring";
 @Component({
   selector: 'app-admin',
@@ -31,12 +33,15 @@ export class AdminComponent implements OnInit {
   isAddNewSpeaker = false;
   eventPictureFile: ImageSnippet;
   speakerPictureFile: ImageSnippet;
-  eventAgendaFile: File;
-  // eventPictureFileString;
   uploadedAgenda;
   id: number;
   agenda: string|any;
-  // wideScreen: ' .wideScreen { width: 70vw;}';
+  showDialog = false;
+  dialogMessage = '';
+  eventIdToDelete: number;
+  eventIdToUnregister: number;
+  isDeleteEventDialog = false;
+  isUnregisterAllDialog = false;
 
   constructor(
     private snackBar: MatSnackBar,
@@ -44,6 +49,23 @@ export class AdminComponent implements OnInit {
     private eventService: EventService,
     private fb: FormBuilder,
   ) { }
+  onEventDelete(message: string, id: number) {
+    this.isDeleteEventDialog = true;
+    this.showDialog = true;
+    this.dialogMessage = message;
+    this.eventIdToDelete = id;
+  }
+  onUnregisterAll(message: string, id: number) {
+    this.isUnregisterAllDialog = true;
+    this.showDialog = true;
+    this.dialogMessage = message;
+    this.eventIdToUnregister = id;
+  }
+  cancelDialog() {
+    this.showDialog = false;
+    this.isDeleteEventDialog = false;
+    this.isUnregisterAllDialog = false;
+  }
   navigateProfile(options: string) {
     this.userOptions = options;
   }
@@ -72,14 +94,6 @@ export class AdminComponent implements OnInit {
       }
     );
     reader.readAsDataURL(file);
-  }
-  onAgendaFileChange(event) {
-    const reader = new FileReader();
-    if (event.target.files && event.target.files.length > 0) {
-      const file = event.target.files[0];
-      console.log(file, file.valueOf());
-      this.uploadedAgenda = file;
-    }
   }
   addEventModal() {
     this.isAddNewEvent = true;
@@ -259,12 +273,6 @@ export class AdminComponent implements OnInit {
     if (s_info['speakerTopic'] === '') {
       s_info['speakerTopic'] = this.speakers.speaker[index].speakerTopic;
     }
-    if (s_info['speakerPicture'] === '') {
-      s_info['speakerPicture'] = this.speakers.speaker[index].speakerPicture;
-    }
-    if (s_info['speakerAdditionalPicture'] === '') {
-      s_info['speakerAdditionalPicture'] = this.speakers.speaker[index].speakerAdditionalPicture;
-    }
     if (s_info['speakerBio'] === '') {
       s_info['speakerBio'] = this.speakers.speaker[index].speakerBio;
     }
@@ -277,20 +285,22 @@ export class AdminComponent implements OnInit {
       eventId: s_info['eventId'],
       speakerName: s_info['speakerName'],
       speakerTopic: s_info['speakerTopic'],
-      speakerPicture: s_info['speakerPicture'],
-      speakerAdditionalPicture: s_info['speakerAdditionalPicture'],
       speakerBio: s_info['speakerBio'],
       speakerSlides: s_info['speakerSlides']
     };
     this.eventService.updateSpeaker(JSON.stringify(id), body).then((res) => {
-      window.location.reload();
-    }).catch((err) => {
+      if (res['message'] === 'Speaker updated successfully') {
+        this.snackBar.open('Speaker successfully updated! Refresh page', 'Done', {
+          duration: 5000
+        });
+      }    }).catch((err) => {
       console.log(err);
     });
   }
-  deleteEvent(id: number, index: number) {
-    this.eventService.removeEvent(JSON.stringify(id)).then((res) => {
-      window.location.reload();
+  deleteEvent() {
+    this.eventService.removeEvent(JSON.stringify(this.eventIdToDelete)).then((res) => {
+      // window.location.reload();
+      console.log(res);
     }).catch((err) => {
       console.log(err);
     });
@@ -302,9 +312,9 @@ export class AdminComponent implements OnInit {
       console.log(err);
     });
   }
-  unregisterAll(eventId: number) {
+  unregisterAll() {
     const body = '';
-    this.eventService.unregisterAllUsers(JSON.stringify(eventId)).then((res) => {
+    this.eventService.unregisterAllUsers(JSON.stringify(this.eventIdToUnregister)).then((res) => {
       console.log('unregistered all users');
     }).catch((err) => {
       console.log(err);
