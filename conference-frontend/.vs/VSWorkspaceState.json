@@ -3,6 +3,7 @@
     "",
     "\\src",
     "\\src\\app",
+<<<<<<< HEAD
     "\\src\\app\\auth\\register",
     "\\src\\app\\home",
     "\\src\\app\\home-custom",
@@ -12,5 +13,12 @@
     "\\src\\app\\profile"
   ],
   "SelectedNode": "\\src\\app\\profile\\profile.service.ts",
+=======
+    "\\src\\app\\home-custom",
+    "\\src\\assets",
+    "\\src\\assets\\images"
+  ],
+  "SelectedNode": "\\src\\app",
+>>>>>>> ed52af752af6cf5689b717fc07d06116b773e901
   "PreviewInSolutionExplorer": false
 }

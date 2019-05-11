@@ -88,13 +88,6 @@
                     <mat-list-item>Event End Date:</mat-list-item>
                     <mat-list-item>Event Location:</mat-list-item>
                     <mat-list-item>Event Description:</mat-list-item>
-                    <mat-list-item>Event Thumbnail:</mat-list-item>
-                    <mat-list-item>Thumbnail Preview:</mat-list-item>
-                    <mat-list-item></mat-list-item>
-                    <mat-list-item></mat-list-item>
-                    <mat-list-item></mat-list-item>
-                    <mat-list-item>Event Agenda:</mat-list-item>
-                    <mat-list-item>Event Map:</mat-list-item>
                   </div>
                   <div fxFlex>
                     <form [formGroup]="eventInfoForm" #updateEventInfoForm="ngForm">
@@ -105,21 +98,6 @@
                       <mat-list-item><input type="text" formControlName="eventEndDate"> [mm/dd/year] Cannot be empty</mat-list-item>
                       <mat-list-item><input type="text" formControlName="eventLocation"></mat-list-item>
                       <mat-list-item><input type="text" formControlName="eventDescription"></mat-list-item>
-                      <!--<mat-list-item><input type="text" formControlName="eventPicture"></mat-list-item>-->
-                      <mat-list-item>
-                        <input [hidden]="true" #imageInput type="file" accept="image/*" (change)="processFile(imageInput)">
-                        <button mat-stroked-button (click)="imageInput.click()">Select File</button>
-                      </mat-list-item>
-                      <div fxLayoutAlign="center center" class="previewProfileImageContainer">
-                        <img *ngIf="eventPictureFile && eventPictureFile.src" [src]="eventPictureFile.src" title="Preview Image" class="previewProfileImage">
-                      </div>
-                      <div class="form-group">
-                        <mat-list-item>
-                          <input type="file" id="agenda" (change)="onAgendaFileChange($event)" #fileInput>
-                        </mat-list-item>
-                      </div>
-                      <mat-list-item><input type="text" formControlName="eventAgenda"></mat-list-item>
-                      <mat-list-item><input type="text" formControlName="eventMap"></mat-list-item>
                     </form>
                   </div>
                 </mat-list>
@@ -146,36 +124,61 @@
           <mat-card-content>
             <mat-tab-group class="profileSection" dynamicHeight>
               <mat-tab label="Event Info">
-                <mat-list fxLayout="row">
-                  <div fxFlex="20">
-                    <mat-list-item>Event Name:</mat-list-item>
-                    <mat-list-item>Event Topic:</mat-list-item>
-                    <mat-list-item>Event Organizer:</mat-list-item>
-                    <mat-list-item>Event Start Date:</mat-list-item>
-                    <mat-list-item>Event End Date:</mat-list-item>
-                    <mat-list-item>Event Location:</mat-list-item>
-                    <mat-list-item>Event Description:</mat-list-item>
-                    <mat-list-item>Event Thumbnail:</mat-list-item>
-                    <mat-list-item>Event Agenda:</mat-list-item>
-                    <mat-list-item>Event Map:</mat-list-item>
+                <div fxLayout="column">
+                  <div>
+                    <mat-list fxLayout="row">
+                      <div fxFlex="20">
+                        <mat-list-item>Event Name:</mat-list-item>
+                        <mat-list-item>Event Topic:</mat-list-item>
+                        <mat-list-item>Event Organizer:</mat-list-item>
+                        <mat-list-item>Event Start Date:</mat-list-item>
+                        <mat-list-item>Event End Date:</mat-list-item>
+                        <mat-list-item>Event Location:</mat-list-item>
+                        <!--<mat-list-item>Event Description:</mat-list-item>-->
+                        <mat-list-item>Event Agenda:</mat-list-item>
+                        <mat-list-item>Event Map:</mat-list-item>
+                      </div>
+                      <div fxFlex>
+                        <mat-list-item>{{events.events[i].eventName}}</mat-list-item>
+                        <mat-list-item>{{events.events[i].eventTopic}}</mat-list-item>
+                        <mat-list-item>{{events.events[i].eventOrganizer}}</mat-list-item>
+                        <mat-list-item>{{events.events[i].eventStartDate}}</mat-list-item>
+                        <mat-list-item>{{events.events[i].eventEndDate}}</mat-list-item>
+                        <mat-list-item>{{events.events[i].eventLocation}}</mat-list-item>
+                        <!--<mat-list-item>{{events.events[i].eventDescription}}</mat-list-item>-->
+                        <mat-list-item>{{events.events[i].eventAgenda}}</mat-list-item>
+                        <mat-list-item>{{events.events[i].eventMap}}</mat-list-item>
+                      </div>
+                    </mat-list>
                   </div>
-                  <div fxFlex>
-                    <mat-list-item>{{events.events[i].eventName}}</mat-list-item>
-                    <mat-list-item>{{events.events[i].eventTopic}}</mat-list-item>
-                    <mat-list-item>{{events.events[i].eventOrganizer}}</mat-list-item>
-                    <mat-list-item>{{events.events[i].eventStartDate}}</mat-list-item>
-                    <mat-list-item>{{events.events[i].eventEndDate}}</mat-list-item>
-                    <mat-list-item>{{events.events[i].eventLocation}}</mat-list-item>
-                    <mat-list-item>{{events.events[i].eventDescription}}</mat-list-item>
-                    <mat-list-item>{{events.events[i].eventPicture}}</mat-list-item>
-                    <mat-list-item>
-                      <img [src]="backendUrl + events.events[i].eventPicture" title="event pic">
-                    </mat-list-item>
-                    <mat-list-item>{{events.events[i].eventAgenda}}</mat-list-item>
-                    <mat-list-item>{{events.events[i].eventMap}}</mat-list-item>
+                  <div>
+                    <mat-list fxLayout="row">
+                      <div fxFlex="20">
+                        <mat-list-item>Event Description:</mat-list-item>
+                      </div>
+                      <div fxFlex>
+                        <!--<div>-->
+                          {{events.events[i].eventDescription}}
+                        <!--</div>-->
+                      </div>
+                    </mat-list>
                   </div>
-                </mat-list>
+                  <div>
+                    <mat-list fxLayout="row">
+                      <div fxFlex="20">
+                        <mat-list-item>Event Thumbnail:</mat-list-item>
+                      </div>
+                      <div fxFlex>
+                        <mat-list-item>{{events.events[i].eventPicture}}</mat-list-item>
+                        <mat-list-item class="previewProfileImageContainer">
+                          <img [src]="backendUrl + events.events[i].eventPicture" title="event pic" class="previewProfileImage">
+                        </mat-list-item>
+                      </div>
+                    </mat-list>
+                  </div>
+                </div>
               </mat-tab>
+
               <mat-tab label="Update Info">
                 <mat-list fxLayout="row">
                   <div fxFlex="20">
@@ -186,9 +189,6 @@
                     <mat-list-item>Event End Date:</mat-list-item>
                     <mat-list-item>Event Location:</mat-list-item>
                     <mat-list-item>Event Description:</mat-list-item>
-                    <mat-list-item>Event Thumbnail:</mat-list-item>
-                    <mat-list-item>Event Agenda:</mat-list-item>
-                    <mat-list-item>Event Map:</mat-list-item>
                   </div>
                   <div fxFlex>
                     <form [formGroup]="eventInfoForm" #updateEventInfoForm="ngForm">
@@ -198,10 +198,7 @@
                       <mat-list-item><input type="text" value="{{events.events[i].eventStartDate}}" formControlName="eventStartDate"></mat-list-item>
                       <mat-list-item><input type="text" value="{{events.events[i].eventEndDate}}" formControlName="eventEndDate"></mat-list-item>
                       <mat-list-item><input type="text" value="{{events.events[i].eventLocation}}" formControlName="eventLocation"></mat-list-item>
-                      <mat-list-item><input type="text" value="{{events.events[i].eventDescription}}" formControlName="eventDescription"></mat-list-item>
-                      <mat-list-item><input type="text" value="{{events.events[i].eventPicture}}" formControlName="eventPicture"></mat-list-item>
-                      <mat-list-item><input type="text" value="{{events.events[i].eventAgenda}}" formControlName="eventAgenda"></mat-list-item>
-                      <mat-list-item><input type="text" value="{{events.events[i].eventMap}}" formControlName="eventMap"></mat-list-item>
+                      <textarea type="text" value="{{events.events[i].eventDescription}}" formControlName="eventDescription"></textarea>
                     </form>
                   </div>
                 </mat-list>
@@ -209,6 +206,78 @@
                   <button mat-raised-button (click)="updateEventInfo(events.events[i].id, i)">Update Info</button>
                 </div>
               </mat-tab>
+
+              <mat-tab label="Update Event Picture">
+                <mat-list fxLayout="row" fxLayoutAlign="space-between center">
+                  <div>
+                    <mat-list-item>Select Image:</mat-list-item>
+                    <mat-list-item>Preview Image:</mat-list-item>
+                  </div>
+                  <div>
+                    <mat-list-item>
+                      <input [hidden]="true" #imageInput type="file" accept="image/*" (change)="processFile(imageInput)">
+                      <button mat-stroked-button (click)="imageInput.click()">Select File</button>
+                    </mat-list-item>
+                    <mat-list-item></mat-list-item>
+                  </div>
+                </mat-list>
+                <div fxLayoutAlign="center center" class="previewProfileImageContainer">
+                  <img *ngIf="eventPictureFile && eventPictureFile.src" [src]="eventPictureFile.src" title="Preview Image" class="previewProfileImage">
+                </div>
+                <br>
+                <div fxLayoutAlign="end center" class="updateInfo">
+                  <button mat-raised-button (click)="updateEventPic(events.events[i].id)" [disabled]="isUploadButtonDisabled">Update</button>
+                </div>
+              </mat-tab>
+              <mat-tab label="Update Event Agenda">
+                <mat-list fxLayout="row">
+                  <div fxFlex="20">
+                    <mat-list-item>Event Agenda:</mat-list-item>
+                  </div>
+                  <div fxFlex>
+                    <form [formGroup]="eventAgendaForm" #updateEventAgendaForm="ngForm">
+                      <mat-list-item><input type="text" value="{{events.events[i].eventAgenda}}" formControlName="eventAgenda"></mat-list-item>
+                    </form>
+                  </div>
+                </mat-list>
+                <div fxLayoutAlign="end center" class="updateInfo">
+                  <button mat-raised-button (click)="updateEventAgenda(events.events[i].id, i)">Update Agenda</button>
+                </div>
+              </mat-tab>
+              <mat-tab label="Update Event Map">
+                <mat-list fxLayout="row">
+                  <div fxFlex="20">
+                    <mat-list-item>Event Map:</mat-list-item>
+                  </div>
+                  <div fxFlex>
+                    <form [formGroup]="eventMapForm" #updateEventMapForm="ngForm">
+                      <mat-list-item><input type="text" value="{{events.events[i].eventMap}}" formControlName="eventMap"></mat-list-item>
+                    </form>
+                  </div>
+                </mat-list>
+                <div fxLayoutAlign="end center" class="updateInfo">
+                  <button mat-raised-button (click)="updateEventMap(events.events[i].id)">Update Map</button>
+                </div>
+              </mat-tab>
+
+              <!--<mat-tab label="Update Event Agenda">-->
+                <!--<mat-list fxLayout="row" fxLayoutAlign="space-between center">-->
+                  <!--<div>-->
+                    <!--<mat-list-item>Select Image:</mat-list-item>-->
+                  <!--</div>-->
+                  <!--<div>-->
+                    <!--<mat-list-item>-->
+                      <!--<input [hidden]="true" #fileInput type="file" accept="pdf/*" (change)="processPdfFile(fileInput)">-->
+                      <!--<button mat-stroked-button (click)="fileInput.click()">Select File</button>-->
+                    <!--</mat-list-item>-->
+                    <!--<mat-list-item></mat-list-item>-->
+                  <!--</div>-->
+                <!--</mat-list>-->
+                <!--<div fxLayoutAlign="end center" class="updateInfo">-->
+                  <!--<button mat-raised-button (click)="updateEventAgenda(events.events[i].id)" [disabled]="isUploadButtonDisabled">Update</button>-->
+                <!--</div>-->
+              <!--</mat-tab>-->
+
             </mat-tab-group>
           </mat-card-content>
         </mat-card>
@@ -230,8 +299,6 @@
                     <mat-list-item>Event ID:</mat-list-item>
                     <mat-list-item>Name:</mat-list-item>
                     <mat-list-item>Topic:</mat-list-item>
-                    <mat-list-item>Profile Picture:</mat-list-item>
-                    <mat-list-item>Additional Picture:</mat-list-item>
                     <mat-list-item>Description:</mat-list-item>
                     <mat-list-item>Slides:</mat-list-item>
                   </div>
@@ -240,8 +307,6 @@
                       <mat-list-item><input type="text" formControlName="eventId"></mat-list-item>
                       <mat-list-item><input type="text" formControlName="speakerName"></mat-list-item>
                       <mat-list-item><input type="text" formControlName="speakerTopic"></mat-list-item>
-                      <mat-list-item><input type="text" formControlName="speakerPicture"></mat-list-item>
-                      <mat-list-item><input type="text" formControlName="speakerAdditionalPicture"></mat-list-item>
                       <mat-list-item><input type="text" formControlName="speakerBio"></mat-list-item>
                       <mat-list-item><input type="text" formControlName="speakerSlides"></mat-list-item>
                     </form>
@@ -269,26 +334,48 @@
           <mat-card-content>
             <mat-tab-group class="profileSection" dynamicHeight>
               <mat-tab label="Speaker Info">
-                <mat-list fxLayout="row">
-                  <div fxFlex="20">
-                    <mat-list-item>Event ID:</mat-list-item>
-                    <mat-list-item>Name:</mat-list-item>
-                    <mat-list-item>Topic:</mat-list-item>
-                    <mat-list-item>Profile Picture:</mat-list-item>
-                    <mat-list-item>Additional Picture:</mat-list-item>
-                    <mat-list-item>Description:</mat-list-item>
-                    <mat-list-item>Slides:</mat-list-item>
+                <div fxLayout="column">
+                  <div>
+                    <mat-list fxLayout="row">
+                      <div fxFlex="20">
+                        <mat-list-item>Event ID:</mat-list-item>
+                        <mat-list-item>Name:</mat-list-item>
+                        <mat-list-item>Topic:</mat-list-item>
+                        <mat-list-item>Slides:</mat-list-item>
+                      </div>
+                      <div fxFlex>
+                        <mat-list-item>{{speakers.speaker[i].eventId}}</mat-list-item>
+                        <mat-list-item>{{speakers.speaker[i].speakerName}}</mat-list-item>
+                        <mat-list-item>{{speakers.speaker[i].speakerTopic}}</mat-list-item>
+                        <mat-list-item>{{speakers.speaker[i].speakerSlides}}</mat-list-item>
+                      </div>
+                    </mat-list>
                   </div>
-                  <div fxFlex>
-                    <mat-list-item>{{speakers.speaker[i].eventId}}</mat-list-item>
-                    <mat-list-item>{{speakers.speaker[i].speakerName}}</mat-list-item>
-                    <mat-list-item>{{speakers.speaker[i].speakerTopic}}</mat-list-item>
-                    <mat-list-item>{{speakers.speaker[i].speakerPicture}}</mat-list-item>
-                    <mat-list-item>{{speakers.speaker[i].speakerAdditionalPicture}}</mat-list-item>
-                    <mat-list-item>{{speakers.speaker[i].speakerBio}}</mat-list-item>
-                    <mat-list-item>{{speakers.speaker[i].speakerSlides}}</mat-list-item>
+                  <div>
+                    <mat-list fxLayout="row">
+                      <div fxFlex="20">
+                        <mat-list-item>Description:</mat-list-item>
+                      </div>
+                      <div fxFlex>
+                        {{speakers.speaker[i].speakerBio}}
+                      </div>
+                    </mat-list>
                   </div>
-                </mat-list>
+                  <div>
+                    <mat-list fxLayout="row">
+                      <div fxFlex="20">
+                        <mat-list-item>Profile Picture:</mat-list-item>
+                      </div>
+                      <div fxFlex>
+                        <mat-list-item>{{speakers.speaker[i].speakerPicture}}</mat-list-item>
+                        <mat-list-item class="previewProfileImageContainer">
+                          <img [src]="backendUrl + speakers.speaker[i].speakerPicture" title="event pic" class="previewProfileImage">
+                        </mat-list-item>
+                      </div>
+                    </mat-list>
+                  </div>
+                </div>
+
               </mat-tab>
               <mat-tab label="Update Speaker">
                 <mat-list fxLayout="row">
@@ -296,8 +383,6 @@
                     <mat-list-item>ID:</mat-list-item>
                     <mat-list-item>Name:</mat-list-item>
                     <mat-list-item>Topic:</mat-list-item>
-                    <mat-list-item>Profile Picture:</mat-list-item>
-                    <mat-list-item>Additional Picture:</mat-list-item>
                     <mat-list-item>Description:</mat-list-item>
                     <mat-list-item>Slides:</mat-list-item>
                   </div>
@@ -307,14 +392,34 @@
                       <mat-list-item><input type="text" value="{{speakers.speaker[i].speakerName}}" formControlName="speakerName"></mat-list-item>
                       <mat-list-item><input type="text" value="{{speakers.speaker[i].speakerTopic}}"  formControlName="speakerTopic"></mat-list-item>
                       <mat-list-item><input type="text" value="{{speakers.speaker[i].speakerPicture}}"  formControlName="speakerPicture"></mat-list-item>
-                      <mat-list-item><input type="text" value="{{speakers.speaker[i].speakerAdditionalPicture}}" formControlName="speakerAdditionalPicture"></mat-list-item>
-                      <mat-list-item><input type="text" value="{{speakers.speaker[i].speakerBio}}" formControlName="speakerBio"></mat-list-item>
                       <mat-list-item><input type="text" value="{{speakers.speaker[i].speakerSlides}}" formControlName="speakerSlides"></mat-list-item>
                     </form>
                     </div>
                 </mat-list>
                 <div fxLayoutAlign="end center" class="updateInfo">
                   <button mat-raised-button (click)="updateSpeakerInfo(speakers.speaker[i].id, i)">Update Info</button>
+                </div>
+              </mat-tab>
+              <mat-tab label="Update Speaker Picture">
+                <mat-list fxLayout="row" fxLayoutAlign="space-between center">
+                  <div>
+                    <mat-list-item>Select Image:</mat-list-item>
+                    <mat-list-item>Preview Image:</mat-list-item>
+                  </div>
+                  <div>
+                    <mat-list-item>
+                      <input [hidden]="true" #speakerImageInput type="file" accept="image/*" (change)="processSpeakerFile(speakerImageInput)">
+                      <button mat-stroked-button (click)="speakerImageInput.click()">Select File</button>
+                    </mat-list-item>
+                    <mat-list-item></mat-list-item>
+                  </div>
+                </mat-list>
+                <div fxLayoutAlign="center center" class="previewProfileImageContainer">
+                  <img *ngIf="speakerPictureFile && speakerPictureFile.src" [src]="speakerPictureFile.src" title="Preview Image" class="previewProfileImage">
+                </div>
+                <br>
+                <div fxLayoutAlign="end center" class="updateInfo">
+                  <button mat-raised-button (click)="updateSpeakerPic(speakers.speaker[i].id)" [disabled]="isUploadButtonDisabled">Update</button>
                 </div>
               </mat-tab>
             </mat-tab-group>
