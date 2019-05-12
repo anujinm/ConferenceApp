@@ -1,3 +1,4 @@
+//class of variables for registering
 export class AuthRegisterModel {
   email: string;
   password: string;
@@ -15,11 +16,13 @@ export class AuthRegisterModel {
   eventId: number;
 }
 
+//class of variables for registering
 export class AuthLoginModel {
   email: string;
   password: string;
 }
 
+//class of variables for registering
 export class AuthTokenModel {
   token: string;
   expiresIn: number;

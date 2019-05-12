@@ -1,4 +1,4 @@
-<div fxLayout="row" fxLayout.lt-md="column">
+<div fxLayout="row" fxLayout.lt-md="column"> <!--To create the right look-->
   <mat-card class="navigationSection">
     <div fxLayoutAlign="center center">
       <img src="../../assets/images/profilepic.png" title="Profile pic">
@@ -11,6 +11,7 @@
     </mat-nav-list>
   </mat-card>
 
+  <!--This creates the options card-->
   <div [ngSwitch]="userOptions">
     <div *ngSwitchCase="'profile'">
       <mat-card ngClass="wideScreen" [ngClass.lt-lg]="{'wideScreen':false}">
@@ -29,6 +30,7 @@
                   <mat-list-item>Linkedin:</mat-list-item>
                 </div>
                 <div>
+                  <!--Example data-->
                   <mat-list-item>Anujin</mat-list-item>
                   <mat-list-item>Munkhbat</mat-list-item>
                   <mat-list-item>509-294-2761</mat-list-item>
@@ -51,6 +53,7 @@
                   <mat-list-item>Linkedin:</mat-list-item>
                 </div>
                 <div>
+                  <!--Example data-->
                   <mat-list-item><input type="text" value="Anujin"></mat-list-item>
                   <mat-list-item><input type="text" value="Munkhbat"></mat-list-item>
                   <mat-list-item><input type="text" value="509-294-2761"></mat-list-item>
@@ -63,12 +66,13 @@
               <div fxLayoutAlign="end center" class="updateInfo">
                 <button mat-raised-button>Update</button>
               </div>
-        </mat-tab>
-      </mat-tab-group>
+            </mat-tab>
+          </mat-tab-group>
         </mat-card-content>
       </mat-card>
     </div>
 
+    <!--To create new event-->
     <div *ngSwitchCase="'eventInfo'">
       <div class="addButton">
         <button mat-raised-button color="warn" (click)="addEventModal()"><i class="material-icons">add</i>Add Event</button>
@@ -80,40 +84,41 @@
             <mat-tab-group class="profileSection" dynamicHeight>
               <mat-tab label="Add Event Info">
                 <div class="newEventForm">
-                    <form [formGroup]="eventInfoForm" #updateEventInfoForm="ngForm" fxLayout="column">
-                        <mat-form-field>
-                          <mat-label>Event Name:</mat-label>
-                          <input matInput type="text" formControlName="eventName">
-                        </mat-form-field>
-                        <mat-form-field>
-                          <mat-label>Event Topic:</mat-label>
-                          <input matInput type="text" formControlName="eventTopic">
-                        </mat-form-field>
-                        <mat-form-field>
-                          <mat-label>Event Organizer:</mat-label>
-                        <input matInput type="text" formControlName="eventOrganizer">
-                        </mat-form-field>
-                        <mat-form-field>
-                          <mat-label>Event Start Date:</mat-label>
-                          <input matInput [matDatepicker]="startDate" formControlName="eventStartDate">
-                          <mat-datepicker-toggle  matSuffix [for]="startDate"></mat-datepicker-toggle>
-                          <mat-datepicker #startDate></mat-datepicker>
-                        </mat-form-field>
-                        <mat-form-field>
-                          <mat-label>Event End Date:</mat-label>
-                          <input matInput [matDatepicker]="endDate" formControlName="eventEndDate">
-                          <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
-                          <mat-datepicker #endDate></mat-datepicker>
-                        </mat-form-field>
-                        <mat-form-field>
-                          <mat-label>Event Location:</mat-label>
-                          <input matInput type="text" formControlName="eventLocation">
-                        </mat-form-field>
-                        <mat-form-field>
-                          <mat-label>Event Description:</mat-label>
-                          <textarea matInput type="text" formControlName="eventDescription"></textarea>
-                        </mat-form-field>
-                    </form>
+                  <!--Event Details-->
+                  <form [formGroup]="eventInfoForm" #updateEventInfoForm="ngForm" fxLayout="column">
+                    <mat-form-field>
+                      <mat-label>Event Name:</mat-label>
+                      <input matInput type="text" formControlName="eventName">
+                    </mat-form-field>
+                    <mat-form-field>
+                      <mat-label>Event Topic:</mat-label>
+                      <input matInput type="text" formControlName="eventTopic">
+                    </mat-form-field>
+                    <mat-form-field>
+                      <mat-label>Event Organizer:</mat-label>
+                      <input matInput type="text" formControlName="eventOrganizer">
+                    </mat-form-field>
+                    <mat-form-field>
+                      <mat-label>Event Start Date:</mat-label>
+                      <input matInput [matDatepicker]="startDate" formControlName="eventStartDate">
+                      <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+                      <mat-datepicker #startDate></mat-datepicker>
+                    </mat-form-field>
+                    <mat-form-field>
+                      <mat-label>Event End Date:</mat-label>
+                      <input matInput [matDatepicker]="endDate" formControlName="eventEndDate">
+                      <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+                      <mat-datepicker #endDate></mat-datepicker>
+                    </mat-form-field>
+                    <mat-form-field>
+                      <mat-label>Event Location:</mat-label>
+                      <input matInput type="text" formControlName="eventLocation">
+                    </mat-form-field>
+                    <mat-form-field>
+                      <mat-label>Event Description:</mat-label>
+                      <textarea matInput type="text" formControlName="eventDescription"></textarea>
+                    </mat-form-field>
+                  </form>
                 </div>
                 <div fxLayoutAlign="end center" class="updateInfo">
                   <button mat-raised-button (click)="addNewEvent()">Add Event</button>
@@ -125,10 +130,11 @@
         </mat-card>
       </div>
 
+      <!--Loop to display events-->
       <div *ngFor="let i of eventCount">
         <mat-card *ngIf="showDialog" class="dialog" fxLayout="column" fxLayoutAlign="center center">
           <p>{{dialogMessage}}</p>
-          <div  fxLayout="row" fxLayoutAlign="center center">
+          <div fxLayout="row" fxLayoutAlign="center center">
             <button *ngIf="isDeleteEventDialog" mat-button (click)="deleteEvent()">Yes</button>
             <button *ngIf="isUnregisterAllDialog" mat-button (click)="unregisterAll()">Yes</button>
             <button mat-stroked-button (click)="cancelDialog()">Cancel</button>
@@ -182,7 +188,7 @@
                       </div>
                       <div fxFlex>
                         <!--<div>-->
-                          {{events.events[i].eventDescription}}
+                        {{events.events[i].eventDescription}}
                         <!--</div>-->
                       </div>
                     </mat-list>
@@ -203,48 +209,51 @@
                 </div>
               </mat-tab>
 
+              <!--Update Info-->
+              <!--User can undate their profile-->
               <mat-tab label="Update Info">
-                  <div class="updateForm">
-                    <form [formGroup]="eventInfoForm" #updateEventInfoForm="ngForm" fxLayout="column">
-                      <mat-form-field>
-                        <mat-label>Event Name:</mat-label>
-                        <input matInput type="text" value="{{events.events[i].eventName}}" formControlName="eventName">
-                      </mat-form-field>
-                      <mat-form-field>
-                        <mat-label>Event Topic:</mat-label>
-                        <input matInput type="text" value="{{events.events[i].eventTopic}}" formControlName="eventTopic">
-                      </mat-form-field>
-                      <mat-form-field>
-                        <mat-label>Event Organizer:</mat-label>
-                        <input matInput type="text" value="{{events.events[i].eventOrganizer}}" formControlName="eventOrganizer">
-                      </mat-form-field>
-                      <mat-form-field>
-                        <mat-label>Event Start Date:</mat-label>
-                        <input matInput [matDatepicker]="updateStartDate" type="text" value="{{events.events[i].eventStartDate}}" formControlName="eventStartDate">
-                        <mat-datepicker-toggle  matSuffix [for]="updateStartDate"></mat-datepicker-toggle>
-                        <mat-datepicker #updateStartDate></mat-datepicker>
-                      </mat-form-field>
-                      <mat-form-field>
-                        <mat-label>Event End Date::</mat-label>
-                        <input matInput [matDatepicker]="updateEndDate" type="text" value="{{events.events[i].eventEndDate}}" formControlName="eventEndDate">
-                        <mat-datepicker-toggle  matSuffix [for]="updateEndDate"></mat-datepicker-toggle>
-                        <mat-datepicker #updateEndDate></mat-datepicker>
-                      </mat-form-field>
-                      <mat-form-field>
-                        <mat-label>Event Location:</mat-label>
-                        <input matInput type="text" value="{{events.events[i].eventLocation}}" formControlName="eventLocation">
-                      </mat-form-field>
-                      <mat-form-field>
-                        <mat-label>Event Description:</mat-label>
-                        <textarea matInput type="text" value="{{events.events[i].eventDescription}}" formControlName="eventDescription"></textarea>
-                      </mat-form-field>
-                    </form>
-                  </div>
+                <div class="updateForm">
+                  <form [formGroup]="eventInfoForm" #updateEventInfoForm="ngForm" fxLayout="column">
+                    <mat-form-field>
+                      <mat-label>Event Name:</mat-label>
+                      <input matInput type="text" value="{{events.events[i].eventName}}" formControlName="eventName">
+                    </mat-form-field>
+                    <mat-form-field>
+                      <mat-label>Event Topic:</mat-label>
+                      <input matInput type="text" value="{{events.events[i].eventTopic}}" formControlName="eventTopic">
+                    </mat-form-field>
+                    <mat-form-field>
+                      <mat-label>Event Organizer:</mat-label>
+                      <input matInput type="text" value="{{events.events[i].eventOrganizer}}" formControlName="eventOrganizer">
+                    </mat-form-field>
+                    <mat-form-field>
+                      <mat-label>Event Start Date:</mat-label>
+                      <input matInput [matDatepicker]="updateStartDate" type="text" value="{{events.events[i].eventStartDate}}" formControlName="eventStartDate">
+                      <mat-datepicker-toggle matSuffix [for]="updateStartDate"></mat-datepicker-toggle>
+                      <mat-datepicker #updateStartDate></mat-datepicker>
+                    </mat-form-field>
+                    <mat-form-field>
+                      <mat-label>Event End Date::</mat-label>
+                      <input matInput [matDatepicker]="updateEndDate" type="text" value="{{events.events[i].eventEndDate}}" formControlName="eventEndDate">
+                      <mat-datepicker-toggle matSuffix [for]="updateEndDate"></mat-datepicker-toggle>
+                      <mat-datepicker #updateEndDate></mat-datepicker>
+                    </mat-form-field>
+                    <mat-form-field>
+                      <mat-label>Event Location:</mat-label>
+                      <input matInput type="text" value="{{events.events[i].eventLocation}}" formControlName="eventLocation">
+                    </mat-form-field>
+                    <mat-form-field>
+                      <mat-label>Event Description:</mat-label>
+                      <textarea matInput type="text" value="{{events.events[i].eventDescription}}" formControlName="eventDescription"></textarea>
+                    </mat-form-field>
+                  </form>
+                </div>
                 <div fxLayoutAlign="end center" class="updateInfo">
                   <button mat-raised-button (click)="updateEventInfo(events.events[i].id, i)">Update Info</button>
                 </div>
               </mat-tab>
 
+              <!--Seperate tab-->
               <mat-tab label="Update Event Picture">
                 <mat-list fxLayout="row" fxLayoutAlign="space-between center">
                   <div>
@@ -268,48 +277,48 @@
                 </div>
               </mat-tab>
               <mat-tab label="Update Event Agenda">
-                  <div class="updateForm">
-                    <form [formGroup]="eventAgendaForm" #updateEventAgendaForm="ngForm">
-                      <mat-form-field>
-                        <mat-label>Event Agenda:</mat-label>
-                        <input matInput type="text" value="{{events.events[i].eventAgenda}}" formControlName="eventAgenda">
-                      </mat-form-field>
-                    </form>
-                  </div>
+                <div class="updateForm">
+                  <form [formGroup]="eventAgendaForm" #updateEventAgendaForm="ngForm">
+                    <mat-form-field>
+                      <mat-label>Event Agenda:</mat-label>
+                      <input matInput type="text" value="{{events.events[i].eventAgenda}}" formControlName="eventAgenda">
+                    </mat-form-field>
+                  </form>
+                </div>
                 <div fxLayoutAlign="end center" class="updateInfo">
                   <button mat-raised-button (click)="updateEventAgenda(events.events[i].id, i)">Update Agenda</button>
                 </div>
               </mat-tab>
               <mat-tab label="Update Event Map">
-                  <div class="updateForm">
-                    <form [formGroup]="eventMapForm" #updateEventMapForm="ngForm">
-                      <mat-form-field>
-                        <mat-label>Event Map:</mat-label>
-                        <input matInput type="text" value="{{events.events[i].eventMap}}" formControlName="eventMap">
-                      </mat-form-field>
-                    </form>
-                  </div>
+                <div class="updateForm">
+                  <form [formGroup]="eventMapForm" #updateEventMapForm="ngForm">
+                    <mat-form-field>
+                      <mat-label>Event Map:</mat-label>
+                      <input matInput type="text" value="{{events.events[i].eventMap}}" formControlName="eventMap">
+                    </mat-form-field>
+                  </form>
+                </div>
                 <div fxLayoutAlign="end center" class="updateInfo">
                   <button mat-raised-button (click)="updateEventMap(events.events[i].id)">Update Map</button>
                 </div>
               </mat-tab>
 
               <!--<mat-tab label="Update Event Agenda">-->
-                <!--<mat-list fxLayout="row" fxLayoutAlign="space-between center">-->
-                  <!--<div>-->
-                    <!--<mat-list-item>Select Image:</mat-list-item>-->
-                  <!--</div>-->
-                  <!--<div>-->
-                    <!--<mat-list-item>-->
-                      <!--<input [hidden]="true" #fileInput type="file" accept="pdf/*" (change)="processPdfFile(fileInput)">-->
-                      <!--<button mat-stroked-button (click)="fileInput.click()">Select File</button>-->
-                    <!--</mat-list-item>-->
-                    <!--<mat-list-item></mat-list-item>-->
-                  <!--</div>-->
-                <!--</mat-list>-->
-                <!--<div fxLayoutAlign="end center" class="updateInfo">-->
-                  <!--<button mat-raised-button (click)="updateEventAgenda(events.events[i].id)" [disabled]="isUploadButtonDisabled">Update</button>-->
-                <!--</div>-->
+              <!--<mat-list fxLayout="row" fxLayoutAlign="space-between center">-->
+              <!--<div>-->
+              <!--<mat-list-item>Select Image:</mat-list-item>-->
+              <!--</div>-->
+              <!--<div>-->
+              <!--<mat-list-item>-->
+              <!--<input [hidden]="true" #fileInput type="file" accept="pdf/*" (change)="processPdfFile(fileInput)">-->
+              <!--<button mat-stroked-button (click)="fileInput.click()">Select File</button>-->
+              <!--</mat-list-item>-->
+              <!--<mat-list-item></mat-list-item>-->
+              <!--</div>-->
+              <!--</mat-list>-->
+              <!--<div fxLayoutAlign="end center" class="updateInfo">-->
+              <!--<button mat-raised-button (click)="updateEventAgenda(events.events[i].id)" [disabled]="isUploadButtonDisabled">Update</button>-->
+              <!--</div>-->
               <!--</mat-tab>-->
 
             </mat-tab-group>
@@ -318,6 +327,7 @@
       </div>
     </div>
 
+    <!--Add and modify speaker-->
     <div *ngSwitchCase="'speaker'">
       <div class="addButton">
         <button mat-raised-button (click)="addSpeakerModal()"><i class="material-icons">add</i>Add Speaker</button>
@@ -430,7 +440,7 @@
                     </mat-form-field>
                     <mat-form-field>
                       <mat-label>Speaker Topic</mat-label>
-                      <input matInput value="{{speakers.speaker[i].speakerTopic}}"  formControlName="speakerTopic">
+                      <input matInput value="{{speakers.speaker[i].speakerTopic}}" formControlName="speakerTopic">
                     </mat-form-field>
                     <mat-form-field>
                       <mat-label>Speaker Bio</mat-label>
@@ -475,6 +485,7 @@
 
     </div>
 
+    <!--Update password, special case for increased security-->
     <div *ngSwitchCase="'updatePassword'">
       <mat-tab-group class="profileSection" dynamicHeight>
         <mat-tab label="Update Password">

@@ -1,3 +1,5 @@
+//imports
+
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 // import {TitleService} from '../../services/title.service';
@@ -31,6 +33,7 @@ export class RegisterComponent implements OnInit {
     });
   }
 
+  // Additional info that has to be sent to the database. Default values
   submitForm() {
     const a_info = this.accountInfo.value;
     this.isLoading = true;
@@ -51,6 +54,7 @@ export class RegisterComponent implements OnInit {
       eventId: 0
     };
 
+    //Confirm password logic
     const password = a_info['password']
     const confirmpassword = a_info['confirmpassword']
     if (confirmpassword === password) {
@@ -74,6 +78,8 @@ export class RegisterComponent implements OnInit {
 
  
   }
+
+  //getters
   get email() {
     return this.accountInfo.get('email');
   }

@@ -1,9 +1,10 @@
-a.mat-list-item.mat-list-item-active {
+a.mat-list-item.mat-list-item-active { /*standard colors*/
   color: #4e5d74;
   font-weight: bolder;
   background: #4e5d7417;
 }
 
+/*Padding for modules*/
 .newEventForm {
   padding-top: 20px;
   mat-form-field {
@@ -40,6 +41,7 @@ mat-card {
     white-space: pre-wrap;
   }
 
+  /*list structure*/
   mat-list-item {
     ::content {
       display: inline-block !important;
@@ -64,6 +66,8 @@ mat-card {
   }
 }
 
+/*image height*/
+/*note: may be cutting off some images*/
 .previewProfileImageContainer {
   min-height: 200px;
 }

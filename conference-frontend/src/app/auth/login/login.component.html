@@ -1,4 +1,4 @@
-<!--<p>login works!</p>-->
+<!--center the card vertically and horizontally-->
 <div fxLayout="column" fxLayoutAlign="center center">
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" fxLayout="column">
     <img src="../../../assets/images/whitworth-logo-vertical-rgb.png" title="Logo" width="50%">
@@ -6,16 +6,20 @@
       <input matInput placeholder="Email" formControlName="email" type="text">
       <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>
     </mat-form-field>
+    <!--Two fields to confirm password-->
     <mat-form-field>
       <input matInput placeholder="Password" formControlName="password" type="password">
       <mat-error *ngIf="password.invalid">{{getPasswordErrorMessage()}}</mat-error>
     </mat-form-field>
+    <!--Login button-->
     <button mat-raised-button [disabled]="loginForm.invalid">Login</button>
+    <!--Register link-->
     <div fxLayout="row" fxLayoutAlign="center center" class="registerHere">
       <p>Don't have an account? &nbsp;</p>
       <a routerLink="/auth/register">Register&nbsp;</a>
       <p>here</p>
     </div>
+    <!--Forgot password link-->
     <div fxLayout="row" fxLayoutAlign="center center" class="registerHere">
       <p>Forgot password? &nbsp;</p>
       <a routerLink="/auth/register">Reset password&nbsp;</a>

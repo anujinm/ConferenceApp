@@ -1,4 +1,7 @@
-import {Component, Inject, OnInit} from '@angular/core';
+/*This file has a lot of short functions that just contain a dialogue*/
+
+//imports
+import { Component, Inject, OnInit } from '@angular/core';
 import {AdminService} from './admin.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {environment} from '../../environments/environment';
@@ -7,7 +10,8 @@ import {EventModel} from '../event/event.model';
 import {MatSnackBar} from '@angular/material';
 import {ImageSnippet} from '../event/event.model';
 import {SpeakerModel} from '../speaker/speaker.model';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { ProfileService } from './../profile/profile.service';
 
 // import {stringify} from "querystring";
 @Component({
@@ -17,6 +21,9 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
   styles: [ '.wideScreen { width: 75vw;}']
 })
 export class AdminComponent implements OnInit {
+  //note: some of these may not be necessary
+  attendees;
+  eventId = '';
   backendUrl = environment.backendUrl;
   eventCount;
   speakerCount;
@@ -43,12 +50,15 @@ export class AdminComponent implements OnInit {
   isDeleteEventDialog = false;
   isUnregisterAllDialog = false;
 
+  //make private variables
   constructor(
     private snackBar: MatSnackBar,
     private adminService: AdminService,
     private eventService: EventService,
     private fb: FormBuilder,
+    private profileService: ProfileService,
   ) { }
+  //dialogue for delete
   onEventDelete(message: string, id: number) {
     this.isDeleteEventDialog = true;
     this.showDialog = true;
@@ -342,7 +352,17 @@ export class AdminComponent implements OnInit {
     }).catch((err) => {
       console.log(err);
     });
-
+    this.profileService.getAllAttendees(this.eventId).then(res => {
+      this.attendees = res;
+      // this.profile.firstName = this.attendees.map(attendee => attendee.firstName);
+      this.count = Object.keys(this.attendees).length;
+      // @ts-ignore
+      this.attendeeCount = Array(this.count).fill().map((x, i) => i);
+        // this.isLoading = false;
+    }).catch((err) => {
+      // this.isLoading = false;
+      console.log(err);
+    });
     this.eventInfoForm = this.fb.group({
       eventName: ['', [Validators.required]],
       eventTopic: ['', [Validators.required]],

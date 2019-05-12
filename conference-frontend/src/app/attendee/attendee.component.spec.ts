@@ -1,3 +1,5 @@
+/*Description of attendee component*/
+
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AttendeeComponent } from './attendee.component';

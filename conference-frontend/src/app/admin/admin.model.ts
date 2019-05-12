@@ -1,4 +1,4 @@
-
+// Member model class
 
 export class MemberModel {
   id: number;

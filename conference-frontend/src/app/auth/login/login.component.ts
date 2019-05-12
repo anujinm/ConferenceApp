@@ -1,3 +1,5 @@
+//imports
+
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../auth.service';
@@ -9,6 +11,8 @@ import {MatSnackBar} from '@angular/material';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
+
+  //Login class
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   private authStatusSub: Subscription;
@@ -30,6 +34,8 @@ export class LoginComponent implements OnInit {
         }
       }
     );
+
+    //requirements must be met
     this.loginForm = this.fb.group({
       email: ['', [
         Validators.required,
@@ -43,6 +49,8 @@ export class LoginComponent implements OnInit {
       ]
     });
   }
+
+  //Pass values to database
   onSubmit() {
     const email = this.loginForm.value['email'];
     const password = this.loginForm.value['password'];
@@ -50,6 +58,8 @@ export class LoginComponent implements OnInit {
     this.authService.login(email, password);
   }
 
+
+  //Error messages to confirm email and password requirements
   getEmailErrorMessage() {
     return this.email.hasError('required') ? 'You must enter a value' :
       this.email.hasError('email') ? 'Not a valid email' : '';

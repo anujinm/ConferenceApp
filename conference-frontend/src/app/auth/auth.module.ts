@@ -1,4 +1,5 @@
-import {NgModule} from '@angular/core';
+//imports
+import { NgModule } from '@angular/core';
 import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
 import {CommonModule} from '@angular/common';
@@ -7,7 +8,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {AuthMaterialModule} from './auth-material.module';
 import {FlexLayoutModule} from '@angular/flex-layout';
 
-
+//declaration
 @NgModule({
   declarations: [
     LoginComponent,

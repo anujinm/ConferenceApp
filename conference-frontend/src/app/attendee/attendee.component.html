@@ -1,6 +1,8 @@
+<!--Title for page-->
 <div class="headline">
   <h1>Event Attendees:</h1>
 </div>
+<!--Card for each attendee-->
 <div fxLayout="row wrap" fxLayoutAlign="space-evenly center">
   <div *ngFor="let i of attendeeCount">
     <mat-card class="attendeeProfile" class="mat-elevation-z5">
@@ -10,6 +12,7 @@
           <mat-card-title>{{attendees[i].firstName}} {{attendees[i].lastName}}</mat-card-title>
         </mat-card-header>
       </div>
+      <!--Line for each info point-->
       <mat-card-content>
         <div fxLayout="row wrap">
           <p>District: &nbsp;</p>
