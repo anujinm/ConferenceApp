@@ -1,51 +1,51 @@
 <div fxLayout="column" class="Home">
   <app-slideshow></app-slideshow>
-  <h1>
-    Whitworth Conferences:
-  </h1>
-  <!--<img src="../../assets/images/whitworth-logo-vertical-rgb.png" alt="topic" class=" Logo">-->
 
   <mat-card class="conferenceCard" *ngIf="events">
     <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>{{events.event.eventName}}</mat-card-title>
-      <mat-card-subtitle>{{events.event.eventOrganizer}}</mat-card-subtitle>
+      <div mat-card-avatar class="avatar"><i class="material-icons">insert_available</i></div>
+      <mat-card-title>{{events.events.eventName}}</mat-card-title>
+      <mat-card-subtitle>{{events.events.eventTopic}}</mat-card-subtitle>
+      <!--<mat-card-subtitle class="organizer">{{events.events.eventOrganizer}}</mat-card-subtitle>-->
     </mat-card-header>
     <mat-card-content>
-      <h4 class="headline">Overview: </h4>
-      <p>
-        Event dates: {{events.event.eventStartDate}} - {{events.event.eventEndDate}}
-      </p>
-
-      <p>
-        {{events.event.eventLocation}}
-      </p>
-
-      <p>
-        {{events.event.eventDescription}}
-      </p>
-
-      <div fxLayoutAlign="start center">
-        <img [src]="backendUrl + events.event.eventPicture" title="Event pic">
+      <h3 class="headline">Overview: </h3>
+      <div fxLayout="row" fxLayoutAlign="start center">
+        <h4>Event Organizer:&nbsp;</h4>
+        <h5>{{events.events.eventOrganizer}}</h5>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="start center">
+        <h4>Event dates:&nbsp; </h4>
+        <h5>{{events.events.eventStartDate}} - {{events.events.eventEndDate}}</h5>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="start center">
+        <h4>Event Location: &nbsp;</h4>
+        <h5>{{events.events.eventLocation}}</h5>
       </div>
 
+      <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-between bottom" class="DescnPic">
+        <div fxFlex="30" fxLayoutAlign="start center" class="eventPic">
+          <img [src]="backendUrl + events.events.eventPicture" title="Event pic">
+        </div>
+        <!--<div fxFlex="5"></div>-->
+        <p fxFlex="40" class="eventDesc">{{events.events.eventDescription}}</p>
+        <div fxFlex="10"></div>
+      </div>
 
-      <div fxLayout="row" fxLayoutAlign="start center" class="eventLink">
-        <h4>
-          Map:&nbsp;
-        </h4>
-        <a href="{{events.event.eventMap}}" target="_blank">
-          {{events.event.eventMap}}
+      <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="start center" class="eventLink">
+        <i class="material-icons">map</i>
+        <h4>Map:&nbsp;</h4>
+        <a href="{{events.events.eventMap}}" target="_blank">
+          {{events.events.eventMap}}
         </a>
       </div>
 
 
-      <div fxLayout="row" fxLayoutAlign="start center" class="eventLink">
-        <h4>
-          Agenda:&nbsp;
-        </h4>
-        <a href="{{events.event.eventAgenda}}" target="_blank">
-          {{events.event.eventAgenda}}
+      <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="start center" class="eventLink">
+        <i class="material-icons">assignment</i>
+        <h4>Agenda:&nbsp;</h4>
+        <a href="{{events.events.eventAgenda}}" target="_blank">
+          {{events.events.eventAgenda}}
         </a>
       </div>
     </mat-card-content>

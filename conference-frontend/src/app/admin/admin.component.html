@@ -12,6 +12,15 @@
   </mat-card>
 
   <div [ngSwitch]="userOptions">
+    <mat-card *ngIf="showDialog" class="dialog" fxLayout="column" fxLayoutAlign="center center">
+      <p>{{dialogMessage}}</p>
+      <div  fxLayout="row" fxLayoutAlign="center center">
+        <button *ngIf="isDeleteEventDialog" mat-button (click)="deleteEvent()">Yes</button>
+        <button *ngIf="isUnregisterAllDialog" mat-button (click)="unregisterAll()">Yes</button>
+        <button *ngIf="isDeleteSpeakerDialog" mat-button (click)="deleteSpeaker()">Yes</button>
+        <button mat-stroked-button (click)="cancelDialog()">Cancel</button>
+      </div>
+    </mat-card>
     <div *ngSwitchCase="'profile'">
       <mat-card ngClass="wideScreen" [ngClass.lt-lg]="{'wideScreen':false}">
         <mat-card-header>Admin Info</mat-card-header>
@@ -126,14 +135,15 @@
       </div>
 
       <div *ngFor="let i of eventCount">
-        <mat-card *ngIf="showDialog" class="dialog" fxLayout="column" fxLayoutAlign="center center">
-          <p>{{dialogMessage}}</p>
-          <div  fxLayout="row" fxLayoutAlign="center center">
-            <button *ngIf="isDeleteEventDialog" mat-button (click)="deleteEvent()">Yes</button>
-            <button *ngIf="isUnregisterAllDialog" mat-button (click)="unregisterAll()">Yes</button>
-            <button mat-stroked-button (click)="cancelDialog()">Cancel</button>
-          </div>
-        </mat-card>
+        <!--<mat-card *ngIf="showDialog" class="dialog" fxLayout="column" fxLayoutAlign="center center">-->
+          <!--<p>{{dialogMessage}}</p>-->
+          <!--<div  fxLayout="row" fxLayoutAlign="center center">-->
+            <!--<button *ngIf="isDeleteEventDialog" mat-button (click)="deleteEvent()">Yes</button>-->
+            <!--<button *ngIf="isUnregisterAllDialog" mat-button (click)="unregisterAll()">Yes</button>-->
+            <!--<button *ngIf="isDeleteSpeakerDialog" mat-button (click)="deleteSpeaker()">Yes</button>-->
+            <!--<button mat-stroked-button (click)="cancelDialog()">Cancel</button>-->
+          <!--</div>-->
+        <!--</mat-card>-->
 
         <mat-card ngClass="wideScreen" [ngClass.lt-lg]="{'wideScreen':false}">
           <mat-card-header fxLayout="row" fxLayoutAlign="space-between center">
@@ -368,7 +378,7 @@
               <div fxLayoutAlign="start center">Speaker #{{i}} Id: {{speakers.speaker[i].id}}</div>
             </mat-card-title>
             <div fxLayoutAlign="end center">
-              <button mat-mini-fab color="warn" (click)="deleteSpeaker(speakers.speaker[i].id, i)"><mat-icon>delete</mat-icon></button>
+              <button mat-mini-fab color="warn" (click)="onDeleteSpeaker('Delete this speaker?', speakers.speaker[i].id)"><mat-icon>delete</mat-icon></button>
             </div>
           </mat-card-header>
           <mat-card-content>

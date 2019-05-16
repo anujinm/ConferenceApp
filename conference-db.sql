@@ -1,0 +1,62 @@
+-- --------------------------------------------------------
+-- Host:                         35.236.18.234
+-- Server version:               5.7.14-google - (Google)
+-- Server OS:                    Linux
+-- HeidiSQL Version:             10.1.0.5464
+-- --------------------------------------------------------
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+-- Dumping data for table conference_db.Events: ~9 rows (approximately)
+/*!40000 ALTER TABLE `Events` DISABLE KEYS */;
+INSERT INTO `Events` (`id`, `eventName`, `eventTopic`, `eventOrganizer`, `eventStartDate`, `eventEndDate`, `eventDescription`, `eventAgenda`, `eventMap`, `eventPicture`, `eventLocation`, `createdAt`, `updatedAt`) VALUES
+	(0, 'nv ', '', 'EdDeptw', '2019-04-13 07:00:00', '2019-04-14 07:00:00', '', 'http://www.axmag.com/download/pdfurl-guide.pdf', 'https://www.whitworth.edu/cms/media/whitworth/documents/about-whitworth/map-amp-directions/whitworth-campus-map.pdf', 'pictures\\event\\conference.jpg', '', '2019-04-18 17:47:20', '2019-04-29 02:26:47'),
+	(6, 'name', 'Ed', 'EdDept', '2018-04-12 07:00:00', '2018-04-13 07:00:00', '  kajsd asdkjb asdljas dkasd ', 'https://urbact.eu/sites/default/files/urbactiii_programme_a4_v11.pdf', 'https://www.whitworth.jkasd/cms/media/whitworth/documents/about-whitworth/map-amp-directions/whitworth-campus-map.pdf', 'pictures\\event\\1557009902934-invitation.png', 'gym', '2019-04-23 22:45:29', '2019-05-05 02:11:00'),
+	(9, 'Taking Beautiful Risks', 'Having the Courage to Teach and Learn Creatively', 'Institute at Whitworth University', '2020-02-02 09:00:00', '2020-02-02 03:30:00', 'At a time when creativity is in higher demand than ever before, how do we “create spaces” for young students to take beautiful risks? How do we balance meeting curricular goals and helping students understand academic content in new and meaningful ways? Join us as we explore slight changes in our teaching and learning practices that can have a big impact on learning. We’ll learn to design complex challenges that put academic learning to creative use in and beyond the classroom.', 'https://urbact.eu/sites/default/files/urbactiii_programme_a4_v11.pdf', 'https://www.whitworth.edu/cms/media/whitworth/documents/about-whitworth/map-amp-directions/whitworth-campus-map.pdf', 'pictures\\event\\eventPictureSample1.png', 'Whitworth University', '2019-04-24 07:53:34', '2019-04-24 07:53:34'),
+	(10, 'river rafting', 'outdoors', 'I-Club', '2019-04-21 07:30:00', '2019-04-21 07:00:00', '', 'http://www.axmag.com/download/pdfurl-guide.pdf', 'https://www.whitworth.edu/cms/media/whitworth/documents/about-whitworth/map-amp-directions/whitworth-campus-map.pdf', 'pictures\\event\\conference.jpg', 'Peak 7 Adventures', '2019-04-24 07:56:00', '2019-04-24 08:03:22'),
+	(11, 'testEvent', 'testing', 'WU', '2020-01-22 08:00:00', '2020-01-24 08:00:00', 'kjasbhdefre', 'https://urbact.eu/sites/default/files/urbactiii_programme_a4_v11.pdf', 'https://www.whitworth.edu/cms/media/whitworth/documents/about-whitworth/map-amp-directions/whitworth-campus-map.pdf', 'pictures\\event\\conference.jpg', 'HUB', '2019-04-25 22:39:19', '2019-04-25 22:39:19'),
+	(12, 'hdfbasa', 'jdksf', 'kdjbf', '2012-12-12 08:00:00', '2012-12-14 08:00:00', 'SXDRFCGJVHBKJ SAIFYKHB', 'https://urbact.eu/sites/default/files/urbactiii_programme_a4_v11.pdf', 'https://www.whitworth.edu/cms/media/whitworth/documents/about-whitworth/map-amp-directions/whitworth-campus-map.pdf', 'pictures\\event\\conference.jpg', 'LJK', '2019-04-27 17:45:46', '2019-04-27 17:45:46'),
+	(28, 'abcdefg', '', '', '2019-04-28 07:00:00', '2019-04-28 07:00:00', '', 'https://urbact.eu/sites/default/files/urbactiii_programme_a4_v11.pdf', 'https://www.whitworth.edu/cms/media/whitworth/documents/about-whitworth/map-amp-directions/whitworth-campus-map.pdf', 'pictures\\event\\1557011060013-jp2.JPG', '', '2019-04-29 03:08:53', '2019-05-04 23:04:20'),
+	(29, 'schedule', 'fall 19', 'anujin', '1111-01-01 07:52:58', '2222-02-02 08:00:00', 'my schedule ', 'http://www.axmag.com/download/pdfurl-guide.pdf', 'https://www.whitworth.edu/cms/media/whitworth/documents/about-whitworth/map-amp-directions/whitworth-campus-map.pdf', 'pictures\\event\\1557011465593-fall19-schedule.JPG', 'whitworth cacmpus', '2019-04-29 03:21:36', '2019-05-05 00:59:14'),
+	(30, 'farewell', 'international senior bye party', 'I-club', '1111-01-01 07:52:58', '1111-01-01 07:52:58', '', '', 'https://www.whitworth.edu/cms/media/whitworth/documents/about-whitworth/map-amp-directions/whitworth-campus-map.pdf', 'pictures\\event\\conference.jpg', 'isc', '2019-05-04 21:35:24', '2019-05-05 00:53:46');
+/*!40000 ALTER TABLE `Events` ENABLE KEYS */;
+
+-- Dumping data for table conference_db.SequelizeMeta: ~3 rows (approximately)
+/*!40000 ALTER TABLE `SequelizeMeta` DISABLE KEYS */;
+INSERT INTO `SequelizeMeta` (`name`) VALUES
+	('20190314191648-create-user.js'),
+	('20190402214947-create-speaker.js'),
+	('20190404234719-create-event.js');
+/*!40000 ALTER TABLE `SequelizeMeta` ENABLE KEYS */;
+
+-- Dumping data for table conference_db.Speakers: ~3 rows (approximately)
+/*!40000 ALTER TABLE `Speakers` DISABLE KEYS */;
+INSERT INTO `Speakers` (`id`, `eventId`, `speakerName`, `speakerTopic`, `speakerPicture`, `speakerBio`, `speakerSlides`, `createdAt`, `updatedAt`) VALUES
+	(1, 9, 'Peter Tucker', 'CS Industry', 'pictures\\event\\1557028499861-anujinm.jpg', 'Pete is a dedicated civil servant who is extremely influential in the development of Whitworth\'s computer science students... NOT! He is also working on an app called Textmuse which you should check out on the app store (both apple and android). Pete is also coaching a soccer team, they are currently 1-2.', NULL, '2019-04-28 21:28:51', '2019-05-05 03:55:00'),
+	(23, 9, 'Jon Snow', 'Winter is Here', 'pictures\\user\\JonSnowSeason8HB.jpg', 'In A Game of Thrones, Jon Snow is introduced as the 14-year-old illegitimate son of Eddard "Ned" Stark, Lord of Winterfell, and half-brother to Robb, Sansa, Arya, Bran and Rickon. Jon is described as having strong Stark features with a lean build, long face, dark brown hair and grey eyes.', NULL, '2019-04-28 21:36:05', '2019-04-28 21:36:07'),
+	(24, 9, 'Daenerys Targaryen', 'How to break chains', 'pictures\\user\\danny.jpg', 'Princess Daenerys Targaryen, also known as Daenerys Stormborn, is one of the last confirmed members of House Targaryen, along with her older brother Viserys, who refers to her as Dany. She is the youngest child of King Aerys II Targaryen and his sister-wife, Queen Rhaella.', '', '2019-04-29 05:38:34', '2019-04-29 05:38:34');
+/*!40000 ALTER TABLE `Speakers` ENABLE KEYS */;
+
+-- Dumping data for table conference_db.Users: ~11 rows (approximately)
+/*!40000 ALTER TABLE `Users` DISABLE KEYS */;
+INSERT INTO `Users` (`id`, `eventId`, `email`, `password`, `hash`, `level`, `firstName`, `lastName`, `phoneNumber`, `personalEmail`, `bio`, `profilePic`, `schoolDistrict`, `roleAtDistrict`, `social1`, `social2`, `social3`, `createdAt`, `updatedAt`) VALUES
+	(1, 9, 'anu@yahoo.com', '$2a$10$PW9ngiBpIVTYYlAeKYLsgOVjaw42CHjOG4RBPkpuzLIfstls/25LK', 'QkqvBTaPb0a7WdbzXaeJsI6n7Zeiyd2lBbcit8PYn0ShBCwhhUMHC1rtjw3egEko6Y4cNVT5FP6O9j621gpw94CI9RiUeTZrI2s46CIPaFQGvVBCZAeunITlW7j9JKD257QBroVv47r5B4amSHlwoOq92ljFn4fEWTZUAJRrmp2FGOFbiWamAfYWS6z1EQ', 7, 'Anujin', 'Munkhbat', '509-777-4444', 'amunkhbat@whitworth.edu', '', 'pictures\\user\\1556390448783-Guest-Speaker_LowRes-WebSlide.jpg', 'Whitworth University', 'staff', 'instagram.com', '', '', '2019-04-08 03:34:03', '2019-04-27 18:40:49'),
+	(2, 0, 'testing@gmail.com', '$2a$10$HcIWFp/DxOwnuhzvJgp8EeDDTjwgVJrco6PS0jW9LxK9vQTNUzNVq', '6o8dAMRpVSU0y0oDQluqeVdTcTX3Xq6S7767ZEstS8GsGIbV7yv2zIHXp0I4xjHfUJ87qB63FfzSoxA90KnLgomCGi45J0lq1XTn8BQNpvbqwvpGdYeLC4KsgDNdOAulfAkl9ZTTmZuMJ1nxjQ3tXibyqufBL6I7vp0dUUinfGjDsOUYiCY2WfiFmxMCWX', 0, 'Test', 'Testing', '5097774444', 'personal@yahoo.com', 'Hello there! ', 'pictures\\user\\1554697140247-attendees.jpg', 'Gonzaga University', 'Professor', 'fb.com', '', '', '2019-04-08 04:15:30', '2019-04-24 09:00:57'),
+	(3, 9, 'testing@yahoo.com', '$2a$10$Mo84NtCPV6z7Vwe7jpZ6Be8X8/Ys/5x0U.nhllAk1onZTlDGFz1tm', 'LNsKFYuqP084keLsAs17W0goPMkTjzKQu2qBsVDfkxfDKG4oRwtb9qltW6RTfy4nntIQMIM6rCaXCa86hKCXWQkWk0IAQ8rtYc05xm721cc68dervgus5HiNxf0sMkqQUvCPWVHGv3nDsF4CxkjG7RWJO6mYcg654qddsUcKuUuRlD6MGBAyVpfXIHEJGM', 0, 'Will', 'Smith', '509-777-3911', 'wsmith@gmail.com', 'hi hi hi', 'pictures\\user\\avatar.png', '', '', '', '', '', '2019-04-08 05:32:37', '2019-04-30 02:15:12'),
+	(4, 9, 'jbone18@gmail.com', '$2a$10$TG6vUB/tBJT2IDcKMvHwKOqaDzrQrLZSgc.4ug6Csyb.XRGpn7LUu', 'ZZEB3FrWyMsP85pyLBPqdxGwlFU24inBKnTrHgZBQeom4ZJaTy8X9jCSXDFJ9c2P0txapQe263AaNcErdF0pkPOVtsEXLh67qGhpi1W5aeGdLWDPMumk2ehI4EYLbYa8r1sJiRP6P5VoJciBMgMcg4edtrBxBN5b2j68R3ttJRLbvgUVTKPLS7E0IWd9Zv', 0, 'Jordan', 'Bone', '1231231231', NULL, 'sasdfasdf', 'pictures\\user\\avatar.png', '', '', '', '', '', '2019-04-09 20:26:52', '2019-04-30 02:08:32'),
+	(5, NULL, 'jbone18@gmail.com', '$2a$10$SBJApnPMZzhGe.ArldfazuV5WwqF/clB3.QVLRBlprIq2dDNJKcu.', 'V6RBg7wMYJmqeB0Ks2JojehGDUNqq2Uw3h8DFR79xtn9OKeMTV3ea6WdXsd9cu8WYPAUDgzGeHkPn6rSzb3AxE0K7Bvo0qdzyao3reER18fL8Pkw3BA9RsRpy4t33XRIcnZdGUrjb61Px8t82UwFN5h84Cda8FNUenTLr8olfsIMdncqbcUsbJ1zA4SOlD', 0, 'Jordan', 'Bone', '1231231231', NULL, 'sasdfasdf', 'pictures\\user\\avatar.png', '', '', '', '', '', '2019-04-09 20:26:52', '2019-04-09 20:26:52'),
+	(6, NULL, 'jbone18@gmail.com', '$2a$10$txEUgYnxZw8YxGfjVJKb..2EUIsqPr.1cyUUPbnjG8sPvHfnAvjAO', '9k7qQwSWs19VmH2OUtdZq3jjouye3vFg7jUBx2vplF74ptWXJyp4PPyn6TpEC75utuFsbHk9eieP8UUkzv6FXSUPGudru5W6X5IsAtGqqQvpJ7TkFZaggrXseC8y5C31AnnkAgeprrqI0M4mS6SSN81CI0S75PMORls9KKcn0o8dzfWxuIYrH66uyMXixJ', 0, 'Jordan', 'Bone', '1231231231', NULL, 'sasdfasdf', 'pictures\\user\\avatar.png', '', '', '', '', '', '2019-04-09 20:26:52', '2019-04-09 20:26:52'),
+	(7, 9, 'timbrug@gmail.com', '$2a$10$Xsx3oUI7LYTA.e4y9qJTKOsAJheyt8QYVG.oviNSK6FG00.Sqg9ZO', 'YgLl1r6aJb2BUyP67NQJHT8aCTlLXtV9DPLji8z3ESM4xmfPkOvIHE8PJSUlkggMG2GXvwjvU6aI9I9esnunu7yBweOJK1StepZck0tsi0ffoVyXRmmarptnzkLfZoa2BOvtAm3ksnNzpHeuYM1AF8snngLw6be5tsEQmzq1riKyumGlhcWsWpgZuyF48e', 0, 'Tim', 'Brug', '4123432', NULL, 'Happy', 'pictures\\user\\avatar.png', '', '', '', '', '', '2019-04-09 20:32:05', '2019-04-09 20:32:05'),
+	(8, 9, 'harrison@gmail.com', '$2a$10$1RMwkw5IsNiz.jgEmGG1fOi/hRXDzk7mEPuUNKyRe3bmk52i9FFcq', 'ILnGtDojP7xahmOH4YJJLq0WAd0sgl4JZf6OB2EZJYOLy8LwGHlhX0l4n4OwjxHcWCTRHgEI8vVIFTl61nEJcDaVQ5oLSMRZKynlUOgnHr8B87nJRmWITcun2MLmVORvylzfDQTkNJYkNdFIsqJ2YqsA4MOdkK7KbLYctoYDEeiXzhTZMLJ8iSeVlUl5Sg', 0, 'Harrsion', 'Ford', '32233223', NULL, 'Happy', 'pictures\\user\\avatar.png', '', '', '', '', '', '2019-04-09 20:32:43', '2019-04-30 02:14:48'),
+	(9, 9, 'leo@gmail.com', '$2a$10$4907c.7MwomvJ26aimj/OeRsoElFsAFr5znypxONTI6A/V4t8WFdm', 'ha4oamFDFseH71D6kfS4P8PMWIFNorAXjKGAyBsP0w4saMwRpy9IfgU5ceiaWewa2H6XUr6gCyILosyaf1nJYEeApC3IejwG6Z4aopw7VSbeBi9tr8hbRylzuywnQI0T8kxrqxy7FGDcfD7ZWUcZ2KRnhN3YMsuf4t0rTMrIgCfi3kajb3jXRy4KD6FQZG', 0, 'Leonardo', 'Dicaprio', '09876544', NULL, 'Happy', 'pictures\\user\\avatar.png', '', '', '', '', '', '2019-04-09 20:33:12', '2019-04-30 02:14:48'),
+	(10, 0, 'tom@gmail.com', '$2a$10$rhD5WAdjXclUUEX8kR.3RueRVfBFxvLkGiycF/CesCzdPVG5qWOCW', 'sBE1NZJLyWylErxV0zTWIQg8hqZck3hZXjk44z57gp1X6b3IyYTbKG5ZTQHzAyMHs42ye61MkT1E0hGmUzyVHm4RSxN2ctKH3RHqOUeJtOfRRvIBSx8vApwcHrr0DOT6KqHbM6MevW2VDfnJcl1I9DqKpU3PtPDVRGoMHAwIbh9QNdnrAKGR1vz5ONPS5e', 0, 'Tom', 'Cruise', '135792468', NULL, 'Content', 'pictures\\user\\avatar.png', 'f', 'asdf', 'fdsd', 'fdsegd', 'insta', '2019-04-09 20:34:24', '2019-04-30 02:08:32'),
+	(11, NULL, 'example@gmail.com', '$2a$10$tGoOzSgycQmaHMbIZxBVFONlYi6E1H8PUOEpL2NTE0CHXCwUZ2r6y', 'IpR1gGfk56nK2RUYLqcnxeZ52sIAus49HOgFgjqlZHapMDUENLbn1csL8IPxC77czfbtOOndmP1DAKgFD2Nm30PsMSPcRu0kXV5YNWPTIbVs888g8UUPlkwoteLcj1REEiP5J5uwoTEacGs9slaSySNIVyOzrgTltUdOammkfutzp4zCMlrJk9Ck7QQDi8', 0, '', '', '', NULL, '', 'pictures\\user\\avatar.png', '', '', '', '', '', '2019-05-05 02:16:12', '2019-05-05 02:16:12');
+/*!40000 ALTER TABLE `Users` ENABLE KEYS */;
+
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

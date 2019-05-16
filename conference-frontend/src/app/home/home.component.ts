@@ -4,6 +4,8 @@ import { HomeService } from './event.service';
 import { environment } from '../../environments/environment';
 import { ProfileService } from '../profile/profile.service';
 import { ProfileModel } from '../profile/profile.model';
+import {MatSnackBar} from "@angular/material";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-home',
@@ -22,12 +24,18 @@ export class HomeComponent implements OnInit {
   backendUrl = environment.backendUrl;
 
   constructor(
+    private snackBar: MatSnackBar,
     private eventService: HomeService,
-    private profileService: ProfileService) { }
+    private profileService: ProfileService,
+    private router: Router) { }
 
   registerForEvent(id: number) {
-    this.profileService.registerUserForEvent(JSON.stringify(id)).then((profile) => {
+    this.profileService.registerUserForEvent(JSON.stringify(id)).then((res) => {
+      if (res['message'] === 'User successfully registered') {
+        this.snackBar.open('Successfully Registered!', 'Done', {duration: 3000});
+      }
       console.log('Registering User');
+      this.router.navigate(['/homeCustom']);
     }).catch((err) => {
       console.log(err);
     });

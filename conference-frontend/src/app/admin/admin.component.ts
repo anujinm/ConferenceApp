@@ -39,9 +39,11 @@ export class AdminComponent implements OnInit {
   showDialog = false;
   dialogMessage = '';
   eventIdToDelete: number;
+  speakerIdToDelete: number;
   eventIdToUnregister: number;
   isDeleteEventDialog = false;
   isUnregisterAllDialog = false;
+  isDeleteSpeakerDialog = false;
 
   constructor(
     private snackBar: MatSnackBar,
@@ -60,6 +62,14 @@ export class AdminComponent implements OnInit {
     this.showDialog = true;
     this.dialogMessage = message;
     this.eventIdToUnregister = id;
+  }
+  onDeleteSpeaker(message: string, id: number) {
+    console.log(message);
+    this.isDeleteSpeakerDialog = true;
+    this.showDialog = true;
+    this.dialogMessage = message;
+    this.speakerIdToDelete = id;
+    console.log(this.isDeleteSpeakerDialog, this.showDialog, this.speakerIdToDelete);
   }
   cancelDialog() {
     this.showDialog = false;
@@ -299,14 +309,19 @@ export class AdminComponent implements OnInit {
   }
   deleteEvent() {
     this.eventService.removeEvent(JSON.stringify(this.eventIdToDelete)).then((res) => {
+      this.isDeleteEventDialog = false;
+      this.showDialog = false;
       // window.location.reload();
+      // to do: snackbar
       console.log(res);
     }).catch((err) => {
       console.log(err);
     });
   }
-  deleteSpeaker(id: number, index: number) {
-    this.eventService.removeSpeaker(JSON.stringify(id)).then((res) => {
+  deleteSpeaker() {
+    this.eventService.removeSpeaker(JSON.stringify(this.speakerIdToDelete)).then((res) => {
+      this.isDeleteSpeakerDialog = false;
+      this.showDialog = false;
       window.location.reload();
     }).catch((err) => {
       console.log(err);
@@ -316,6 +331,9 @@ export class AdminComponent implements OnInit {
     const body = '';
     this.eventService.unregisterAllUsers(JSON.stringify(this.eventIdToUnregister)).then((res) => {
       console.log('unregistered all users');
+      this.isUnregisterAllDialog = false;
+      this.showDialog = false;
+      // to do: snackbar
     }).catch((err) => {
       console.log(err);
     });

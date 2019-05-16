@@ -7,43 +7,46 @@
   <div *ngFor="let i of eventCount">
     <mat-card class="conferenceCard">
       <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
+        <div mat-card-avatar class="avatar"><i class="material-icons">insert_invitation</i></div>
         <mat-card-title>{{events2.events[i].eventName}}</mat-card-title>
-        <mat-card-subtitle>{{events2.events[i].eventOrganizer}}</mat-card-subtitle>
+        <mat-card-subtitle>{{events2.events[i].eventTopic}}</mat-card-subtitle>
+        <!--<mat-card-subtitle class="organizer">{{events2.events[i].eventOrganizer}}</mat-card-subtitle>-->
       </mat-card-header>
       <mat-card-content>
-        <h4 class="headline">Overview: </h4>
-        <p>
-          Event dates: {{events2.events[i].eventStartDate}} - {{events2.events[i].eventEndDate}}
-        </p>
-
-        <p>
-          {{events2.events[i].eventLocation}}
-        </p>
-
-        <p>
-          {{events2.events[i].eventDescription}}
-        </p>
-
-        <div fxLayoutAlign="start center">
-          <img [src]="backendUrl + events2.events[i].eventPicture" title="Event pic">
+        <h3 class="headline">Overview: </h3>
+        <div fxLayout="row" fxLayoutAlign="start center">
+          <h4>Event Organizer:&nbsp;</h4>
+          <h5>{{events2.events[i].eventOrganizer}}</h5>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="start center">
+          <h4>Event dates:&nbsp; </h4>
+          <h5>{{events2.events[i].eventStartDate}} - {{events2.events[i].eventEndDate}}</h5>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="start center">
+          <h4>Event Location: &nbsp;</h4>
+          <h5>{{events2.events[i].eventLocation}}</h5>
         </div>
 
+        <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-between bottom" class="DescnPic">
+          <div fxFlex="30" fxLayoutAlign="start center" class="eventPic">
+            <img [src]="backendUrl + events2.events[i].eventPicture" title="Event pic">
+          </div>
+          <!--<div fxFlex="5"></div>-->
+          <p fxFlex="40" class="eventDesc">{{events2.events[i].eventDescription}}</p>
+          <div fxFlex="10"></div>
+        </div>
 
-        <div fxLayout="row" fxLayoutAlign="start center" class="eventLink">
-          <h4>
-            Map:&nbsp;
-          </h4>
+        <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="start center" class="eventLink">
+          <i class="material-icons">map</i>
+          <h4>Map:&nbsp;</h4>
           <a href="{{events2.events[i].eventMap}}" target="_blank">
             {{events2.events[i].eventMap}}
           </a>
         </div>
 
-
-        <div fxLayout="row" fxLayoutAlign="start center" class="eventLink">
-          <h4>
-            Agenda:&nbsp;
-          </h4>
+        <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="start center" class="eventLink">
+          <i class="material-icons">assignment</i>
+          <h4>Agenda:&nbsp;</h4>
           <a href="{{events2.events[i].eventAgenda}}" target="_blank">
             {{events2.events[i].eventAgenda}}
           </a>
