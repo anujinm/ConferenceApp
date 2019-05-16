@@ -1,7 +1,8 @@
+//imports
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { AdminComponent } from './admin.component';
 
+// Admin description
 describe('AdminComponent', () => {
   let component: AdminComponent;
   let fixture: ComponentFixture<AdminComponent>;

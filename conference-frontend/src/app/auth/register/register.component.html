@@ -1,4 +1,4 @@
-<!--<p>register works!</p>-->
+<!--Centered horizontally and vertically-->
 <div fxLayout="column" fxLayoutAlign="center center">
   <form [formGroup]="accountInfo" (ngSubmit)="submitForm()" fxLayout="column">
     <img src="../../../assets/images/whitworth-logo-vertical-rgb.png" title="Logo" width="50%">
@@ -7,6 +7,8 @@
       <input matInput placeholder="Email" formControlName="email" type="text">
       <!--<mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>-->
     </mat-form-field>
+
+    <!--Confirm password for security-->
     <mat-form-field>
       <input matInput placeholder="Password" formControlName="password" type="password">
       <!--<mat-error *ngIf="password.invalid">{{getPasswordErrorMessage()}}</mat-error>-->

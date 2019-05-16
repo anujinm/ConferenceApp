@@ -1,3 +1,5 @@
+//imports
+
 import {
   Injectable
 } from '@angular/core';
@@ -24,6 +26,8 @@ const BACKEND_URL = environment.apiUrl + '/user';
   providedIn: 'root'
 })
 
+
+  //Log in and out, with extra security functions, and getters
 export class AuthService {
   private isAuthenticated = false;
   private token: string;

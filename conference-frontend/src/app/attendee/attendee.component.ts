@@ -1,3 +1,4 @@
+//imports
 import { Component, OnInit } from '@angular/core';
 import {ImageSnippet, ProfileModel} from './../profile/profile.model';
 import {ProfileService} from './../profile/profile.service';
@@ -22,11 +23,12 @@ export class AttendeeComponent implements OnInit {
     private profileService: ProfileService
   ) { }
 
+  //Load and execute
   ngOnInit() {
     this.profileService.getMyProfile().then((profile) => {
       this.profile = profile;
       this.eventId = JSON.stringify(this.profile.eventId);
-      console.log(this.profile.eventId);
+      console.log(this.profile.eventId); //print to console
       this.profileService.getAllAttendees(this.eventId).then(res => {
         this.attendees = res;
         // this.profile.firstName = this.attendees.map(attendee => attendee.firstName);

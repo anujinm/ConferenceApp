@@ -1,3 +1,6 @@
+/*declaration for admin material module*/
+
+//imports
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -16,6 +19,8 @@ import {
 } from '@angular/material';
 import {NgModule} from '@angular/core';
 
+
+//exports
 @NgModule({
   exports: [
     MatButtonModule,
