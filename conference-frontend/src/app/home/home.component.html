@@ -20,7 +20,7 @@
         </div>
         <div fxLayout="row" fxLayoutAlign="start center">
           <h4>Event dates:&nbsp; </h4>
-          <h5>{{events2.events[i].eventStartDate}} - {{events2.events[i].eventEndDate}}</h5>
+          <h5>{{events2.events[i].eventStartDate | date:'mediumDate'}} - {{events2.events[i].eventEndDate | date:'mediumDate'}}</h5>
         </div>
         <div fxLayout="row" fxLayoutAlign="start center">
           <h4>Event Location: &nbsp;</h4>

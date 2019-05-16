@@ -31,7 +31,9 @@ export class ProfileService {
   updateUserInformation(body) {
     return this.http.put(BACKEND_URL + '/profile', body).toPromise();
   }
-
+  updatePassword(body) {
+    return this.http.put(BACKEND_URL + '/profile/resetPassword', body).toPromise();
+  }
   changeProfilePicture(image: File) {
     const formData = new FormData();
     formData.append('image', image);

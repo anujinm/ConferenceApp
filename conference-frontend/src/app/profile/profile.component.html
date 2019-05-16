@@ -108,20 +108,23 @@
     <div *ngSwitchCase="'updatePassword'">
       <mat-tab-group class="profileSection" dynamicHeight>
         <mat-tab label="Update Password">
-          <mat-list fxLayout="row">
-            <div>
-              <mat-list-item>Old Password:</mat-list-item>
-              <mat-list-item>New Password:</mat-list-item>
-              <mat-list-item>Confirm New Password:</mat-list-item>
-            </div>
-            <div>
-              <mat-list-item><input type="password"></mat-list-item>
-              <mat-list-item><input type="password"></mat-list-item>
-              <mat-list-item><input type="password"></mat-list-item>
-            </div>
-          </mat-list>
+          <form [formGroup]="updatePasswordForm" (ngSubmit)="resetPassword()" fxLayout="column" class="password">
+            <mat-form-field fxLayout="row">
+              <mat-label>Old Password</mat-label>
+              <input type="password" matInput formControlName="oldPassword">
+            </mat-form-field>
+            <mat-form-field fxLayout="row">
+              <mat-label>New Password</mat-label>
+              <input type="password" matInput formControlName="newPassword">
+            </mat-form-field>
+            <mat-form-field fxLayout="row">
+              <mat-label>Confirm New Password</mat-label>
+              <input type="password" matInput formControlName="confirmNewPassword">
+            </mat-form-field>
+          </form>
+
           <div fxLayoutAlign="end center" class="updateInfo">
-            <button mat-raised-button>Update</button>
+            <button mat-raised-button [disabled]="updatePasswordForm.invalid">Update</button>
           </div>
         </mat-tab>
       </mat-tab-group>

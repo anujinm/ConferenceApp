@@ -3,6 +3,8 @@ import {ProfileService} from './profile.service';
 import {ImageSnippet, ProfileModel} from './profile.model';
 import {environment} from '../../environments/environment';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {MatSnackBar} from "@angular/material";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-profile',
@@ -19,10 +21,13 @@ export class ProfileComponent implements OnInit {
   isUploadButtonDisabled = true;
   userId = 0;
   accountInfoForm: FormGroup;
+  updatePasswordForm: FormGroup;
   constructor(
     private profileService: ProfileService,
-    private fb: FormBuilder
-  ) { }
+    private snackBar: MatSnackBar,
+    private fb: FormBuilder,
+    private router: Router
+) { }
   navigateProfile(options: string) {
     this.userOptions = options;
   }
@@ -102,6 +107,32 @@ export class ProfileComponent implements OnInit {
       console.log(err);
     });
   }
+  resetPassword() {
+    const p_info = this.updatePasswordForm.value;
+    const oldP = p_info['oldPassword'];
+    const newP = p_info['newPassword'];
+    const confP = p_info['confirmNewPassword'];
+    const body = {
+      oldPassword: oldP,
+      newPassword: newP
+    };
+    if (newP === confP) {
+      this.profileService.updatePassword(body).then((res) => {
+        if (res['message'] === 'Password successfully updated!') {
+          this.snackBar.open('Password has been updated', 'Done', {
+            duration: 3000
+          });
+          this.router.navigate(['/profile']);
+        }
+      }).catch((err) => {
+        console.log(err);
+      });
+    } else {
+      this.snackBar.open('Passwords do not match', 'Try again', {
+        duration: 3000
+      });
+    }
+  }
   ngOnInit() {
     this.isLoading = true;
     this.profileService.getMyProfile().then((res) => {
@@ -123,6 +154,11 @@ export class ProfileComponent implements OnInit {
       social1: ['', [Validators.required]],
       social2: ['', [Validators.required]],
       social3: ['', [Validators.required]]
+    });
+    this.updatePasswordForm = this.fb.group({
+      oldPassword: ['', [Validators.required]],
+      newPassword: ['', [Validators.required]],
+      confirmNewPassword: ['', [Validators.required]]
     });
   }
 
