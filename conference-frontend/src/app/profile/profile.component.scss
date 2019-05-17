@@ -11,9 +11,12 @@ mat-card {
 .profileSection {
   width: 100%;
   margin: 0.5em;
-
+  .updateInfoFrom {
+    padding-top: 20px;
+    padding-left:20px;
+  }
   .updateInfo {
-    margin: 15px 25px 20px 0;
+    margin: 15px 15px 20px 0;
   }
   mat-list-item {
     ::content {
