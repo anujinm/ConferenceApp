@@ -5,9 +5,10 @@
     "\\src\\app",
     "\\src\\app\\admin",
     "\\src\\app\\attendee",
+    "\\src\\app\\auth",
     "\\src\\app\\home",
     "\\src\\app\\profile"
   ],
-  "SelectedNode": "\\src\\app\\admin\\admin.component.ts",
+  "SelectedNode": "\\src\\app\\auth\\auth.service.ts",
   "PreviewInSolutionExplorer": false
 }
