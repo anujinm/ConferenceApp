@@ -24,6 +24,7 @@ export class NavbarComponent implements OnInit {
   eventAgenda;
   eventId = '';
   profile: ProfileModel;
+  notRegistered = false;
 
   constructor(
     private authService: AuthService,
@@ -50,6 +51,9 @@ export class NavbarComponent implements OnInit {
 
     this.profileService.getMyProfile().then((profile) => {
       this.profile = profile;
+      if (this.profile.eventId === 0) {
+        this.notRegistered = true;
+      }
       this.eventId = JSON.stringify(this.profile.eventId);
       console.log(this.profile.eventId);
 

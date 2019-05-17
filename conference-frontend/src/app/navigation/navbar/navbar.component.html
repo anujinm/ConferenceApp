@@ -3,11 +3,11 @@
     <div fxFlex="50">
       <a *ngIf="!userIsAuthenticated" routerLink="/">Home</a>
       <a *ngIf="userIsAuthenticated" routerLink="/homeCustom">Home</a>
-      <a *ngIf="userIsAuthenticated" href="{{eventAgenda}}" target="_blank">Agenda</a>
-      <a *ngIf="userIsAuthenticated" href="{{eventMap}}" target="_blank">Map</a>
-      <a *ngIf="userIsAuthenticated" routerLink="/speaker">Speakers</a>
-      <a *ngIf="userIsAuthenticated" routerLink="/attendee" >Attendees</a>
-      <a *ngIf="userIsAuthenticated" routerLink="/spokane" >Activities</a>
+      <a *ngIf="userIsAuthenticated && !notRegistered" href="{{eventAgenda}}" target="_blank">Agenda</a>
+      <a *ngIf="userIsAuthenticated && !notRegistered" href="{{eventMap}}" target="_blank">Map</a>
+      <a *ngIf="userIsAuthenticated && !notRegistered" routerLink="/speaker">Speakers</a>
+      <a *ngIf="userIsAuthenticated && !notRegistered" routerLink="/attendee" >Attendees</a>
+      <a *ngIf="userIsAuthenticated && !notRegistered" routerLink="/spokane" >Activities</a>
     </div>
 
     <div fxFlex="30" fxLayoutAlign="flex-end center">

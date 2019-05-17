@@ -13,6 +13,15 @@
 
   <!--This creates the options card-->
   <div [ngSwitch]="userOptions">
+    <mat-card *ngIf="showDialog" class="dialog" fxLayout="column" fxLayoutAlign="center center">
+      <p>{{dialogMessage}}</p>
+      <div  fxLayout="row" fxLayoutAlign="center center">
+        <button *ngIf="isDeleteEventDialog" mat-button (click)="deleteEvent()">Yes</button>
+        <button *ngIf="isUnregisterAllDialog" mat-button (click)="unregisterAll()">Yes</button>
+        <button *ngIf="isDeleteSpeakerDialog" mat-button (click)="deleteSpeaker()">Yes</button>
+        <button mat-stroked-button (click)="cancelDialog()">Cancel</button>
+      </div>
+    </mat-card>
     <div *ngSwitchCase="'profile'">
       <mat-card ngClass="wideScreen" [ngClass.lt-lg]="{'wideScreen':false}">
         <mat-card-header>Admin Info</mat-card-header>
@@ -132,14 +141,6 @@
 
       <!--Loop to display events-->
       <div *ngFor="let i of eventCount">
-        <mat-card *ngIf="showDialog" class="dialog" fxLayout="column" fxLayoutAlign="center center">
-          <p>{{dialogMessage}}</p>
-          <div fxLayout="row" fxLayoutAlign="center center">
-            <button *ngIf="isDeleteEventDialog" mat-button (click)="deleteEvent()">Yes</button>
-            <button *ngIf="isUnregisterAllDialog" mat-button (click)="unregisterAll()">Yes</button>
-            <button mat-stroked-button (click)="cancelDialog()">Cancel</button>
-          </div>
-        </mat-card>
 
         <mat-card ngClass="wideScreen" [ngClass.lt-lg]="{'wideScreen':false}">
           <mat-card-header fxLayout="row" fxLayoutAlign="space-between center">
@@ -303,24 +304,6 @@
                 </div>
               </mat-tab>
 
-              <!--<mat-tab label="Update Event Agenda">-->
-              <!--<mat-list fxLayout="row" fxLayoutAlign="space-between center">-->
-              <!--<div>-->
-              <!--<mat-list-item>Select Image:</mat-list-item>-->
-              <!--</div>-->
-              <!--<div>-->
-              <!--<mat-list-item>-->
-              <!--<input [hidden]="true" #fileInput type="file" accept="pdf/*" (change)="processPdfFile(fileInput)">-->
-              <!--<button mat-stroked-button (click)="fileInput.click()">Select File</button>-->
-              <!--</mat-list-item>-->
-              <!--<mat-list-item></mat-list-item>-->
-              <!--</div>-->
-              <!--</mat-list>-->
-              <!--<div fxLayoutAlign="end center" class="updateInfo">-->
-              <!--<button mat-raised-button (click)="updateEventAgenda(events.events[i].id)" [disabled]="isUploadButtonDisabled">Update</button>-->
-              <!--</div>-->
-              <!--</mat-tab>-->
-
             </mat-tab-group>
           </mat-card-content>
         </mat-card>
@@ -378,7 +361,7 @@
               <div fxLayoutAlign="start center">Speaker #{{i}} Id: {{speakers.speaker[i].id}}</div>
             </mat-card-title>
             <div fxLayoutAlign="end center">
-              <button mat-mini-fab color="warn" (click)="deleteSpeaker(speakers.speaker[i].id, i)"><mat-icon>delete</mat-icon></button>
+              <button mat-mini-fab color="warn" (click)="onDeleteSpeaker('Delete this speaker?', speakers.speaker[i].id)"><mat-icon>delete</mat-icon></button>
             </div>
           </mat-card-header>
           <mat-card-content>
