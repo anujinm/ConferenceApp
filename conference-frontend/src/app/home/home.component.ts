@@ -29,6 +29,7 @@ export class HomeComponent implements OnInit {
     private profileService: ProfileService,
     private router: Router) { }
 
+
   registerForEvent(id: number) {
     this.profileService.registerUserForEvent(JSON.stringify(id)).then((res) => {
       if (res['message'] === 'User successfully registered') {

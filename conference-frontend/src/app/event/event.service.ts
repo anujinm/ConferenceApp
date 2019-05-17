@@ -1,3 +1,5 @@
+//imports
+
 import { Injectable } from '@angular/core';
 import {environment} from '../../environments/environment';
 import {EventModel} from './event.model';
@@ -8,6 +10,7 @@ const BACKEND_URL = environment.apiUrl + '/event';
 const BACKEND_URL_SPEAKER = environment.apiUrl + '/speaker';
 const BACKEND_URL_USER = environment.apiUrl + '/user';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -17,6 +20,7 @@ export class EventService {
     private http: HttpClient
   ) { }
 
+  //functions that request information from the backend
   getAllEvents() {
     return this.http.get<EventModel>(BACKEND_URL + '/events').toPromise();
   }

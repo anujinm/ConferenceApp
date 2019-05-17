@@ -14,6 +14,7 @@ export class SpeakerService {
     private http: HttpClient
   ) { }
 
+  //backend call for speakers
   getAllSpeakers(id: string) {
     return this.http
       .get<SpeakerModel>(BACKEND_URL + '/speakers/'  + id)

@@ -1,3 +1,5 @@
+//slide module on home page
+
 
 export interface SlideModel {
   url: string | null;

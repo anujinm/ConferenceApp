@@ -1,3 +1,4 @@
+<!--unlock items when users register-->
 <mat-toolbar color="primary" class="mat-elevation-z5">
   <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-between center">
     <div fxFlex="50">
@@ -6,8 +7,8 @@
       <a *ngIf="userIsAuthenticated && !notRegistered" href="{{eventAgenda}}" target="_blank">Agenda</a>
       <a *ngIf="userIsAuthenticated && !notRegistered" href="{{eventMap}}" target="_blank">Map</a>
       <a *ngIf="userIsAuthenticated && !notRegistered" routerLink="/speaker">Speakers</a>
-      <a *ngIf="userIsAuthenticated && !notRegistered" routerLink="/attendee" >Attendees</a>
-      <a *ngIf="userIsAuthenticated && !notRegistered" routerLink="/spokane" >Activities</a>
+      <a *ngIf="userIsAuthenticated && !notRegistered" routerLink="/attendee">Attendees</a>
+      <a *ngIf="userIsAuthenticated && !notRegistered" routerLink="/spokane">Activities</a>
     </div>
 
     <div fxFlex="30" fxLayoutAlign="flex-end center">
@@ -19,6 +20,7 @@
 </mat-toolbar>
 
 
+<!--unlock items when users register-->
 <mat-menu #profileMenu="matMenu">
   <button mat-menu-item *ngIf="!userIsAuthenticated" routerLink="/auth/register">Register</button>
   <button mat-menu-item *ngIf="!userIsAuthenticated" routerLink="/auth/login">Login</button>

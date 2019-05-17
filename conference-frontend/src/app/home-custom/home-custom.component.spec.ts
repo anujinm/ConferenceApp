@@ -13,6 +13,7 @@ describe('HomeCustomComponent', () => {
     .compileComponents();
   }));
 
+  //detect changes when making component
   beforeEach(() => {
     fixture = TestBed.createComponent(HomeCustomComponent);
     component = fixture.componentInstance;

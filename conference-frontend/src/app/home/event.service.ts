@@ -5,6 +5,8 @@ import { HttpClient } from '@angular/common/http';
 
 const BACKEND_URL = environment.apiUrl + '/event';
 
+// backend requests
+
 @Injectable({
   providedIn: 'root'
 })

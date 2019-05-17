@@ -3,12 +3,10 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\admin",
-    "\\src\\app\\attendee",
-    "\\src\\app\\auth",
-    "\\src\\app\\home",
-    "\\src\\app\\profile"
+    "\\src\\assets",
+    "\\src\\environments",
+    "\\src\\styles"
   ],
-  "SelectedNode": "\\src\\app\\auth\\auth.service.ts",
+  "SelectedNode": "\\src\\app\\app-routing.module.ts",
   "PreviewInSolutionExplorer": false
 }

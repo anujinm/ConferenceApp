@@ -1,3 +1,5 @@
+//export class for Events
+
 export interface EventModel {
   // eventId: number;
   eventName: string;

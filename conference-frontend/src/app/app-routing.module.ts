@@ -1,3 +1,7 @@
+// Routing file
+// URL routing
+// Model: whitworth.edu/content
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
